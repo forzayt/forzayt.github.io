@@ -13,6 +13,7 @@
     <link href="assets/css/plugins.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="icon" href="https://img.icons8.com/3d-fluency/256/satellites.png" /> 
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
 
   <body class="v-dark bg-dots dsn-ajax">
@@ -811,10 +812,10 @@ me to contribute significantly to the client's online presence and business grow
             <p class="mt-10">Fill fields and find approximate your repair</p>
             <div class="dsn-form mt-20 form-box d-flex flex-column">
               <form
-                id="contact-form"
+                id="gform"
                 class="form w-100"
-                method="post"
-                action="https://theme.dsngrid.com/VISHNU.S/dark/contact.php"
+                
+                
                 data-toggle="validator"
               >
                 <div class="messages"></div>
@@ -1147,6 +1148,25 @@ me to contribute significantly to the client's online presence and business grow
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/plugins/dsn-grid.min.js"></script>
     <script src="assets/js/custom.js"></script>
+      <script>
+      $("#gform").submit((e)=>{
+          e.preventDefault()
+          $.ajax({
+              url:"https://script.google.com/macros/s/AKfycbyGzrhw94H4Jb686eSyYzebMRkgpgEhs5AefN09dDdMt898zh1epV_bxZSoWIOSCnDc/exec",
+              data:$("#gform").serialize(),
+              method:"post",
+              success:function (response){
+                  alert("Form submitted successfully")
+                  window.location.reload()
+                  //window.location.href="https://google.com"
+              },
+              error:function (err){
+                  alert("Something Error")
+  
+              }
+          })
+      })
+  </script>
   </body>
 
   </html>
