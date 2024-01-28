@@ -589,7 +589,7 @@
 
                 
                 
-                data-toggle="validator"
+                data-toggle=""
               >
                 <div class="messages"></div>
                 <div class="input__wrap controls">
@@ -640,7 +640,7 @@
                       class="image-zoom move-circle background-theme"
                       data-dsn="parallax"
                     >
-                      <input type="submit" value="Send Message" />
+                      <input type="submit" name="submit" value="submit" />
                     </div>
                   </div>
                 </div>
@@ -932,26 +932,45 @@
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/plugins/dsn-grid.min.js"></script>
     <script src="assets/js/custom.js"></script>
-      <!-- <script>
-      $("#gform").submit((e)=>{
-          e.preventDefault()
-          $.ajax({
-              url:"",
-              data:$("").serialize(),
-              method:"post",
-              success:function (response){
-                  alert(" Message Has been Sent")
-                  window.location.reload()
-                  //window.location.href="https://google.com"
-              },
-              error:function (err){
-                  alert("Something Error")
-  
-              }
-          })
-      })
-  </script>>
+      
+<!--<script>
+  // Function to go back to the previous page after form submission
+  document.getElementById("gform").addEventListener("submit", function() {
+      setTimeout(function() {
+          window.history.back();
+      }, 1000); // Adjust the delay as needed
+  });
+</script>
 -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var form = document.getElementById('gform');
+      form.addEventListener('submit', function (event) {
+          // Prevent the default form submission
+          event.preventDefault();
+          
+          // Submit the form asynchronously
+          var formData = new FormData(form);
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST', form.action);
+          xhr.setRequestHeader('Accept', 'application/json');
+          xhr.onreadystatechange = function () {
+              if (xhr.readyState !== XMLHttpRequest.DONE) return;
+              if (xhr.status === 200) {
+                  // Form submitted successfully, redirect to current page
+                  window.location.href = window.location.href;
+              } else {
+                  // Handle form submission error
+                  console.error('Form submission failed:', xhr.responseText);
+                  // You can display an error message to the user or handle it in any other way
+              }
+          };
+          xhr.send(formData);
+      });
+  });
+</script>
+
   </body>
 
   </html>
