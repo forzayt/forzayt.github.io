@@ -584,6 +584,9 @@
               <form
                 id="gform"
                 class="form w-100"
+                method="post"
+                action="https://formspree.io/f/mayrqvwb"
+
                 
                 
                 data-toggle="validator"
@@ -929,12 +932,12 @@
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/plugins/dsn-grid.min.js"></script>
     <script src="assets/js/custom.js"></script>
-      <script>
+      <!-- <script>
       $("#gform").submit((e)=>{
           e.preventDefault()
           $.ajax({
-              url:"https://script.google.com/macros/s/AKfycbyGzrhw94H4Jb686eSyYzebMRkgpgEhs5AefN09dDdMt898zh1epV_bxZSoWIOSCnDc/exec",
-              data:$("#gform").serialize(),
+              url:"",
+              data:$("").serialize(),
               method:"post",
               success:function (response){
                   alert(" Message Has been Sent")
@@ -947,7 +950,8 @@
               }
           })
       })
-  </script>
+  </script>>
+-->
   </body>
 
   </html>
