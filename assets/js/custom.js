@@ -1543,3 +1543,14 @@ function sidebarOptions() {
   document.body.classList.toggle('dsn-show-sidebar');
 }
 //# sourceMappingURL=custom.js.map
+
+
+window.addEventListener('blur', function() {
+  document.title = 'Where are u going pu$$Y ??'; // Change the title when the window loses focus
+  document.getElementById('icon').href = './contactme/images/icons/angry.png'; // Change the link href
+});
+
+window.addEventListener('focus', function() {
+  document.title = ' | VISHNU.S |  '; // Change the title back when the window regains focus
+  document.getElementById('icon').href = './contactme/images/icons/emoji.png'; // Change the link href
+});

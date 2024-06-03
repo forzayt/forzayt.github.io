@@ -9,11 +9,11 @@
 
     
 
-    <title> | VISHNU.S |   </title>
+    <title> | VISHNU.S |  </title>
 
     <link href="assets/css/plugins.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="icon" href="https://img.icons8.com/3d-fluency/256/satellites.png" /> 
+    <link rel="icon" id="icon" href="./contactme/images/icons/emoji.png" /> 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
 
@@ -519,7 +519,7 @@
         </div>
         <!-- ========== End skills ========== -->
 
-        <!-- ========== Portfolio ========== -->
+        <!-- ========== Projects ========== -->
         <div
         class="container section-margin pt-section border-top d-grid grid-md-2"
         data-dsn-gap="30px 120px"
@@ -557,98 +557,55 @@
         </div>
       </div>
         
-        <!-- ========== End Portfolio ========== -->
+        <!-- ========== End Projects ========== -->
 
-        <!-- ========== Contact ========== -->
-        <div 
-          class="container section-margin pt-section border-top d-grid grid-md-2"
-          data-dsn-gap="30px 120px"
-        >
-          <div
-            class="box-left p-relative pinned-scroll"
-            data-dsn-option='{"end":"250"}'
-          >
-            <div class="section-title pinned-element">
-              <h2 class="title-h2 text-upper">Contact me</h2>
-              <p class="max-w350 mt-20">
-               Feel Free To Contact me at any purpose
-              </p>
-            </div>
-          </div>
-          <div class="box-right" id="contact" >
-            <h2 class="title-block">
-              IF YOU HAVE QUESTIONS PLEASE <br />CONTACT US
-            </h2>
-            <p class="mt-10">Fill fields and find approximate your repair</p>
-            <div class="dsn-form mt-20 form-box d-flex flex-column">
-              <form
-                id="gform"
-                class="form w-100"
-                method="post"
-                action="https://formspree.io/f/xeqyenan"
 
-                
-                
-                data-toggle=""
-              >
-                <div class="messages"></div>
-                <div class="input__wrap controls">
-                  <div class="form-group dsn-up">
-                    <div class="entry-box">
-                      <input
-                        id="form_name"
-                        type="text"
-                        name="name"
-                        placeholder="Type your name"
-                        required="required"
-                        data-error="name is required."
-                      />
-                    </div>
-                    <div class="help-block with-errors"></div>
-                  </div>
 
-                  <div class="form-group dsn-up">
-                    <div class="entry-box">
-                      <input
-                        id="form_email"
-                        type="email"
-                        name="email"
-                        placeholder="Type your Email Address"
-                        required="required"
-                        data-error="Valid email is required."
-                      />
-                    </div>
-                    <div class="help-block with-errors"></div>
-                  </div>
+<!-- ========== Contact ========== -->
+<div
+class="container section-margin pt-section border-top d-grid grid-md-2"
+data-dsn-gap="30px 120px"
+>
+<div
+  class="box-left p-relative pinned-scroll"
+  data-dsn-option='{"end":"250"}'
+>
+  <div class="section-title pinned-element">
+    <h2 class="title-h2 text-upper link-hover    ">Contact me</h2>
+    <p class="max-w350 mt-20">
+      Feel Free To Contact me at any purpose.
+    </p>
+  </div>
+</div>
+<div class="box-right">
+  <div class="dsn-resume">
+    <div class="resume-item">
+      <h4 class="sm-title-block resume-title mb-15">Connect me ..</h4>
+      <h6 class="resume-position">
+       <a class="link-hover    " href="./contactme/connect.html" style="color: cyan;">HERE</a>
+      </h6>
+      <div class="resume-description mt-10">
+        <p>
+         
 
-                  <div class="form-group dsn-up">
-                    <div class="entry-box">
-                      <textarea
-                        id="form_message"
-                        class="form-control"
-                        name="message"
-                        placeholder="Tell us about you and the world"
-                        required="required"
-                        data-error="Please,leave us a message."
-                      ></textarea>
-                    </div>
-                    <div class="help-block with-errors"></div>
-                  </div>
+        </p>
+      </div>
+    </div>
 
-                  <div class="d-flex justify-content-end dsn-up">
-                    <div
-                      class="image-zoom move-circle background-theme"
-                      data-dsn="parallax"
-                    >
-                      <input type="submit" name="submit" value="submit" />
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- ========== End Contact ========== -->
+   
+
+   
+  </div>
+</div>
+</div>
+
+<!-- ========== End Contact ========== -->
+
+
+
+
+
+
 
         <!-- ========== Footer ========== -->
         <footer id="dsn_footer" class="dsn-footer mt-section p-relative">
@@ -943,43 +900,9 @@
     <script src="assets/js/plugins/dsn-grid.min.js"></script>
     <script src="assets/js/custom.js"></script>
       
-<!--<script>
-  // Function to go back to the previous page after form submission
-  document.getElementById("gform").addEventListener("submit", function() {
-      setTimeout(function() {
-          window.history.back();
-      }, 1000); // Adjust the delay as needed
-  });
-</script>
--->
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-      var form = document.getElementById('gform');
-      form.addEventListener('submit', function (event) {
-          // Prevent the default form submission
-          event.preventDefault();
-          
-          // Submit the form asynchronously
-          var formData = new FormData(form);
-          var xhr = new XMLHttpRequest();
-          xhr.open('POST', form.action);
-          xhr.setRequestHeader('Accept', 'application/json');
-          xhr.onreadystatechange = function () {
-              if (xhr.readyState !== XMLHttpRequest.DONE) return;
-              if (xhr.status === 200) {
-                  // Form submitted successfully, redirect to current page
-                  window.location.href = window.location.href;
-              } else {
-                  // Handle form submission error
-                  console.error('Form submission failed:', xhr.responseText);
-                  // You can display an error message to the user or handle it in any other way
-              }
-          };
-          xhr.send(formData);
-      });
-  });
-</script>
+
+
 
   </body>
 
