@@ -1546,7 +1546,7 @@ function sidebarOptions() {
 
 
 window.addEventListener('blur', function() {
-  document.title = 'Where are u going pu$$Y ??'; // Change the title when the window loses focus
+  document.title = 'Where are u going ??'; // Change the title when the window loses focus
   document.getElementById('icon').href = './contactme/images/icons/angry.png'; // Change the link href
 });
 
