@@ -28,7 +28,11 @@ function submitForm(e) {
   
   console.log(name,emailid,msgContent )
   // Show toast message
-  showToast();
+  // showToast();
+  alert('Message Sent successful!'); // Display success message if msg send is successful
+
+  window.location.href = 'https://vishnusanthosh.info '; // Optionally redirect or perform other actions upon successful login
+
   
   // reset the form after submitting 
 
@@ -53,8 +57,8 @@ const getElementVal = (id) => {
 
 // function for toast msg 
 
-const showToast = () => {
-    var x = document.getElementById("toast");
-    x.className = "toast show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-  };
+// const showToast = () => {
+//     var x = document.getElementById("toast");
+//     x.className = "toast show";
+//     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+//   };
