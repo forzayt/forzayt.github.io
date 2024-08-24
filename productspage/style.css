@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    text-decoration: none;
+    list-style: none;
+
+    font-family: 'Poppins';
+}
+
+
+nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 12%;
+    z-index: 999;
+}
+
+.logo a{
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.logo a span{
+    color: aqua;
+}
+
+nav buttonn{
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: .3s;
+}
+
+nav buttonn:hover{
+    box-shadow: 3px 3px 5px #fff;
+}
+
+
+.content{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(images/1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.content2{
+    background-image: url(images/2.jpg);
+}
+.content3{
+    background-image: url(images/3.png);
+}
+.content4{
+    background-image: url(images/4.jpg);
+}
+.content5{
+    background-image: url(images/5.jpg);
+}
+.content6{
+    background-image: url(images/6.jpg);
+}
+
+
+.information{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #fff;
+}
+
+.info h2{
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.info h1{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.information .head h1{
+    font-size: 5rem;
+    line-height: 5rem;
+    color: #fff;
+    margin-top: 20px;
+}
+
+
+.swiper-buttonn-next:after,
+.swiper-rtl .swiper-button-prev:after{
+    display: none;
+}
+
+.swiper-buttonn-prev:after,
+.swiper-rtl .swiper-buttonn-next:after{
+    display: none;
+}
+
+
+.swiper_arrow{
+    position: absolute;
+    top: 85% !important;
+    left: 5% !important;
+    width: 200px !important;
+}
+
+.swiper_arrow img{
+    width: 80px;
+    height: 60px;
+    object-fit: contain;
+    filter: invert(100%);
+}
+
+.swiper-buttonn-next{
+    left: 85% !important;
+}
+
+
+/* MQ  */
+
+@media (max-width:900px) {
+    .information .head h1{
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+    .swiper_arrow_next{
+        left: 75% !important;
+    }
+}
+
+@media (max-width:500px) {
+    .information{
+        width: 40%;
+    }
+    .information .head h1{
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+    .swiper_arrow_next{
+        left: 60% !important;
+    }
+
+}
+
+
+
+
+/* custom css for top button */
+
+    /* From Uiverse.io by barisdogansutcu */ 
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 10px;
+        color: white;
+        text-shadow: 2px 2px rgb(116, 116, 116);
+        text-transform: uppercase;
+        cursor: pointer;
+        border: solid 2px black;
+        letter-spacing: 1px;
+        font-weight: 600;
+        font-size: 17px;
+        background-color: hsl(49deg 98% 60%);
+        border-radius: 50px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s ease;
+      }
+      
+      button:active {
+        transform: scale(0.9);
+        transition: all 100ms ease;
+      }
+      
+      button svg {
+        transition: all 0.5s ease;
+        z-index: 2;
+      }
+      
+      .play {
+        transition: all 0.5s ease;
+        transition-delay: 300ms;
+      }
+      
+      button:hover svg {
+        transform: scale(3) translate(50%);
+      }
+      
+      .now {
+        position: absolute;
+        left: 0;
+        transform: translateX(-100%);
+        transition: all 0.5s ease;
+        z-index: 2;
+      }
+      
+      button:hover .now {
+        transform: translateX(10px);
+        transition-delay: 300ms;
+      }
+      
+      button:hover .play {
+        transform: translateX(200%);
+        transition-delay: 300ms;
+      }
+      
