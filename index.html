@@ -44,7 +44,21 @@ What are you doing here?! you sneaky developer...
   <!-- google fonts-->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Orbitron&family=Fira+Code&family=Six+Caps" />
-
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "5ea530ab-193d-4492-ba65-f62510ff5312",
+      safari_web_id: "web.onesignal.auto.32a023df-3e37-4c19-843f-3978a63a946e",
+      notifyButton: {
+        enable: true,
+      },
+      subdomainName: "vishnusanthosh",
+    });
+  });
+</script>
+</head>
 <body class="body">
   <audio loop="" id="audioPlayer" style="display: none">
     <source src="assets/src/mp3/bg.mp3" type="audio/mp3" />
@@ -758,20 +772,6 @@ What are you doing here?! you sneaky developer...
 
 
 
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "5ea530ab-193d-4492-ba65-f62510ff5312",
-      safari_web_id: "web.onesignal.auto.32a023df-3e37-4c19-843f-3978a63a946e",
-      notifyButton: {
-        enable: true,
-      },
-      allowLocalhostAsSecureOrigin: true,
-    });
-  });
-</script>
 </body>
 
 </html>
