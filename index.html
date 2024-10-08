@@ -755,6 +755,23 @@ What are you doing here?! you sneaky developer...
     data-position="left" data-x_margin="18" data-y_margin="18"></script> -->
 
   <script src="assets/titlemusicanimation.js"></script>
+
+
+
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "5ea530ab-193d-4492-ba65-f62510ff5312",
+      safari_web_id: "web.onesignal.auto.32a023df-3e37-4c19-843f-3978a63a946e",
+      notifyButton: {
+        enable: true,
+      },
+      allowLocalhostAsSecureOrigin: true,
+    });
+  });
+</script>
 </body>
 
 </html>
