@@ -787,7 +787,19 @@ What are you doing here?! you sneaky developer...
   <script src="assets/titlemusicanimation.js"></script>
 
 
-
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "52d28ca4-c466-46a8-8108-99245d458bb6",
+        safari_web_id: "web.onesignal.auto.186ea02a-f890-410a-b109-aa22c180382d",
+        notifyButton: {
+          enable: true,
+        },
+      });
+    });
+  </script>
 
 </body>
 
