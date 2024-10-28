@@ -1000,7 +1000,18 @@
 
     <!-- custom scripts -->
     <script src="assets/js/scripts.js"></script>
-
+    <script>
+        function loadMobileVersion() {
+            if (window.innerWidth <= 500) { // Define your breakpoint for mobile here
+                window.location.href = "old1/index.html "; // Redirect to the mobile version
+            }
+        }
+    
+        // Run the function when the page loads and whenever the window is resized
+        window.onload = loadMobileVersion;
+        window.onresize = loadMobileVersion;
+    </script>
+    
 </body>
 
 </html>
