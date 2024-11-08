@@ -102,6 +102,20 @@ What are you doing here?! you sneaky developer...
       </div>
       <!-- navbar tabs ends -->
     </div>
+
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+          appId: "4304a51e-fae6-49c5-a82a-42d5d3d76936",
+          safari_web_id: "web.onesignal.auto.5f0d689b-f65a-4365-8770-a9853d53b981",
+          notifyButton: {
+            enable: true,
+          },
+        });
+      });
+    
+    </script>
   </header>
   <!-- header ends here -->
 
