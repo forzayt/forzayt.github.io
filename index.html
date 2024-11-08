@@ -27,17 +27,21 @@
     <link rel="stylesheet" href="./common/css/common_style.css">
     <link rel="stylesheet" href="assets/css/home6-style.css">
     <link rel="stylesheet" href="assets/css/custombutton.css">
-<style>
-   
 
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "4304a51e-fae6-49c5-a82a-42d5d3d76936",
+      safari_web_id: "web.onesignal.auto.5f0d689b-f65a-4365-8770-a9853d53b981",
+      notifyButton: {
+        enable: true,
+      },
+    });
+  });
 
-   
-   
-   
-   
-
-
-</style>
+</script>
 </head>
 
 <body>
@@ -675,7 +679,7 @@
 
                 <!-- ==================== Start Awards ==================== -->
 
-                <section class="awards-sa section-padding">
+                <section class="awards-sa section-padding"> 
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-4 wow fadeInUp slow" data-wow-delay="0.2s">
