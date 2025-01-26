@@ -1,0 +1,74 @@
+.next-level-gaming-section .next-level-game-card {
+    border: 1px solid var(--n3);
+    border-radius: 12px;
+    background: var(--n4);
+    transition: all 0.5s ease;
+    display: inline-block !important;
+    width: 100%;
+}
+
+.next-level-gaming-section .next-level-game-card .card-icon {
+    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--n3);
+    transition: all 0.5s ease;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 576px) {
+    .next-level-gaming-section .next-level-game-card .card-icon {
+        width: 60px;
+        min-width: 60px;
+        max-width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.next-level-gaming-section .next-level-game-card .card-title {
+    transition: all 0.5s ease;
+    margin-bottom: 20px;
+}
+.next-level-gaming-section .next-level-game-card .cus_des {
+    transition: all 0.5s ease;
+    margin-bottom: 20px;
+}
+
+.next-level-gaming-section .next-level-game-card .card-link {
+    border-bottom: 1px solid var(--n1);
+    transition: all 0.5s ease;
+}
+
+.next-level-gaming-section .next-level-game-card .card-link i {
+    transition: all 0.3s ease;
+}
+
+.next-level-gaming-section .next-level-game-card .card-link:hover {
+    color: var(--p1);
+    border-color: var(--p1);
+}
+
+.next-level-gaming-section .next-level-game-card .card-link:hover i {
+    transform: translateX(5px);
+}
+
+.next-level-gaming-section .next-level-game-card:hover {
+    border: 1px solid var(--p1);
+}
+
+.next-level-gaming-section .next-level-game-card:hover .card-icon {
+    background: var(--p1);
+}
+
+.next-level-gaming-section .next-level-game-card:hover .card-title {
+    color: var(--p1);
+}

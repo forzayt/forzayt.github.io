@@ -1,0 +1,22 @@
+.social{
+    gap: 8px;
+}
+.cus_box {
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+    border-radius: 12px;
+    background: var(--n3);
+    transition: all 0.5s ease;
+}
+
+.share_title {
+    color: #074C3E;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 2px;
+}

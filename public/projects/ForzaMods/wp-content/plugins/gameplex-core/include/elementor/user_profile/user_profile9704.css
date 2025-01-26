@@ -1,0 +1,121 @@
+/* ==== 
+ --------- User account styles start ---------
+ ==== */
+
+.user_notifications,
+.user_nav {
+    position: relative;
+    z-index: 0;
+    max-width: fit-content;
+}
+
+.user_nav .user_nav_link {
+    align-items: center;
+    gap: 14px;
+    padding: 10px;
+    transition: var(--transition);
+}
+
+.user_notifications_wrap span,
+.user_nav .user_nav_link span {
+    transition: var(--transition);
+}
+
+.user_nav .user_nav_link img {
+    height: 50px;
+    width: 50px;
+    min-width: 50px;
+    border-radius: 50%;
+}
+
+.msg_notifications,
+.user_nav .nav_list {
+    padding: 12px 0;
+    background: var(--woo-card-bg);
+    border-radius: 8px;
+    border: var(--woo-border-1);
+    min-width: 200px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    box-shadow: 0 2px 7px 1px rgba(0, 0, 0, .05), 0 6px 32px 0 rgba(18, 43, 70, .1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px);
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 99;
+    list-style-type: none;
+}
+
+.user_nav .nav_list li a {
+    padding: 8px 20px;
+}
+
+.user_nav .nav_list li a:hover {
+    background: var(--woo-black);
+}
+
+.user_notifications:hover .msg_notifications,
+.user_nav:hover .nav_list {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+    pointer-events: all;
+}
+
+
+/* notifications */
+.user_notifications_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: var(--woo-border-1);
+    border-color: var(--woo-primary-color);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+
+}
+
+.user_notifications_wrap::before {
+    content: "";
+    position: absolute;
+    top: var(--x);
+    left: var(--y);
+    transform: translate(-50%, -50%);
+    transition: all 0.7s ease;
+    background: var(--woo-primary-color);
+    border-radius: inherit;
+    width: 0;
+    height: 0;
+    z-index: -1;
+}
+
+.user_notifications_wrap:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+.user_notifications_wrap:hover span {
+    color: var(--woo-white);
+}
+
+.user_notifications_wrap span {
+    font-size: 20px;
+}
+
+.msg_notifications {
+    padding: 20px;
+    min-width: 230px;
+    margin-right: -50px;
+}
+
+.user_notifications{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

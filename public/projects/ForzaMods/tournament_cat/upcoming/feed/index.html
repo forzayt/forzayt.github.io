@@ -1,0 +1,1281 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>upcoming &#8211; Gameplex</title>
+	<atom:link href="https://softivuslab.com/wp/gameplex/tournament_cat/upcoming/feed/" rel="self" type="application/rss+xml" />
+	<link>https://softivuslab.com/wp/gameplex</link>
+	<description></description>
+	<lastBuildDate>Thu, 02 Jan 2025 06:34:19 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.7.1</generator>
+
+<image>
+	<url>https://softivuslab.com/wp/gameplex/wp-content/uploads/2024/12/favicon.png</url>
+	<title>upcoming &#8211; Gameplex</title>
+	<link>https://softivuslab.com/wp/gameplex</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>EGamesSV Individual #1</title>
+		<link>https://softivuslab.com/wp/gameplex/tournament/egamessv-individual-1/</link>
+		
+		<dc:creator><![CDATA[gameplex]]></dc:creator>
+		<pubDate>Sat, 30 Nov 2024 06:45:01 +0000</pubDate>
+				<guid isPermaLink="false">https://wp.pxlaxis.com/gameplex/?post_type=tournament&#038;p=916</guid>
+
+					<description><![CDATA[Torneo Individual]]></description>
+										<content:encoded><![CDATA[		<div data-elementor-type="wp-post" data-elementor-id="916" class="elementor elementor-916">
+				<div class="elementor-element elementor-element-f7989d8 e-con-full e-flex e-con e-parent" data-id="f7989d8" data-element_type="container">
+				<div class="elementor-element elementor-element-6c5d55d elementor-widget elementor-widget-tp-countdown" data-id="6c5d55d" data-element_type="widget" data-widget_type="tp-countdown.default">
+				<div class="elementor-widget-container">
+					<script>
+                var countdownDate = 'Dec 11, 2025 03:00:00';
+            </script>
+
+        <script>
+            (function() {
+                const second = 1000,
+                    minute = second * 60,
+                    hour = minute * 60,
+                    day = hour * 24;
+
+                // Parse the countdown date from PHP in UTC
+                const countDownDate = new Date(countdownDate + ' UTC').getTime();
+                // const countDownDate = new Date(countdownDate + ' UTC').getTime() + (6 * hour);
+
+                // Start the countdown timer
+                const x = setInterval(function() {
+                    const now = new Date().getTime(),
+                        distance = countDownDate - now;
+
+                    const days = document.getElementById("days");
+                    const hours = document.getElementById("hours");
+                    const minutes = document.getElementById("minutes");
+                    const seconds = document.getElementById("seconds");
+
+                    if (distance > 0) {
+                        days.innerText = Math.floor(distance / day);
+                        hours.innerText = Math.floor((distance % day) / hour);
+                        minutes.innerText = Math.floor((distance % hour) / minute);
+                        seconds.innerText = Math.floor((distance % minute) / second);
+                    } else {
+                        clearInterval(x);
+                        days.innerText = "00";
+                        hours.innerText = "00";
+                        minutes.innerText = "00";
+                        seconds.innerText = "00";
+                    }
+                }, 1000);
+
+                function sendDistanceToPHP(distance) {
+                    fetch('update_distance.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                distance: distance
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Distance sent successfully:', data);
+                        })
+                        .catch(error => {
+                            console.error('Error sending distance:', error);
+                        });
+                }
+            })();
+        </script>
+
+
+        <div class="tournament-details pb-10 pt-120 mt-lg-0 mt-sm-15 mt-10 overflow-hidden position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="parallax-banner-area parallax-container position-relative rounded-5 overflow-hidden">
+                            <img decoding="async" class="w-100 h-100 parallax-img" src="https://softivuslab.com/wp/gameplex/wp-content/themes/gameplex/assets/images/tour-details-banner.png" alt="tournament banner">
+                            <!-- running tournament content here -->
+                            <div class="running-tournament d-flex flex-lg-row flex-column position-absolute top-50 start-50 translate-middle w-100">
+                                                                    <div class="running-tournament-thumb w-100">
+                                        <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/2024/11/Image-42.webp" class="w-100 h-100" alt="Image">
+                                    </div>
+                                                                <div class="running-tour-info py-sm-6 py-4 px-xl-15 px-lg-10 px-sm-6 px-2 w-100">
+                                                                            <h3 class="tcn-1 mb-lg-6 mb-4">EGamesSV Individual #1</h3>
+                                                                                                                <span class="tcn-1 d-block fs-five fw-semibold mb-4">Torneo Individual</span>
+                                                                        <div class="ending-date d-flex align-items-center gap-sm-5 gap-2 mb-lg-8 mb-6">
+                                        <div class="date-box-area">
+                                            <div class="date-box mb-4">
+                                                <h3 class="tcn-1 title-anim cursor-scale growDown" id="days">00</h3>
+                                            </div>
+                                            <span class="tcn-1 text-center d-block">Days</span>
+                                        </div>
+                                        <div class="date-box-area">
+                                            <div class="date-box mb-4">
+                                                <h3 class="tcn-1 title-anim cursor-scale growDown" id="hours">00                                                </h3>
+                                            </div>
+                                            <span class="tcn-1 text-center d-block">Hours</span>
+                                        </div>
+                                        <div class="date-box-area">
+                                            <div class="date-box mb-4">
+                                                <h3 class="tcn-1 title-anim cursor-scale growDown" id="minutes">00                                                </h3>
+                                            </div>
+                                            <span class="tcn-1 text-center d-block">Minutes</span>
+                                        </div>
+                                        <div class="date-box-area">
+                                            <div class="date-box mb-4">
+                                                <h3 class="tcn-1 title-anim cursor-scale growDown" id="seconds">00                                                </h3>
+                                            </div>
+                                            <span class="tcn-1 text-center d-block">Seconds</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-center gap-md-6 gap-3">
+                                        <div class="d-flex align-items-center flex-wrap gap-md-6 gap-3">
+
+                                            <div class="section__content-cta text-center d-flex">
+                                                                                                    <button class="dflt_btn  cus_btn disabled btn-half-border position-relative d-inline-block py-2 bgp-1 px-6 rounded-pill z-0 m-2" disabled>Join</button>
+                                                                                            </div>
+
+                                            <div class="end-date">
+                                                <span class="tcn-6">11-12-2025 3:00 AM</span>
+                                            </div>
+                                                                                            <div class="players">
+                                                    <i class="ti ti-users-group tcn-1"></i>
+                                                    <span class="tcn-6"> 115/115 Players</span>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- tournament registration details section end -->
+
+
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-6a99845 e-con-full e-flex e-con e-parent" data-id="6a99845" data-element_type="container">
+		<div class="elementor-element elementor-element-eb51ab5 container mx-auto e-flex e-con-boxed e-con e-child" data-id="eb51ab5" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-384ad37 elementor-vertical-align-middle elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="384ad37" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon elementor-animation-">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M15 13.3333H21.8167C23.575 13.3333 25 14.825 25 16.6667C25 18.5083 23.575 20 21.8167 20C23.575 20 25 21.4917 25 23.3333C25 25.175 23.575 26.6667 21.8167 26.6667H15M16.6667 20H23.3333M16.6667 11.6667V28.3333V13.3333M21.6667 11.6667V13.3333M21.6667 26.6667V28.3333M5 20C5 21.9698 5.38799 23.9204 6.14181 25.7403C6.89563 27.5601 8.00052 29.2137 9.3934 30.6066C10.7863 31.9995 12.4399 33.1044 14.2597 33.8582C16.0796 34.612 18.0302 35 20 35C21.9698 35 23.9204 34.612 25.7403 33.8582C27.5601 33.1044 29.2137 31.9995 30.6066 30.6066C31.9995 29.2137 33.1044 27.5601 33.8582 25.7403C34.612 23.9204 35 21.9698 35 20C35 18.0302 34.612 16.0796 33.8582 14.2597C33.1044 12.4399 31.9995 10.7863 30.6066 9.3934C29.2137 8.00052 27.5601 6.89563 25.7403 6.14181C23.9204 5.38799 21.9698 5 20 5C18.0302 5 16.0796 5.38799 14.2597 6.14181C12.4399 6.89563 10.7863 8.00052 9.3934 9.3934C8.00052 10.7863 6.89563 12.4399 6.14181 14.2597C5.38799 16.0796 5 18.0302 5 20Z" stroke="#FFAC03" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h4 class="elementor-icon-box-title">
+						<span  >
+							Prize Pool						</span>
+					</h4>
+				
+									<p class="elementor-icon-box-description">
+						0 ~ $0					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-9a40889 elementor-vertical-align-middle elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="9a40889" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon elementor-animation-">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M28.3307 13.3327V8.33268C28.3307 7.89065 28.1551 7.46673 27.8426 7.15417C27.53 6.84161 27.1061 6.66602 26.6641 6.66602H9.9974C9.11334 6.66602 8.26549 7.0172 7.64037 7.64233C7.01525 8.26745 6.66406 9.11529 6.66406 9.99935M6.66406 9.99935C6.66406 10.8834 7.01525 11.7313 7.64037 12.3564C8.26549 12.9815 9.11334 13.3327 9.9974 13.3327H29.9974C30.4394 13.3327 30.8633 13.5083 31.1759 13.8208C31.4885 14.1334 31.6641 14.5573 31.6641 14.9993V19.9993M6.66406 9.99935V29.9993C6.66406 30.8834 7.01525 31.7312 7.64037 32.3564C8.26549 32.9815 9.11334 33.3327 9.9974 33.3327H29.9974C30.4394 33.3327 30.8633 33.1571 31.1759 32.8445C31.4885 32.532 31.6641 32.108 31.6641 31.666V26.666M33.3307 19.9993V26.666H26.6641C25.78 26.666 24.9322 26.3148 24.307 25.6897C23.6819 25.0646 23.3307 24.2167 23.3307 23.3327C23.3307 22.4486 23.6819 21.6008 24.307 20.9757C24.9322 20.3505 25.78 19.9993 26.6641 19.9993H33.3307Z" stroke="#FFAC03" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h4 class="elementor-icon-box-title">
+						<span  >
+							Entry Fee						</span>
+					</h4>
+				
+									<p class="elementor-icon-box-description">
+						0 ~ $0					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-c1a50ec elementor-vertical-align-middle elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="c1a50ec" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon elementor-animation-">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M13.3333 35V33.3333C13.3333 32.4493 13.6845 31.6014 14.3096 30.9763C14.9348 30.3512 15.7826 30 16.6667 30H23.3333C24.2174 30 25.0652 30.3512 25.6904 30.9763C26.3155 31.6014 26.6667 32.4493 26.6667 33.3333V35M28.3333 16.6667H31.6667C32.5507 16.6667 33.3986 17.0179 34.0237 17.643C34.6488 18.2681 35 19.1159 35 20V21.6667M5 21.6667V20C5 19.1159 5.35119 18.2681 5.97631 17.643C6.60143 17.0179 7.44928 16.6667 8.33333 16.6667H11.6667M16.6667 21.6667C16.6667 22.5507 17.0179 23.3986 17.643 24.0237C18.2681 24.6488 19.1159 25 20 25C20.8841 25 21.7319 24.6488 22.357 24.0237C22.9821 23.3986 23.3333 22.5507 23.3333 21.6667C23.3333 20.7826 22.9821 19.9348 22.357 19.3096C21.7319 18.6845 20.8841 18.3333 20 18.3333C19.1159 18.3333 18.2681 18.6845 17.643 19.3096C17.0179 19.9348 16.6667 20.7826 16.6667 21.6667ZM25 8.33333C25 9.21739 25.3512 10.0652 25.9763 10.6904C26.6014 11.3155 27.4493 11.6667 28.3333 11.6667C29.2174 11.6667 30.0652 11.3155 30.6904 10.6904C31.3155 10.0652 31.6667 9.21739 31.6667 8.33333C31.6667 7.44928 31.3155 6.60143 30.6904 5.97631C30.0652 5.35119 29.2174 5 28.3333 5C27.4493 5 26.6014 5.35119 25.9763 5.97631C25.3512 6.60143 25 7.44928 25 8.33333ZM8.33333 8.33333C8.33333 9.21739 8.68452 10.0652 9.30964 10.6904C9.93477 11.3155 10.7826 11.6667 11.6667 11.6667C12.5507 11.6667 13.3986 11.3155 14.0237 10.6904C14.6488 10.0652 15 9.21739 15 8.33333C15 7.44928 14.6488 6.60143 14.0237 5.97631C13.3986 5.35119 12.5507 5 11.6667 5C10.7826 5 9.93477 5.35119 9.30964 5.97631C8.68452 6.60143 8.33333 7.44928 8.33333 8.33333Z" stroke="#FFAC03" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h4 class="elementor-icon-box-title">
+						<span  >
+							Mode						</span>
+					</h4>
+				
+									<p class="elementor-icon-box-description">
+						Solo					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-0ab932a elementor-vertical-align-middle elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="0ab932a" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon elementor-animation-">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M10 25V23.3333C10 22.4493 10.3512 21.6014 10.9763 20.9763C11.6014 20.3512 12.4493 20 13.3333 20H26.6667C27.5507 20 28.3986 20.3512 29.0237 20.9763C29.6488 21.6014 30 22.4493 30 23.3333V25M20 15V20M5 28.3333C5 27.4493 5.35119 26.6014 5.97631 25.9763C6.60143 25.3512 7.44928 25 8.33333 25H11.6667C12.5507 25 13.3986 25.3512 14.0237 25.9763C14.6488 26.6014 15 27.4493 15 28.3333V31.6667C15 32.5507 14.6488 33.3986 14.0237 34.0237C13.3986 34.6488 12.5507 35 11.6667 35H8.33333C7.44928 35 6.60143 34.6488 5.97631 34.0237C5.35119 33.3986 5 32.5507 5 31.6667V28.3333ZM25 28.3333C25 27.4493 25.3512 26.6014 25.9763 25.9763C26.6014 25.3512 27.4493 25 28.3333 25H31.6667C32.5507 25 33.3986 25.3512 34.0237 25.9763C34.6488 26.6014 35 27.4493 35 28.3333V31.6667C35 32.5507 34.6488 33.3986 34.0237 34.0237C33.3986 34.6488 32.5507 35 31.6667 35H28.3333C27.4493 35 26.6014 34.6488 25.9763 34.0237C25.3512 33.3986 25 32.5507 25 31.6667V28.3333ZM15 8.33333C15 7.44928 15.3512 6.60143 15.9763 5.97631C16.6014 5.35119 17.4493 5 18.3333 5H21.6667C22.5507 5 23.3986 5.35119 24.0237 5.97631C24.6488 6.60143 25 7.44928 25 8.33333V11.6667C25 12.5507 24.6488 13.3986 24.0237 14.0237C23.3986 14.6488 22.5507 15 21.6667 15H18.3333C17.4493 15 16.6014 14.6488 15.9763 14.0237C15.3512 13.3986 15 12.5507 15 11.6667V8.33333Z" stroke="#FFAC03" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h4 class="elementor-icon-box-title">
+						<span  >
+							Format						</span>
+					</h4>
+				
+									<p class="elementor-icon-box-description">
+						Single Elimination					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-a17f98d elementor-vertical-align-middle elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="a17f98d" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon elementor-animation-">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M13.3333 34.9994H26.6667M20 28.3327V34.9994M20 28.3327C22.2101 28.3327 24.3298 27.4547 25.8926 25.8919C27.4554 24.3291 28.3333 22.2095 28.3333 19.9993V6.66602H11.6667V19.9993C11.6667 22.2095 12.5446 24.3291 14.1074 25.8919C15.6702 27.4547 17.7899 28.3327 20 28.3327ZM5 14.9993C5 15.8834 5.35119 16.7313 5.97631 17.3564C6.60143 17.9815 7.44928 18.3327 8.33333 18.3327C9.21739 18.3327 10.0652 17.9815 10.6904 17.3564C11.3155 16.7313 11.6667 15.8834 11.6667 14.9993C11.6667 14.1153 11.3155 13.2674 10.6904 12.6423C10.0652 12.0172 9.21739 11.666 8.33333 11.666C7.44928 11.666 6.60143 12.0172 5.97631 12.6423C5.35119 13.2674 5 14.1153 5 14.9993ZM28.3333 14.9993C28.3333 15.8834 28.6845 16.7313 29.3096 17.3564C29.9348 17.9815 30.7826 18.3327 31.6667 18.3327C32.5507 18.3327 33.3986 17.9815 34.0237 17.3564C34.6488 16.7313 35 15.8834 35 14.9993C35 14.1153 34.6488 13.2674 34.0237 12.6423C33.3986 12.0172 32.5507 11.666 31.6667 11.666C30.7826 11.666 29.9348 12.0172 29.3096 12.6423C28.6845 13.2674 28.3333 14.1153 28.3333 14.9993Z" stroke="#FFAC03" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h4 class="elementor-icon-box-title">
+						<span  >
+							Type						</span>
+					</h4>
+				
+									<p class="elementor-icon-box-description">
+						-					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-57d3bbf elementor-absolute elementor-widget elementor-widget-image" data-id="57d3bbf" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img fetchpriority="high" decoding="async" width="476" height="192" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/2024/12/Ellipse-798.svg" class="attachment-large size-large wp-image-1515" alt="" />															</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-92e213c e-con-full e-flex e-con e-parent" data-id="92e213c" data-element_type="container">
+				<div class="elementor-element elementor-element-cabbb2f elementor-widget elementor-widget-tp-process-step" data-id="cabbb2f" data-element_type="widget" data-widget_type="tp-process-step.default">
+				<div class="elementor-widget-container">
+					
+
+        <!-- tournament registration details section start -->
+        <section class="tour-reg-process-section mb-10">
+            <div class="container bgn-4 p-lg-10 p-sm-6 px-4 py-8">
+                <!-- tournament registration step area  -->
+                <div class="row row-cols-xl-5 row-cols-md-3 row-cols-sm-2 row-cols-1 gy-10 trp-area">
+                                            <div class="col trp-box">
+                            <div class="tour-reg-process-area mb-6 complete">
+                                <div class="step-area">
+                                    <div class="step">
+                                        <div class="step-number">
+                                            <span class="tcn-1 fs-xl">1</span>
+                                        </div>
+                                        <div class="check">
+                                            <i class="ti ti-check fs-2xl tcn-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-reg-content-area">
+                                                                    <h4 class="tcn-1 cursor-scale growDown title-anim mb-2">Registration Open</h4>
+                                                                                                    <span class="tcn-6 d-block mb-5">Register now to play in the tournament.</span>
+                                                                                                    <span class="date rounded py-2 px-3">OCT 07 - NOV-13</span>
+                                                            </div>
+                        </div>
+                                            <div class="col trp-box">
+                            <div class="tour-reg-process-area mb-6 complete">
+                                <div class="step-area">
+                                    <div class="step">
+                                        <div class="step-number">
+                                            <span class="tcn-1 fs-xl">2</span>
+                                        </div>
+                                        <div class="check">
+                                            <i class="ti ti-check fs-2xl tcn-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-reg-content-area">
+                                                                    <h4 class="tcn-1 cursor-scale growDown title-anim mb-2">Registration Closed</h4>
+                                                                                                    <span class="tcn-6 d-block mb-5">Creating the brackets we will start soon</span>
+                                                                                                    <span class="date rounded py-2 px-3">NOV 13</span>
+                                                            </div>
+                        </div>
+                                            <div class="col trp-box">
+                            <div class="tour-reg-process-area mb-6 pending">
+                                <div class="step-area">
+                                    <div class="step">
+                                        <div class="step-number">
+                                            <span class="tcn-1 fs-xl">3</span>
+                                        </div>
+                                        <div class="check">
+                                            <i class="ti ti-check fs-2xl tcn-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-reg-content-area">
+                                                                    <h4 class="tcn-1 cursor-scale growDown title-anim mb-2">Playing</h4>
+                                                                                                    <span class="tcn-6 d-block mb-5">Register now to play in the tournament.</span>
+                                                                                                    <span class="date rounded py-2 px-3">NOV 14</span>
+                                                            </div>
+                        </div>
+                                            <div class="col trp-box">
+                            <div class="tour-reg-process-area mb-6 ">
+                                <div class="step-area">
+                                    <div class="step">
+                                        <div class="step-number">
+                                            <span class="tcn-1 fs-xl">4</span>
+                                        </div>
+                                        <div class="check">
+                                            <i class="ti ti-check fs-2xl tcn-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-reg-content-area">
+                                                                    <h4 class="tcn-1 cursor-scale growDown title-anim mb-2">Finished</h4>
+                                                                                                    <span class="tcn-6 d-block mb-5">Tournament finished Prizes are on their way.</span>
+                                                                                                    <span class="date rounded py-2 px-3">NOV 14</span>
+                                                            </div>
+                        </div>
+                                            <div class="col trp-box">
+                            <div class="tour-reg-process-area mb-6 ">
+                                <div class="step-area">
+                                    <div class="step">
+                                        <div class="step-number">
+                                            <span class="tcn-1 fs-xl">5</span>
+                                        </div>
+                                        <div class="check">
+                                            <i class="ti ti-check fs-2xl tcn-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-reg-content-area">
+                                                                    <h4 class="tcn-1 cursor-scale growDown title-anim mb-2">Paid</h4>
+                                                                                                    <span class="tcn-6 d-block mb-5">Payments sent to the winners. Congrats!</span>
+                                                                                                    <span class="date rounded py-2 px-3">NOV 14</span>
+                                                            </div>
+                        </div>
+                                    </div>
+            </div>
+        </section>
+        <!-- tournament registration details section end -->
+
+
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-791e463 e-flex e-con-boxed e-con e-parent" data-id="791e463" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-478fe52 e-n-tabs-mobile elementor-widget elementor-widget-n-tabs" data-id="478fe52" data-element_type="widget" data-settings="{&quot;tabs_justify_horizontal&quot;:&quot;start&quot;,&quot;horizontal_scroll&quot;:&quot;disable&quot;}" data-widget_type="nested-tabs.default">
+				<div class="elementor-widget-container">
+							<div class="e-n-tabs" data-widget-number="75038290" aria-label="Tabs. Open items with Enter or Space, close with Escape and navigate using the Arrow keys.">
+			<div class="e-n-tabs-heading" role="tablist">
+					<button id="e-n-tab-title-750382901" class="e-n-tab-title" aria-selected="true" data-tab-index="1" role="tab" tabindex="0" aria-controls="e-n-tab-content-750382901" style="--n-tabs-title-order: 1;">
+						<span class="e-n-tab-title-text">
+				Players			</span>
+		</button>
+				<button id="e-n-tab-title-750382902" class="e-n-tab-title" aria-selected="false" data-tab-index="2" role="tab" tabindex="-1" aria-controls="e-n-tab-content-750382902" style="--n-tabs-title-order: 2;">
+						<span class="e-n-tab-title-text">
+				Winners			</span>
+		</button>
+				<button id="e-n-tab-title-750382903" class="e-n-tab-title" aria-selected="false" data-tab-index="3" role="tab" tabindex="-1" aria-controls="e-n-tab-content-750382903" style="--n-tabs-title-order: 3;">
+						<span class="e-n-tab-title-text">
+				Rules			</span>
+		</button>
+					</div>
+			<div class="e-n-tabs-content">
+				<div id="e-n-tab-content-750382901" role="tabpanel" aria-labelledby="e-n-tab-title-750382901" data-tab-index="1" style="--n-tabs-title-order: 1;" class="e-active elementor-element elementor-element-3ea8de0 e-con-full e-flex e-con e-child" data-id="3ea8de0" data-element_type="container">
+		<div class="elementor-element elementor-element-7add800 e-con-full e-flex e-con e-child" data-id="7add800" data-element_type="container">
+				<div class="elementor-element elementor-element-ded3a13 elementor-widget__width-initial elementor-widget elementor-widget-tp-allteams" data-id="ded3a13" data-element_type="widget" data-widget_type="tp-allteams.default">
+				<div class="elementor-widget-container">
+					
+        <script>
+            jQuery(function($) {
+                "use strict";
+                jQuery(document).ready(function() {
+
+                    // 04 -> Box hover effect Style
+                    const targetBtn = document.querySelectorAll(".box-style, .user_notifications_wrap");
+                    if (targetBtn) {
+                        targetBtn.forEach((element) => {
+                            element.addEventListener("mousemove", (e) => {
+                                const x = e.offsetX + "px";
+                                const y = e.offsetY + "px";
+                                element.style.setProperty("--x", x);
+                                element.style.setProperty("--y", y);
+                            });
+                        });
+                    }
+                });
+            });
+        </script>
+
+        <!-- teams card section start   -->
+        <div class="allteam pb-120 ">
+            <div class="row g-6 gy-md-10">
+                                        <div class="col-sm-6 col-md-6 col-lg-6  col-xl-4  col-xxl-4">
+                            <h4 class="tcn-1 mb-6">S2 E-SPORT</h4>
+                            <ul class="team-branch-list d-grid gap-3 list-unstyled">
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/1/1735031827-bpfull.jpg" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">gameplex</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/10/1735044803-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rajan Mia</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/8/1735022629-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rnoy Malan</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/6/1735022727-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Eleanor Pena</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/4/1735022221-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Cristofer Dorwart</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/5/1735022377-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Desirae Lubin</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/7/1735022797-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Kende Attila</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/9/1735022911-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Wanner Max</span>
+                                        </div>
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6  col-xl-4  col-xxl-4">
+                            <h4 class="tcn-1 mb-6">ASIA MOK32</h4>
+                            <ul class="team-branch-list d-grid gap-3 list-unstyled">
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/10/1735044803-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rajan Mia</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/8/1735022629-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rnoy Malan</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/6/1735022727-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Eleanor Pena</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/4/1735022221-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Cristofer Dorwart</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/5/1735022377-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Desirae Lubin</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/9/1735022911-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Wanner Max</span>
+                                        </div>
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6  col-xl-4  col-xxl-4">
+                            <h4 class="tcn-1 mb-6">TEAM XR</h4>
+                            <ul class="team-branch-list d-grid gap-3 list-unstyled">
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/1/1735031827-bpfull.jpg" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">gameplex</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/6/1735022727-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Eleanor Pena</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/4/1735022221-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Cristofer Dorwart</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/5/1735022377-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Desirae Lubin</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/7/1735022797-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Kende Attila</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/9/1735022911-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Wanner Max</span>
+                                        </div>
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6  col-xl-4  col-xxl-4">
+                            <h4 class="tcn-1 mb-6">BG TEAM</h4>
+                            <ul class="team-branch-list d-grid gap-3 list-unstyled">
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/1/1735031827-bpfull.jpg" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">gameplex</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/10/1735044803-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rajan Mia</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/8/1735022629-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rnoy Malan</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/6/1735022727-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Eleanor Pena</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/4/1735022221-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Cristofer Dorwart</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/5/1735022377-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Desirae Lubin</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/7/1735022797-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Kende Attila</span>
+                                        </div>
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6  col-xl-4  col-xxl-4">
+                            <h4 class="tcn-1 mb-6">TEAM DAEMON</h4>
+                            <ul class="team-branch-list d-grid gap-3 list-unstyled">
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/1/1735031827-bpfull.jpg" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">gameplex</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/6/1735022727-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Eleanor Pena</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/4/1735022221-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Cristofer Dorwart</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/7/1735022797-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Kende Attila</span>
+                                        </div>
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6  col-xl-4  col-xxl-4">
+                            <h4 class="tcn-1 mb-6">OFF DEAD</h4>
+                            <ul class="team-branch-list d-grid gap-3 list-unstyled">
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/10/1735044803-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rajan Mia</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/8/1735022629-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rnoy Malan</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/4/1735022221-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Cristofer Dorwart</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/1/1735031827-bpfull.jpg" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">gameplex</span>
+                                        </div>
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6  col-xl-4  col-xxl-4">
+                            <h4 class="tcn-1 mb-6">LANNUS</h4>
+                            <ul class="team-branch-list d-grid gap-3 list-unstyled">
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/10/1735044803-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rajan Mia</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/8/1735022629-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rnoy Malan</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/6/1735022727-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Eleanor Pena</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/5/1735022377-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Desirae Lubin</span>
+                                        </div>
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6  col-xl-4  col-xxl-4">
+                            <h4 class="tcn-1 mb-6">NAGUARANETA</h4>
+                            <ul class="team-branch-list d-grid gap-3 list-unstyled">
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/8/1735022629-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rnoy Malan</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/4/1735022221-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Cristofer Dorwart</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/9/1735022911-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Wanner Max</span>
+                                        </div>
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6  col-xl-4  col-xxl-4">
+                            <h4 class="tcn-1 mb-6">EQUIPO DE JUAN</h4>
+                            <ul class="team-branch-list d-grid gap-3 list-unstyled">
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/1/1735031827-bpfull.jpg" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">gameplex</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/10/1735044803-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rajan Mia</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/8/1735022629-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Rnoy Malan</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/6/1735022727-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Eleanor Pena</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/4/1735022221-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Cristofer Dorwart</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/5/1735022377-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Desirae Lubin</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/7/1735022797-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Kende Attila</span>
+                                        </div>
+                                    </li>
+                                                                    <li class="team-branch-item d-between p-3 rounded bgn-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="team-branch-thumb box_12">
+                                                <img decoding="async" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/avatars/9/1735022911-bpfull.png" class="w-100 rounded-circle" alt="Image" />
+                                            </div>
+                                            <span class="tcn-1">Wanner Max</span>
+                                        </div>
+                                    </li>
+                                                            </ul>
+                        </div>
+                            </div>
+        </div>
+        <!-- teams card section end   -->
+
+				</div>
+				</div>
+				</div>
+				</div>
+		<div id="e-n-tab-content-750382902" role="tabpanel" aria-labelledby="e-n-tab-title-750382902" data-tab-index="2" style="--n-tabs-title-order: 2;" class=" elementor-element elementor-element-20c05d0 e-con-full e-flex e-con e-child" data-id="20c05d0" data-element_type="container">
+		<div class="elementor-element elementor-element-9aa2f4c e-con-full e-flex e-con e-child" data-id="9aa2f4c" data-element_type="container">
+		<div class="elementor-element elementor-element-871bc67 e-con-full e-flex e-con e-child" data-id="871bc67" data-element_type="container">
+				<div class="elementor-element elementor-element-28b7d26 elementor-widget elementor-widget-image" data-id="28b7d26" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="182" height="231" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/2024/12/trophy.png" class="attachment-large size-large wp-image-1537" alt="" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-b78cd63 elementor-widget elementor-widget-tp-heading" data-id="b78cd63" data-element_type="widget" data-widget_type="tp-heading.default">
+				<div class="elementor-widget-container">
+					
+        <style>
+            ul,
+            ol {
+                list-style-position: inside;
+                padding-left: 20px;
+                list-style-position: outside;
+            }
+        </style>
+
+
+        <!-- ==== about section one start ==== -->
+                                                                                            <h4 class="cus_content tcn-1 cursor-scale growUp title-anim">The tournament hasn't finished yet</h4>
+                                                    <!-- ==== section  start ==== -->
+
+
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-a64f107 elementor-widget elementor-widget-tp-heading" data-id="a64f107" data-element_type="widget" data-widget_type="tp-heading.default">
+				<div class="elementor-widget-container">
+					
+        <style>
+            ul,
+            ol {
+                list-style-position: inside;
+                padding-left: 20px;
+                list-style-position: outside;
+            }
+        </style>
+
+
+        <!-- ==== about section one start ==== -->
+                                                                                                                                    <p class="cus_content fs_base">Once the tournament is over, the data takes a few minutes to appear.</p>
+                            <!-- ==== section  start ==== -->
+
+
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+		<div id="e-n-tab-content-750382903" role="tabpanel" aria-labelledby="e-n-tab-title-750382903" data-tab-index="3" style="--n-tabs-title-order: 3;" class=" elementor-element elementor-element-3a08405 e-con-full e-flex e-con e-child" data-id="3a08405" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-318c815 e-con-full e-flex e-con e-child" data-id="318c815" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-f846b5e elementor-widget elementor-widget-n-accordion" data-id="f846b5e" data-element_type="widget" data-settings="{&quot;default_state&quot;:&quot;expanded&quot;,&quot;max_items_expended&quot;:&quot;one&quot;,&quot;n_accordion_animation_duration&quot;:{&quot;unit&quot;:&quot;ms&quot;,&quot;size&quot;:400,&quot;sizes&quot;:[]}}" data-widget_type="nested-accordion.default">
+				<div class="elementor-widget-container">
+							<div class="e-n-accordion" aria-label="Accordion. Open links with Enter or Space, close with Escape, and navigate with Arrow Keys">
+						<details id="e-n-accordion-item-2600" class="e-n-accordion-item" open>
+				<summary class="e-n-accordion-item-title" data-accordion-index="1" tabindex="0" aria-expanded="true" aria-controls="e-n-accordion-item-2600" >
+					<span class='e-n-accordion-item-title-header'><h4 class="e-n-accordion-item-title-text"> Paritdas </h4></span>
+							<span class='e-n-accordion-item-title-icon'>
+			<span class='e-opened' ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M17.3359 9.33398H9.33594L14.6693 16.0007L9.33594 22.6673H17.3359L22.6693 16.0007L17.3359 9.33398Z" stroke="#FFAC03" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+			<span class='e-closed'><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M17.3359 9.33398H9.33594L14.6693 16.0007L9.33594 22.6673H17.3359L22.6693 16.0007L17.3359 9.33398Z" stroke="#FFAC03" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+		</span>
+
+						</summary>
+				<div role="region" aria-labelledby="e-n-accordion-item-2600" class="elementor-element elementor-element-7a5f716 e-con-full e-flex e-con e-child" data-id="7a5f716" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div role="region" aria-labelledby="e-n-accordion-item-2600" class="elementor-element elementor-element-10a29f2 e-con-full e-flex e-con e-child" data-id="10a29f2" data-element_type="container">
+				<div class="elementor-element elementor-element-cc097d4 elementor-widget elementor-widget-tp-list" data-id="cc097d4" data-element_type="widget" data-widget_type="tp-list.default">
+				<div class="elementor-widget-container">
+					
+        <style>
+            .list_area {
+                list-style-position: inside;
+            }
+
+            .list_area ul,
+            .list_area ol {
+                display: flex;
+                flex-direction: column;
+                padding-left: 16px;
+                margin: 0;
+            }
+
+            .list_area ol {
+                padding-left: 20px;
+            }
+        </style>
+
+        <div class="list_area" style="padding-left: 35px;">
+            
+                                            <ul style="list-style-type: none;">
+                                            <li class="cus_content">
+                            Treat all members and staff with courtesy and respect. Discriminatory or offensive behavior will not be tolerated.                        </li>
+                                            <li class="cus_content">
+                            Communication Maintain open and constructive communication. Address concerns through the appropriate channels.                        </li>
+                                            <li class="cus_content">
+                            Emergency Procedures: Familiarize yourself with evacuation procedures and the location of emergency exits.                        </li>
+                                            <li class="cus_content">
+                            Safeguard sensitive information and respect the privacy of others.                        </li>
+                                    </ul>
+                    </div>
+
+				</div>
+				</div>
+				</div>
+				</div>
+					</details>
+						<details id="e-n-accordion-item-2601" class="e-n-accordion-item" >
+				<summary class="e-n-accordion-item-title" data-accordion-index="2" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-2601" >
+					<span class='e-n-accordion-item-title-header'><h4 class="e-n-accordion-item-title-text"> Reglamento </h4></span>
+							<span class='e-n-accordion-item-title-icon'>
+			<span class='e-opened' ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M17.3359 9.33398H9.33594L14.6693 16.0007L9.33594 22.6673H17.3359L22.6693 16.0007L17.3359 9.33398Z" stroke="#FFAC03" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+			<span class='e-closed'><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M17.3359 9.33398H9.33594L14.6693 16.0007L9.33594 22.6673H17.3359L22.6693 16.0007L17.3359 9.33398Z" stroke="#FFAC03" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+		</span>
+
+						</summary>
+				<div role="region" aria-labelledby="e-n-accordion-item-2601" class="elementor-element elementor-element-a5425cf e-con-full e-flex e-con e-child" data-id="a5425cf" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div role="region" aria-labelledby="e-n-accordion-item-2601" class="elementor-element elementor-element-2766649 e-con-full e-flex e-con e-child" data-id="2766649" data-element_type="container">
+				<div class="elementor-element elementor-element-55c289a elementor-widget elementor-widget-tp-list" data-id="55c289a" data-element_type="widget" data-widget_type="tp-list.default">
+				<div class="elementor-widget-container">
+					
+        <style>
+            .list_area {
+                list-style-position: inside;
+            }
+
+            .list_area ul,
+            .list_area ol {
+                display: flex;
+                flex-direction: column;
+                padding-left: 16px;
+                margin: 0;
+            }
+
+            .list_area ol {
+                padding-left: 20px;
+            }
+        </style>
+
+        <div class="list_area" style="padding-left: 35px;">
+            
+                                            <ul style="list-style-type: none;">
+                                            <li class="cus_content">
+                            Treat all members and staff with courtesy and respect. Discriminatory or offensive behavior will not be tolerated.                        </li>
+                                            <li class="cus_content">
+                            Communication Maintain open and constructive communication. Address concerns through the appropriate channels.                        </li>
+                                            <li class="cus_content">
+                            Emergency Procedures: Familiarize yourself with evacuation procedures and the location of emergency exits.                        </li>
+                                            <li class="cus_content">
+                            Safeguard sensitive information and respect the privacy of others.                        </li>
+                                    </ul>
+                    </div>
+
+				</div>
+				</div>
+				</div>
+				</div>
+					</details>
+						<details id="e-n-accordion-item-2602" class="e-n-accordion-item" >
+				<summary class="e-n-accordion-item-title" data-accordion-index="3" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-2602" >
+					<span class='e-n-accordion-item-title-header'><h4 class="e-n-accordion-item-title-text"> Discord </h4></span>
+							<span class='e-n-accordion-item-title-icon'>
+			<span class='e-opened' ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M17.3359 9.33398H9.33594L14.6693 16.0007L9.33594 22.6673H17.3359L22.6693 16.0007L17.3359 9.33398Z" stroke="#FFAC03" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+			<span class='e-closed'><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M17.3359 9.33398H9.33594L14.6693 16.0007L9.33594 22.6673H17.3359L22.6693 16.0007L17.3359 9.33398Z" stroke="#FFAC03" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+		</span>
+
+						</summary>
+				<div role="region" aria-labelledby="e-n-accordion-item-2602" class="elementor-element elementor-element-f920591 e-con-full e-flex e-con e-child" data-id="f920591" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div role="region" aria-labelledby="e-n-accordion-item-2602" class="elementor-element elementor-element-263b6e3 e-con-full e-flex e-con e-child" data-id="263b6e3" data-element_type="container">
+				<div class="elementor-element elementor-element-3d4f32e elementor-widget elementor-widget-tp-list" data-id="3d4f32e" data-element_type="widget" data-widget_type="tp-list.default">
+				<div class="elementor-widget-container">
+					
+        <style>
+            .list_area {
+                list-style-position: inside;
+            }
+
+            .list_area ul,
+            .list_area ol {
+                display: flex;
+                flex-direction: column;
+                padding-left: 16px;
+                margin: 0;
+            }
+
+            .list_area ol {
+                padding-left: 20px;
+            }
+        </style>
+
+        <div class="list_area" style="padding-left: 35px;">
+            
+                                            <ul style="list-style-type: none;">
+                                            <li class="cus_content">
+                            Treat all members and staff with courtesy and respect. Discriminatory or offensive behavior will not be tolerated.                        </li>
+                                            <li class="cus_content">
+                            Communication Maintain open and constructive communication. Address concerns through the appropriate channels.                        </li>
+                                            <li class="cus_content">
+                            Emergency Procedures: Familiarize yourself with evacuation procedures and the location of emergency exits.                        </li>
+                                            <li class="cus_content">
+                            Safeguard sensitive information and respect the privacy of others.                        </li>
+                                    </ul>
+                    </div>
+
+				</div>
+				</div>
+				</div>
+				</div>
+					</details>
+					</div>
+						</div>
+				</div>
+				</div>
+				</div>
+					</div>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-e8a73ed e-con-full e-flex e-con e-parent" data-id="e8a73ed" data-element_type="container">
+				<div class="elementor-element elementor-element-905b958 elementor-widget elementor-widget-tp-cta" data-id="905b958" data-element_type="widget" data-widget_type="tp-cta.default">
+				<div class="elementor-widget-container">
+					        <script>
+            jQuery(document).ready(function($) {
+
+                // 07 -> footer banner animation
+                if ($(".footer-banner-img").length > 0) {
+                    let footerController = new ScrollMagic.Controller();
+                    let footerScene = new ScrollMagic.Scene({
+                            triggerElement: "#cta",
+                        })
+                        .setTween(".footer-banner-img", {
+                            right: "0%",
+                            left: "unset",
+                            bottom: "0%",
+                            opacity: 1,
+                            scale: 1,
+                        })
+                        .addTo(footerController);
+                }
+            });
+        </script>
+        <!-- call to action section start -->
+        <div class="call-to-action pt-120 pb-120 bgn-4 overflow-x-hidden" id="cta">
+            <div class="container">
+                <div class="row justify-content-between g-6">
+                    <div class="col-lg-6">
+                                                    <h2 class="cus_title display-three tcn-1 cursor-scale growUp mb-8 d-block title-anim">Stay up to date</h2>
+                                                                            <p class="cus_des fs-lg tcn-6">Have questions or feedback? We&#039;d love to hear from you. Reach out to our team or use our contact form.</p>
+                                            </div>
+                    <div class="col-xl-5 col-lg-6">
+                                                    [contact-form-7]                                            </div>
+                </div>
+            </div>
+        </div>
+        <!-- call to action section end -->
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-08d21fe e-con-full e-flex e-con e-parent" data-id="08d21fe" data-element_type="container">
+				<div class="elementor-element elementor-element-5860a67 elementor-widget elementor-widget-tp-footer" data-id="5860a67" data-element_type="widget" data-widget_type="tp-footer.default">
+				<div class="elementor-widget-container">
+					        <script>
+            jQuery(document).ready(function($) {
+
+                // 07 -> footer banner animation
+                if ($(".footer-banner-img").length > 0) {
+                    let footerController = new ScrollMagic.Controller();
+                    let footerScene = new ScrollMagic.Scene({
+                            triggerElement: "#cta",
+                        })
+                        .setTween(".footer-banner-img", {
+                            right: "0%",
+                            left: "unset",
+                            bottom: "0%",
+                            opacity: 1,
+                            scale: 1,
+                        })
+                        .addTo(footerController);
+                }
+            });
+        </script>
+
+        <!-- footer section start  -->
+        <footer class="footer bgn-4 bt">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-3 col-sm-6 br py-lg-20 pt-sm-15 pt-10 footer-card-area">
+                        <div class="py-lg-10 gap-6 d-flex flex-column">
+                                                            <div class="footer-logo ">
+                                    <a href="#" class="d-grid gap-6">
+                                        <div class="flogo-1">
+                                            <img decoding="async" class="w-100" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/2024/12/LOGO-1.png" alt="Image">
+                                        </div>
+                                    </a>
+                                </div>
+                                                                                                                            <h1 class="cus_content tcn-1 cursor-scale growUp title-anim">GamePlex​</h1>
+                                                                                                                                                
+                            <div class="social d-flex mt-2">
+                                                                    <a href="#" class="cus_box p-0">
+                                                                                    <i class="ti ti-brand-facebook fs-2xl"></i>
+                                                                                                                    </a>
+                                                                                                    <a href="#" class="cus_box p-0">
+                                                                                    <i class="ti ti-brand-twitter fs-2xl"></i>
+                                                                                                                    </a>
+                                                                                                    <a href="#" class="cus_box p-0">
+
+                                                                                    <i class="ti ti-brand-pinterest fs-2xl"></i>
+                                                                                                                    </a>
+                                                                                                    <a href="#" class="cus_box p-0">
+                                                                                    <i class="ti ti-brand-twitch fs-2xl"></i>
+                                                                                                                    </a>
+                                                                                                    <a href="#" class="cus_box p-0">
+                                                                                    <i class="ti ti-brand-skype fs-2xl"></i>
+                                                                                                                    </a>
+                                                                                                                                                                                                                                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 br br-res py-lg-20 pt-sm-15 pt-10 footer-card-area">
+                        <div class="py-lg-10">
+                            <h4 class="cus_footer_title footer-title mb-8 title-anim">Quick Links​</h4>
+                            <ul id="menu-quick-menu" class="footer-list d-grid gap-4"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-3295" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3295 nav-item"><a title="Tournaments" href="https://softivuslab.com/wp/gameplex/tournaments/" class="nav-links">Tournaments</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-3294" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3294 nav-item"><a title="Teams" href="https://softivuslab.com/wp/gameplex/team/" class="nav-links">Teams</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-3293" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3293 nav-item"><a title="FAQ" href="https://softivuslab.com/wp/gameplex/faq/" class="nav-links">FAQ</a></li>
+</ul>                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 br py-lg-20 pt-sm-15 pt-10 footer-card-area">
+                        <div class="py-lg-10">
+                            <h4 class="cus_footer_title footer-title mb-8 title-anim">Explore​</h4>
+                            <ul id="menu-explore-menu" class="footer-list d-grid gap-4"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-3290" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3290 nav-item"><a title="User Profile" href="https://softivuslab.com/wp/gameplex/user-profile/" class="nav-links">User Profile</a></li>
+</ul>                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 py-lg-20 pt-sm-15 pt-10 footer-card-area">
+                        <div class="py-lg-10">
+                            <h4 class="cus_footer_title footer-title mb-8 title-anim">Follow Us​</h4>
+                            <ul id="menu-footer-follow" class="footer-list d-grid gap-4"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-3302" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3302 nav-item"><a title="Facebook" href="https://facebook.com/" class="nav-links">Facebook</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-3303" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3303 nav-item"><a title="Instagram" href="https://www.instagram.com/" class="nav-links">Instagram</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-3304" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3304 nav-item"><a title="Twitter" href="https://x.com/" class="nav-links">Twitter</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-3305" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3305 nav-item"><a title="Linkedin" href="https://www.linkedin.com/" class="nav-links">Linkedin</a></li>
+</ul>                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer banner img  -->
+                            <div class="footer-banner-img" id="faa">
+                    <img decoding="async" class="w-100" src="https://softivuslab.com/wp/gameplex/wp-content/uploads/2024/12/footer_image.webp" alt="Image">
+                </div>
+                    </footer>
+        <!-- footer section end  -->
+
+				</div>
+				</div>
+				</div>
+				</div>
+		]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

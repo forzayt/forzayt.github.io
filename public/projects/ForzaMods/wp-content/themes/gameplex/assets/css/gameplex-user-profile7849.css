@@ -1,0 +1,459 @@
+/*.........<! 1. Theme user profile css !>.........*/
+
+
+
+#buddypress.buddypress-wrap .bp-navs ul.bp-priority-object-nav-nav-items {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#buddypress.buddypress-wrap .bp-navs ul.bp-priority-object-nav-nav-items li:first-child {
+	margin-top: 7px;
+}
+
+#buddypress.buddypress-wrap .bp-navs ul.bp-priority-subnav-nav-items {
+	margin: 0;
+	padding: 8px 12px;
+
+}
+
+
+#buddypress.buddypress-wrap .bp-navs ul.bp-priority-object-nav-nav-items li a {
+	width: 100%;
+	transition: var(--woo-transition);
+	border-radius: 4px;
+}
+
+.buddypress-wrap .bp-subnavs li a {
+	transition: var(--woo-transition);
+	border-radius: 4px;
+}
+
+
+.buddypress-wrap .bp-subnavs li.current a,
+.buddypress-wrap .bp-subnavs li.selected a,
+.buddypress-wrap .bp-navs li:not(.current) a:focus,
+.buddypress-wrap .bp-navs li:not(.current) a:hover,
+.buddypress-wrap .bp-navs li:not(.selected) a:focus,
+.buddypress-wrap .bp-navs li:not(.selected) a:hover,
+.buddypress-wrap .main-navs:not(.dir-navs) li.current a,
+.buddypress-wrap .main-navs:not(.dir-navs) li.selected a,
+#buddypress.buddypress-wrap .bp-navs ul.bp-priority-object-nav-nav-items li a:hover {
+	background: var(--woo-primary-color);
+	color: var(--woo-text-color);
+
+
+}
+
+.buddypress-wrap .bp-subnavs ul li.current :focus,
+.buddypress-wrap .bp-subnavs ul li.current :hover,
+.buddypress-wrap .bp-subnavs ul li.selected :focus,
+.buddypress-wrap .bp-subnavs ul li.selected :hover {
+	background: var(--woo-primary-color);
+	color: var(--woo-text-color);
+}
+
+.buddypress-wrap.bp-dir-hori-nav:not(.bp-vertical-navs) nav:not(.tabbed-links) {
+	box-shadow: none;
+	background-color: var(--woo-card-bg);
+	margin: 0;
+	border-color: var(--woo-border-color);
+
+}
+
+.buddypress-wrap .bp-wrap .item-body {
+	background-color: var(--woo-card-bg);
+	border-color: var(--woo-border-color);
+	padding: 20px;
+
+}
+
+.buddypress-wrap .bp-wrap .item-body .profile {
+	padding: 0px 20px 20px;
+
+}
+
+.buddypress-wrap .profile.edit .editfield {
+	background: transparent;
+	border-color: var(--woo-border-color);
+}
+
+.buddypress-wrap .standard-form .groups-members-search input[type=search],
+.buddypress-wrap .standard-form .groups-members-search input[type=text],
+.buddypress-wrap .standard-form [data-bp-search] input[type=search],
+.buddypress-wrap .standard-form [data-bp-search] input[type=text],
+.buddypress-wrap .standard-form input[type=color],
+.buddypress-wrap .standard-form input[type=date],
+.buddypress-wrap .standard-form input[type=datetime-local],
+.buddypress-wrap .standard-form input[type=datetime],
+.buddypress-wrap .standard-form input[type=email],
+.buddypress-wrap .standard-form input[type=month],
+.buddypress-wrap .standard-form input[type=number],
+.buddypress-wrap .standard-form input[type=password],
+.buddypress-wrap .standard-form input[type=range],
+.buddypress-wrap .standard-form input[type=search],
+.buddypress-wrap .standard-form input[type=tel],
+.buddypress-wrap .standard-form input[type=text],
+.buddypress-wrap .standard-form input[type=time],
+.buddypress-wrap .standard-form input[type=url],
+.buddypress-wrap .standard-form input[type=week],
+.buddypress-wrap .standard-form select,
+.buddypress-wrap .standard-form textarea {
+	background: transparent;
+	border-color: var(--woo-border-color);
+	color: var(--woo-text-color);
+}
+
+.buddypress-wrap .standard-form.profile-edit input:focus {
+	background: transparent;
+	border-color: var(--woo-primary-color);
+	box-shadow: none;
+}
+
+#buddypress .bp-wrap {
+	display: flex;
+	gap: 24px;
+}
+
+#buddypress .bp-wrap .main-navs {
+	min-width: 300px;
+}
+
+#buddypress .bp-wrap .item-body {
+	margin: 0;
+	width: 100%;
+	padding: 0;
+}
+
+
+.single-headers .activity {
+	color: var(--woo-primary-color);
+}
+
+.buddypress .buddypress-wrap input[type=button],
+.buddypress .buddypress-wrap button,
+body #buddypress input[type=reset],
+body #buddypress input[type=submit] {
+	background: var(--woo-primary-color);
+	color: var(--woo-text-color);
+	border: inherit;
+	border-radius: var(--bs-border-radius-pill) !important;
+	padding: 12px 24px !important;
+	position: relative !important;
+	display: flex !important;
+	z-index: 0;
+	margin: 8px;
+	transition: var(--woo-transition);
+}
+
+.buddypress .buddypress-wrap button:hover,
+body #buddypress input[type=reset]:hover,
+/* body #buddypress input[type=search]:hover, */
+body #buddypress input[type=submit]:hover {
+	background: var(--woo-primary-color);
+	color: var(--woo-text-color);
+}
+
+#buddypress .bp-wrap #send_message_form .submit {
+	display: flex;
+	gap: 8px;
+	margin: 0;
+	margin-top: 20px;
+}
+
+
+.buddypress-wrap #send_message_form input {
+	width: 100% !important;
+}
+
+.buddypress-wrap #send_message_form input:focus {
+	box-shadow: none;
+}
+
+#buddypress .bp-wrap #send_message_form .submit input {
+	margin: 0;
+	max-width: fit-content;
+}
+
+#buddypress .bp-wrap #send_message_form .submit input:hover {
+	background: var(--woo-primary-color);
+	color: inherit;
+}
+
+
+.buddypress-wrap form.bp-messages-search-form {
+	display: flex;
+	border-color: var(--woo-border-color);
+	transition: var(--woo-transition);
+}
+
+.buddypress-wrap form.bp-messages-search-form input {
+	color: var(--woo-text-color);
+}
+
+.buddypress-wrap form.bp-messages-search-form:hover {
+	box-shadow: none;
+	border-color: var(--woo-primary-color);
+	/* border-color: var(--woo-border-color); */
+}
+
+#user_messages_search {
+	width: 100%;
+}
+
+#user_messages_search_submit {
+	padding: 4px !important;
+	width: auto !important;
+	margin: 0;
+	align-items: center;
+}
+
+.buddypress-wrap form.bp-messages-search-form input:focus-visible {
+	outline: none;
+	border-color: var(--woo-primary-color);
+}
+
+.buddypress-wrap .bp-feedback {
+	background: transparent;
+	border: var(--woo-border-1);
+}
+
+.buddypress-wrap .bp-messages-feedback p,
+.buddypress-wrap .bp-feedback .bp-help-text {
+	padding: 12px 0px;
+}
+
+.buddypress-wrap .bp-wrap .item-body>div {
+	padding: 0px 20px;
+
+}
+
+.buddypress-wrap .select-wrap,
+#drag-drop-area {
+	border-color: var(--woo-border-color);
+}
+
+.buddypress-wrap .select-wrap:hover {
+	border-color: var(--woo-border-color);
+
+}
+
+.buddypress-wrap .select-wrap span.select-arrow {
+	display: none;
+
+}
+
+.bp-avatar-nav ul.avatar-nav-items li.current {
+	background: var(--woo-primary-color);
+	border-color: var(--woo-border-color);
+}
+
+.bp-avatar-nav ul {
+	border-color: var(--woo-border-color);
+	padding: 0;
+	margin-top: 30px;
+}
+
+div.mce-panel {
+	background: transparent !important;
+	color: var(--woo-text-color);
+}
+
+#message_content_ifr body#tinymce {
+	background: red !important;
+}
+
+.mce-toolbar .mce-ico {
+	color: var(--woo-text-color) !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn:focus,
+.mce-toolbar .mce-btn-group .mce-btn:hover,
+.qt-dfw:focus,
+.qt-dfw:hover {
+	background: transparent !important;
+	/* border: none !important; */
+}
+
+.mce-toolbar .mce-btn-group .mce-btn:focus,
+.mce-toolbar .mce-btn-group .mce-btn:hover,
+.qt-dfw:focus,
+.qt-dfw:hover {
+	box-shadow: none !important;
+	outline: none !important;
+}
+
+.buddypress-wrap form.bp-messages-search-form button[type=submit] span {
+	display: flex;
+	align-items: center;
+}
+
+
+.buddypress-wrap .bp-tables-user tbody tr,
+.buddypress-wrap table.forum tbody tr,
+.buddypress-wrap table.wp-profile-fields tbody tr {
+	background: transparent;
+}
+
+.buddypress-wrap .bp-tables-user thead tr,
+.buddypress-wrap table.forum thead tr,
+.buddypress-wrap table.wp-profile-fields thead tr {
+	border-color: var(--woo-border-color);
+}
+
+
+.drag-drop .drag-drop-inside p.drag-drop-buttons {
+	justify-content: center;
+	display: flex;
+}
+
+#buddypress .bp-wrap .item-body .bp-feedback {
+	margin: 20px 0;
+}
+
+#bp-data-export button {
+	margin: 0;
+}
+
+#buddypress .bp-wrap .item-body #your-profile .user-pass1-wrap .wp-pwd {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+#buddypress .bp-wrap .item-body #your-profile .user-pass1-wrap .wp-pwd label,
+#buddypress .bp-wrap .item-body #your-profile .user-pass1-wrap .wp-pwd #pass-strength-result {
+	display: block;
+	width: 100%;
+}
+
+body.buddypress.settings #pass1:focus {
+	box-shadow: none;
+}
+
+/* #buddypress .bp-wrap .item-body #your-profile .info {
+	margin: 20px 0
+} */
+
+
+
+
+.buddypress-wrap .item-body .screen-heading,
+.buddypress-wrap .bp-feedback,
+#buddypress .bp-wrap .item-body #your-profile,
+#buddypress .bp-wrap .item-body .info,
+#buddypress .bp-wrap .item-body .bp-help-text,
+#buddypress .bp-wrap .item-body .standard-form,
+#buddypress .bp-wrap .item-body p,
+#buddypress .bp-wrap .item-body ul,
+#bp-data-export,
+#buddypress .bp-wrap .item-body .bp-feedback {
+	margin: 20px 0px;
+}
+
+
+
+/* .buddypress-wrap .item-body .screen-heading.data-settings-screen, */
+/* #buddypress .bp-wrap .item-body p,
+#buddypress .bp-wrap .item-body ul, */
+#buddypress .bp-wrap .item-body #your-profile,
+#buddypress .bp-wrap .item-body #settings-form {
+	margin: 20px;
+}
+
+
+
+.user_notifications .mute {
+	font-size: 14px;
+	color: var(--woo-primary-color);
+}
+
+.user_notifications_wrap:hover .count {
+	color: var(--woo-text-color);
+}
+
+.user_nav .user_nav_link span {
+	transition: 0s;
+}
+
+.bp-avatar-nav li.current a {
+	opacity: 1;
+}
+
+
+.buddypress-wrap .bp-feedback:not(.custom-homepage-info) p {
+	padding: 10px 4px;
+	color: var(--woo-text-2);
+}
+
+.buddypress-wrap .standard-form input[required]:invalid,
+.buddypress-wrap .standard-form select[required]:invalid,
+.buddypress-wrap .standard-form textarea[required]:invalid {
+	border: var(--woo-border-2);
+}
+
+
+.bp-user-profile a,
+.bp-user-profile p,
+.bp-user-profile .bp_user_profile_name {
+	width: 100%;
+	text-align: center;
+	justify-content: center;
+}
+
+.bp-user-profile-content {
+	max-width: fit-content;
+}
+
+.bp-user-profile a.wb-bp-user-link img {
+	border-radius: 50%;
+	width: 140px;
+	max-width: 140px;
+	height: 140px;
+}
+
+.bp-user.my-account .cmn-banner {
+	display: none !important;
+}
+
+.bp-user.my-account .tp-page-area {
+	padding-top: 32px;
+}
+
+#buddypress.extended-default-reg {
+	background: var(--n4);
+	border-radius: 12px;
+	padding: 32px;
+}
+
+#buddypress.extended-default-reg .user-pass1-wrap {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+#buddypress.extended-default-reg .user-pass1-wrap .wp-pwd,
+#buddypress.extended-default-reg .user-pass1-wrap .password-input-wrapper {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+}
+
+
+@media screen and (min-width: 992px) {
+	.buddypress-wrap.extended-default-reg .register-page .register-section {
+		min-width: 50%;
+	}
+}
+
+#buddypress #header-cover-image {
+	border-radius: 8px;
+}
+
+#buddypress #item-header-cover-image #item-header-avatar img.avatar {
+	border-radius: 50%;
+}

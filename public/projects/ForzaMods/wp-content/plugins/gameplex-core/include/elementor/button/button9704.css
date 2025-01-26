@@ -1,0 +1,18 @@
+.cus_btn,
+.dflt_btn {
+    transition: var(--transition);
+    color: var(--woo-white);
+    justify-content: center;
+}
+
+
+.dflt_btn:hover,
+.dflt_btn:focus {
+    background: var(--s2);
+    color: var(--woo-white);
+}
+
+.dflt_btn.cus_btn:hover,
+.dflt_btn.cus_btn:focus {
+    background: var(--p1);
+}

@@ -1,0 +1,118 @@
+.blog_area .blog_card {
+    overflow: hidden;
+    box-shadow: var(--woo-shadow);
+    padding: 20px 20px 30px;
+    border-radius: var(--woo-box-radius);
+    height: 100%;
+}
+
+.blog_area .blog_card .blog_thumb {
+    display: flex;
+    position: relative;
+    width: 100%;
+    box-shadow: var(--woo-shadow2);
+    overflow: hidden;
+    border-radius: var(--woo-box-radius);
+}
+
+.blog_area .blog_card .blog_thumb a {
+    width: 100%;
+}
+
+.blog_area .blog_card .blog_thumb img {
+    width: 100%;
+    transition: var(--woo-transition);
+    object-fit: cover;
+}
+
+.blog_area .blog_card:hover .blog_thumb img {
+    transform: scale(1.2) rotate(-4deg);
+}
+
+.blog_area .blog_card .first_category {
+    padding: 6px 16px;
+    position: absolute;
+    max-width: fit-content;
+    /* top: 0;
+    left: 0; */
+    background-color: var(--woo-button-bg);
+    color: var(--woo-button-text);
+    font-weight: 500;
+    border-radius: var(--woo-box-radius);
+}
+
+.blog_area .blog_card .meta {
+    display: flex;
+    align-items: center;
+    gap: 10px 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.blog_area .blog_card .meta .cus_meta {
+    color: var(--woo-button-text2);
+    font-size: var(--woo-font-size);
+    gap: 6px;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.blog_area .blog_card .meta .cus_meta i {
+    transition: 0s;
+}
+
+.blog_area .blog_card .cus_title {
+    font-weight: 600;
+    color: var(--woo-button-text2);
+    margin-top: 20px;
+}
+
+.blog_area .blog_card .btn_cta {
+    margin-top: 30px;
+}
+
+.blog_area .blog_card .btn_cta .cus_link {
+    color: var(--woo-button-text2);
+    align-items: center;
+    transition: var(--transition);
+}
+
+.blog_area .blog_card .btn_cta a i {
+    transition: 0s;
+}
+
+.blog_area .blog_card .btn_cta a.cus_link:hover {
+    color: var(--woo-primary-color);
+}
+
+
+.blog_area .blog_card .cus_content {
+    margin-top: 20px;
+}
+
+.blog_area .sidebar img {
+    max-width: 140px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+
+@media only screen and (max-width: 991.98px) {
+
+    .blog_area .news-alter-single {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .blog_area .news-alter-single .blog_thumb {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .blog_area .news-alter-single .blog_thumb img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+}
