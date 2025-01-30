@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Agent Info - VALO_API</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link rel="icon" id="icon" href="/images/favicon/Valorant-Logo-PNG-File.png"/> 
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Cardo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+      <nav id="navmenu" class="navmenu">
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Agent Info Section -->
+    <section id="agent-info" class="section">
+      <div class="container">
+        <div id="agent-details" class="row justify-content-center">
+          <!-- Agent details will be populated here -->
+        </div>
+      </div>
+    </section><!-- /Agent Info Section -->
+
+  </main>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="line"></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Custom JS to fetch agent details -->
+  <script>
+    const API_AGENT = 'https://valorant-api.com/v1/agents';
+
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    async function fetchAgentByUUID(uuid) {
+      try {
+        const response = await fetch(`${API_AGENT}/${uuid}`);
+        const data = await response.json();
+        return data.data;
+      } catch (error) {
+        console.error('Error fetching agent:', error);
+        return null;
+      }
+    }
+
+    async function displayAgentInfo() {
+      const uuid = getQueryParam('uuid');
+      if (!uuid) {
+        document.getElementById('agent-details').innerText = 'No agent selected.';
+        return;
+      }
+
+      const agent = await fetchAgentByUUID(uuid);
+      if (!agent) {
+        document.getElementById('agent-details').innerText = 'Error fetching agent data.';
+        return;
+      }
+
+      const container = document.getElementById('agent-details');
+      container.innerHTML = `
+        <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
+          <h2>${agent.displayName}</h2>
+          <img src="${agent.fullPortraitV2}" alt="${agent.displayIcon}" class="img-fluid">
+          <p>${agent.description}</p>
+        </div>
+        <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="200">
+          <h3>Role: ${agent.role.displayName}</h3>
+          <img src="${agent.role.displayIcon}" alt="${agent.role.displayIcon}" class="img-fluid">
+          <p>${agent.role.description}</p>
+        </div>
+        <div class="col-12" data-aos="fade-up" data-aos-delay="300">
+          <h3>Abilities</h3>
+          <div class="row">
+            ${agent.abilities.map(ability => `
+              <div class="col-md-3 text-center">
+                <h4>${ability.displayName}</h4>
+                <img src="${ability.displayIcon}" alt="${ability.displayName}" class="img-fluid">
+                <p>${ability.description}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        <div class="col-12" data-aos="fade-up" data-aos-delay="300">
+          <h3>IMAGES</h3>
+          <div class="row">
+
+
+            <img src="${agent.displayIcon}"  class="col-lg-6">
+            <img src="${agent.bustPortrait}"  class="col-lg-6">
+            <img src="${agent.background}"  class="col-lg-6">
+           
+           
+           
+           
+            ${agent.abilities.map(ability => `
+             
+            
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    displayAgentInfo();
+  </script>
+
+</body>
+
+</html>

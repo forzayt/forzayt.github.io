@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VALO_API</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="icon" id="icon" href="/images/favicon/Valorant-Logo-PNG-File.png" /> 
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
+
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+
+    <link rel="stylesheet" type="text/css" href="fonts/elegant-font/html-css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/customapi.js"></script>
+
+    
+</head>
+
+<body class="animsition">
+
+    <header class="header1">
+
+        <div id="topbar-placeholder"></div>
+
+                
+            </div>
+        </div>
+
+    
+     
+    </header>
+
+
+
+
+    <section id="cards" class="banner bgwhite p-t-40 p-b-40">
+        <div class="container">
+            <div class="row" id="cards-banner">
+              
+            </div>
+        </div>
+   
+
+
+  
+ 
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+</span>
+    </div>
+
+    <div id="dropDownSelect1"></div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+
+    <script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+    <script type="text/javascript">
+        $(".selection-1").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+    </script>
+
+    <script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/slick-custom.js"></script>
+
+    <script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
+
+    <script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
+
+    <script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $('.block2-btn-addcart').each(function() {
+            var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+            $(this).on('click', function() {
+                swal(nameProduct, "is added to cart !", "success");
+            });
+        });
+
+        $('.block2-btn-addwishlist').each(function() {
+            var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+            $(this).on('click', function() {
+                swal(nameProduct, "is added to wishlist !", "success");
+            });
+        });
+    </script>
+
+    <script src="js/main.js"></script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8ac68ced194647d9","serverTiming":{"name":{"cfL4":true}},"version":"2024.7.0","token":"cd0b4b3a733644fc843ef0b185f98241"}'
+        crossorigin="anonymous"></script>
+
+      
+
+
+        <script>
+
+
+
+                  //weapons api function
+
+
+
+
+
+
+
+
+                  const API_MAP = 'https://valorant-api.com/v1/playercards';
+
+async function fetchWeapons() {
+    try {
+        const response = await fetch(API_MAP);
+        const data = await response.json();
+        return data.data;
+        
+    } catch (error) {
+        console.error('Error fetching weapons:', error);
+        return [];
+    }
+}
+
+async function updateBanners() {
+    const weapons = await fetchWeapons();
+    const container = document.getElementById('cards-banner');
+
+    // Clear the container before adding new content
+    container.innerHTML = '';
+
+    weapons.forEach(weapon => {
+        const banner = document.createElement('div');
+        banner.className = 'col-sm-10 col-md-8 col-lg-3 m-l-r-auto';
+
+        banner.innerHTML = `
+            <div class="block1 hov-img-zoom pos-relative m-b-30">
+                <img src="${weapon.largeArt}" alt="${weapon.wideArt}">
+                <div class="block1-wrapbtn w-size2">
+                    <a href="" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                        ${weapon.displayName}
+                    </a>
+                </div>
+            </div>
+        `;
+
+        container.appendChild(banner);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    updateBanners();
+    fetch('topbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('topbar-placeholder').innerHTML = data;
+        });
+});
+
+
+
+
+
+
+
+
+
+
+        </script>
+</body>
+
+</html>
