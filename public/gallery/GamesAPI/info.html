@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JDM_Z</title>
+  <!-- Bootstrap CSS -->
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-TKxy5NwBvQiLCBm7q3F5YwejqZnz6UzszmR8Fa2r1DjGZb6axF8+JdGPuBMvQtV3VK2ePiyG4ENZB9xrii2Fuw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Add your custom styles here */
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .game-info {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .game-info img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .game-info h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .game-info p {
+      color: #555;
+      font-size: 16px;
+    }
+
+    .game-info a {
+      color: #007bff;
+    }
+
+    @media (max-width: 768px) {
+      .game-info {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="game-info mt-5" style="width: 1900px; align-content: center;margin-left: -600px;background-color: rgb(229, 240, 191); "  >
+          <h1 class="text-center mb-4"><span id="name"></span></h1>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="text-center">
+                <img src="" alt="Game Image" id="image" class="img-fluid rounded">
+                <div class="mt-3">
+                  <img src="" alt="Secondary Game Image" id="image2" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <!-- <p><strong>Name:</strong> <span id="name"></span></p> -->
+              <p><strong>Released:</strong> <span id="released"></span></p>
+              <p><strong>Rating:</strong> <span id="rating"></span></p>
+              <p><strong>Genre:</strong> <span id="genre"></span></p>
+              <p><strong>Platforms:</strong> <span id="platforms"></span></p>
+              <p><strong>Company / Studio:</strong> <span id="company"></span></p>
+              <p><strong>Official Website:</strong> <a href="" target="_blank" id="website"></a></p>
+              <p><strong>Reddit:</strong> <a href="" target="_blank" id="reddit"></a></p>
+              <p><strong>Popular Tags:</strong> <span id="tags"></span></p>
+              <p><strong>Minimum Requirements:</strong> <span id="minimum"></span></p>
+              <p><strong>Recommended Requirements:</strong> <span id="recommended"></span></p>
+              <p><strong>Available In:</strong> <span id="stores"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    window.onload = function () {
+      const queryParams = new URLSearchParams(window.location.search);
+
+      document.getElementById('name').textContent = queryParams.get('name') || "Unknown";
+      document.getElementById('released').textContent = queryParams.get('released') || "Unknown";
+      document.getElementById('rating').textContent = queryParams.get('rating') || "Unknown";
+      document.getElementById('genre').textContent = queryParams.get('genre') || "Unknown";
+      document.getElementById('platforms').textContent = queryParams.get('platforms') || "Unknown";
+      document.getElementById('company').textContent = queryParams.get('company') || "Unknown";
+      document.getElementById('website').textContent = queryParams.get('website') || "Unknown";
+      document.getElementById('website').href = queryParams.get('website') || "#";
+      document.getElementById('reddit').textContent = queryParams.get('reddit') || "Unknown";
+      document.getElementById('reddit').href = queryParams.get('reddit') || "#";
+      document.getElementById('tags').textContent = queryParams.get('tags') || "Unknown";
+      document.getElementById('minimum').textContent = queryParams.get('minrequirements') || "Unknown";
+      document.getElementById('recommended').textContent = queryParams.get('recrequirements') || "Unknown";
+      document.getElementById('stores').textContent = queryParams.get('stores') || "Unknown";
+
+      const imageUrl = queryParams.get('image');
+      if (imageUrl) {
+        document.getElementById('image').setAttribute('src', imageUrl);
+      } else {
+        document.getElementById('image').setAttribute('src', 'placeholder_image_url');
+      }
+
+      const image2Url = queryParams.get('image2');
+      if (image2Url) {
+        document.getElementById('image2').setAttribute('src', image2Url);
+      } else {
+        document.getElementById('image2').setAttribute('src', 'placeholder_image_url');
+      }
+    };
+  </script>
+</body>
+
+</html>
