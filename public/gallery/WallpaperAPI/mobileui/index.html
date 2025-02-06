@@ -1,17 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        function loadMobileVersion() {
-            if (window.innerWidth <= 500) { // Define your breakpoint for mobile here
-                window.location.href = "mobileui/"; // Redirect to the mobile version
-            }
-        }
     
-        // Run the function when the page loads and whenever the window is resized
-        window.onload = loadMobileVersion;
-        window.onresize = loadMobileVersion;
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wallpaper API</title>
@@ -75,7 +65,7 @@ footer {
     </style>
 </head>
 <body>
-    <h1>WALLPAPERS</h1>
+    <h1>POSTERS</h1>
     <div id="wallpaper-container" class="container">
         
             
@@ -83,7 +73,7 @@ footer {
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const apiUrl = urlParams.get("api") || "https://wallpaper-api-41jy.onrender.com/api/wallpapers";
+            const apiUrl = urlParams.get("api") || "https://wallpaper-api-41jy.onrender.com/api/wallpapers/mobile";
 
             try {
                 const response = await fetch(apiUrl);
