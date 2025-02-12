@@ -827,22 +827,5 @@ function sendmessage(){
 
 }
 
-// Redirect after form submission
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent default form submission
-    let form = this;
 
-    fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-    })
-    .then(response => {
-        if (response.ok) {
-            window.location.href = "https://vishnusanthoshportfolio.web.app/"; // Redirect manually
-        } else {
-            alert("Form submission failed. Please try again.");
-        }
-    })
-    .catch(error => console.error("Error:", error));
-});
 
