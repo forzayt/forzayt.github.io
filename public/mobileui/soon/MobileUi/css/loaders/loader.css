@@ -1,0 +1,249 @@
+/*! ------------------------------------------------
+ * Project Name: Name: Blayden - Personal Portfolio & Resume HTML Template
+ * Project Description: Show yourself brightly with Blayden - clean and creative portfolio and resume template!
+ * Tags: mix_design, resume, portfolio, personal page, cv, template, one page, responsive, html5, css3, creative, clean 
+ * Version: 1.0.0
+ * Build Date: June 2024
+ * Last Update: June 2024
+ * This product is available exclusively on Themeforest
+ * Author: mix_design
+ * Author URI: https://themeforest.net/user/mix_design */
+/*! File name: loader.css
+ * ------------------------------------------------
+ *
+ * ------------------------------------------------
+ * Table of Contents
+ * ------------------------------------------------
+ *  01. Loader Styles
+ * ------------------------------------------------
+ * Table of Contents End
+ * ------------------------------------------------ */
+:root {
+  --_size: 1.6rem;
+  --_font-default: "Urbanist", sans-serif;
+  --_font-accent: "Urbanist", sans-serif;
+  --_radius: 2rem;
+  --_radius-s: 1rem;
+  --_animspeed-fast: 0.1s;
+  --_animspeed-medium: 0.3s;
+  --_animspeed-slow: 0.6s;
+  --_animbezier: cubic-bezier(0.23, 0.65, 0.74, 1.09);
+  /* light color scheme */
+  --base--light: #BABEC8;
+  --base-rgb--light: 186,190,200;
+  --base-shade--light: #989ba3;
+  --base-tint--light: #d8dde7;
+  --stroke-controls--light: #2C2E34;
+  --stroke-elements--light: #8F93A1;
+  --font-weight-base--light: 400;
+  --font-weight-medium--light: 600;
+  --t-bright--light: #151617;
+  --t-medium--light: #44474a;
+  --t-muted--light: #797D83;
+  --t-opp-bright--light: #F2F5FC;
+  --t-opp-medium--light: #AEB5C5;
+  --t-opp-muted--light: #3E4045;
+  --neutral-bright--light: #000000;
+  /* dark color scheme */
+  --base--dark: #141414;
+  --base-rgb--dark: 20,20,20;
+  --base-shade--dark: #000000;
+  --base-tint--dark: #242424;
+  --stroke-controls--dark: #F2F5FC;
+  --stroke-elements--dark: #535762;
+  --font-weight-base--dark: 300;
+  --font-weight-medium--dark: 500;
+  --t-bright--dark: #F2F5FC;
+  --t-medium--dark: #AEB5C5;
+  --t-muted--dark: #505258;
+  --t-opp-bright--dark: #151617;
+  --t-opp-medium--dark: #313437;
+  --t-opp-muted--dark: #797D83;
+  --neutral-bright--dark: #ffffff;
+  /* permanent colors */
+  --per-base: #141414;
+  --t-per-bright-light: #F2F5FC;
+  --t-per-medium-light: #AEB5C5;
+  --t-per-muted-light: #3E4045;
+  --t-per-bright-dark: #151617;
+  --t-per-medium-dark: #313437;
+  --t-per-muted-dark: #797D83;
+  --per-stroke-controls: #F2F5FC;
+  --per-stroke-elements: #8F93A1;
+  /* neutral colors */
+  --neutral-white: #ffffff;
+  --neutral-black: #000000;
+  --neutral-gray: #878787;
+  --neutral-gray-dark: #404040;
+}
+
+/* defaults */
+@media (prefers-color-scheme: light) {
+  :root {
+    --base: var(--base--light);
+    --base-rgb: var(--base-rgb--light);
+    --base-shade: var(--base-shade--light);
+    --base-tint: var(--base-tint--light);
+    --stroke-controls: var(--stroke-controls--light);
+    --stroke-elements: var(--stroke-elements--light);
+    --font-weight-base: var(--font-weight-base--light);
+    --font-weight-medium: var(--font-weight-medium--light);
+    --t-bright: var(--t-bright--light);
+    --t-medium: var(--t-medium--light);
+    --t-muted: var(--t-muted--light);
+    --t-opp-bright: var(--t-opp-bright--light);
+    --t-opp-medium: var(--t-opp-medium--light);
+    --t-opp-muted: var(--t-opp-muted--light);
+    --neutral-bright: var(--neutral-bright--light);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --base: var(--base--dark);
+    --base-rgb: var(--base-rgb--dark);
+    --base-shade: var(--base-shade--dark);
+    --base-tint: var(--base-tint--dark);
+    --stroke-controls: var(--stroke-controls--dark);
+    --stroke-elements: var(--stroke-elements--dark);
+    --font-weight-base: var(--font-weight-base--dark);
+    --font-weight-medium: var(--font-weight-medium--dark);
+    --t-bright: var(--t-bright--dark);
+    --t-medium: var(--t-medium--dark);
+    --t-muted: var(--t-muted--dark);
+    --t-opp-bright: var(--t-opp-bright--dark);
+    --t-opp-medium: var(--t-opp-medium--dark);
+    --t-opp-muted: var(--t-opp-muted--dark);
+    --neutral-bright: var(--neutral-bright--dark);
+  }
+}
+[color-scheme=light] {
+  --base: var(--base--light);
+  --base-rgb: var(--base-rgb--light);
+  --base-shade: var(--base-shade--light);
+  --base-tint: var(--base-tint--light);
+  --stroke-controls: var(--stroke-controls--light);
+  --stroke-elements: var(--stroke-elements--light);
+  --font-weight-base: var(--font-weight-base--light);
+  --font-weight-medium: var(--font-weight-medium--light);
+  --t-bright: var(--t-bright--light);
+  --t-medium: var(--t-medium--light);
+  --t-muted: var(--t-muted--light);
+  --t-opp-bright: var(--t-opp-bright--light);
+  --t-opp-medium: var(--t-opp-medium--light);
+  --t-opp-muted: var(--t-opp-muted--light);
+  --neutral-bright: var(--neutral-bright--light);
+}
+
+[color-scheme=dark] {
+  --base: var(--base--dark);
+  --base-rgb: var(--base-rgb--dark);
+  --base-shade: var(--base-shade--dark);
+  --base-tint: var(--base-tint--dark);
+  --stroke-controls: var(--stroke-controls--dark);
+  --stroke-elements: var(--stroke-elements--dark);
+  --font-weight-base: var(--font-weight-base--dark);
+  --font-weight-medium: var(--font-weight-medium--dark);
+  --t-bright: var(--t-bright--dark);
+  --t-medium: var(--t-medium--dark);
+  --t-muted: var(--t-muted--dark);
+  --t-opp-bright: var(--t-opp-bright--dark);
+  --t-opp-medium: var(--t-opp-medium--dark);
+  --t-opp-muted: var(--t-opp-muted--dark);
+  --neutral-bright: var(--neutral-bright--dark);
+}
+
+/* ------------------------------------------------*/
+/* Loader Styles Start */
+/* ------------------------------------------------*/
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+.loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader__wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--base);
+  color: var(--t-bright);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loader__content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+     -moz-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  z-index: 2;
+  color: var(--t-bright);
+  overflow: hidden;
+}
+
+.loader__count {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+     -moz-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  overflow: hidden;
+  line-height: 1;
+}
+.loader__count span {
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font: normal var(--font-weight-base) 4.6rem/0.9 var(--_font-accent);
+  color: var(--t-bright);
+}
+@media only screen and (min-width: 768px) {
+  .loader__count span {
+    font-size: 8rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .loader__count span {
+    font-size: 10rem;
+  }
+}
+
+/* ------------------------------------------------*/
+/* Loader Styles End */
+/* ------------------------------------------------*/
