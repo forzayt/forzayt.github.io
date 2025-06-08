@@ -1,0 +1,511 @@
+/* --------------------------------------------------------------------
+* Light Style Stylesheet
+* 
+* Template:		Jesper - Creative Portfolio Showcase HTML Website Template
+* Author:		Themetorium
+* URL:			https://themetorium.net/
+*
+-------------------------------------------------------------------- */
+
+
+/* Table of Content
+====================
+* Global variables
+* Style switch button
+* General
+* Logo
+* Page header
+* If class "tt-section-bg-on" is enabled on parent element
+* tt-Ggrid
+* Horizontal accordion
+* Logo wall
+* Content carousel 
+* Portfolio sticky
+* Portfolio slider
+*/ 
+
+
+/* ------------------------------------------------------------- *
+ * Global variables
+ * Please note that the dark and light colors are reversed. Dark colors are light and light colors are dark!
+/* ------------------------------------------------------------- */
+
+body.tt-lightmode-on {
+	/* General */
+	--tt-dark-color: #e5e3dc; /* Template light color. #e5e3dc */
+	--tt-light-color: #212121; /* Template dark color. #212121 */
+
+	--tt-bg-color: #e5e3dc; /* Template background color. #e5e3dc */
+	--tt-text-color: #212121; /* Template text color. #212121 */
+	--tt-text-muted-color: #666; /* Template text muted color. #666 */
+	--tt-border-color: #666; /* Template borders color. #666 */
+
+	--tt-linear-text-bg-color: rgb(0 0 0 / 20%); /* Template text fill color. For linear text reveal effect (do not change it!). rgb(0 0 0 / 20%) */
+
+	/* Cursor ball */
+	--tt-ball-border-color: #999; /* Ball border color. #999 */
+}
+
+
+/* ------------------------------------------------------------- *
+ * Style switch button
+/* ------------------------------------------------------------- */
+
+.tt-style-switch {
+	position: relative;
+	margin-left: 40px;
+}
+@media (max-width: 1024px) {
+	.tt-style-switch {
+		margin-left: 0;
+		margin-right: 20px;
+	}
+}
+
+.tt-style-switch-inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	background-color: rgb(179 179 179 / 35%);
+	line-height: 1;
+	font-size: 15px;
+	cursor: pointer;
+	border-radius: 100%;
+	transition: background-color .3s, color .3s;
+}
+.tt-style-switch-inner:hover {
+}
+
+.tt-stsw-dark {
+	display: none;
+}
+body.tt-lightmode-on .tt-stsw-dark {
+	display: block;
+}
+body.tt-lightmode-on .tt-stsw-light {
+	display: none;
+}
+
+/* If header layout-2 is enabled. */
+#tt-header.tt-header-alter .tt-style-switch {
+}
+@media (max-width: 1024px) {
+	#tt-header.tt-header-alter .tt-style-switch {
+		margin-left: 0;
+		margin-right: 25px;
+	}
+}
+
+/* Disable on "portfolio-slider.html" page (since it does not affect the elements on this page, it has been removed to avoid confusion). It is still visible in the mobile menu. */
+body.tt-portfolio-slider-on:not(.tt-m-menu-open) .tt-style-switch {
+	display: none;
+}
+
+
+/* ------------------------------------------------------------- *
+ * General
+/* ------------------------------------------------------------- */
+
+/* Selection */
+body.tt-lightmode-on ::selection {
+	color: var(--tt-dark-color);
+	-webkit-text-fill-color: var(--tt-dark-color);
+	text-shadow: none;
+	background: var(--tt-main-color);
+}
+body.tt-lightmode-on ::-moz-selection {
+	color: var(--tt-dark-color);
+	-webkit-text-fill-color: var(--tt-dark-color);
+	text-shadow: none;
+	background: var(--tt-main-color); /* Firefox */
+}
+body.tt-lightmode-on ::-webkit-selection {
+	color: var(--tt-dark-color);
+	-webkit-text-fill-color: var(--tt-dark-color);
+	text-shadow: none;
+	background: var(--tt-main-color); /* Safari */
+}
+
+
+/* ------------------------------------------------------------- *
+ * Logo
+/* ------------------------------------------------------------- */
+
+body.tt-lightmode-on .tt-logo-light {
+	display: none;
+}
+body.tt-lightmode-on .tt-logo-dark {
+	display: block;
+}
+
+
+/* ------------------------------------------------------------- *
+ * Page header
+/* ------------------------------------------------------------- */
+
+/* If the page header background image is light (effect only if the image exist)
+================================================ */
+body.tt-lightmode-on.ph-bg-is-light-on.tt-ph-visible:not(.tt-m-menu-active) #tt-header:not(.tt-filled) {
+	color: var(--tt-light-color);
+}
+
+/* Make logo dark */
+body.tt-lightmode-on.ph-bg-is-light-on.tt-ph-visible:not(.tt-m-menu-active) #tt-header:not(.tt-filled) .tt-logo-light {
+	display: none;
+}
+body.tt-lightmode-on.ph-bg-is-light-on.tt-ph-visible:not(.tt-m-menu-active) #tt-header:not(.tt-filled) .tt-logo-dark {
+	display: block;
+}
+
+/* Make menu items dark (for desctop only) */
+@media (min-width: 1025px) {
+	body.tt-lightmode-on.ph-bg-is-light-on.tt-ph-visible #tt-header:not(.tt-filled) .tt-main-menu-list > li > a, 
+	body.tt-lightmode-on.ph-bg-is-light-on.tt-ph-visible #tt-header:not(.tt-filled) .tt-main-menu-list > li > .tt-submenu-trigger > a {
+		color: var(--tt-light-color);
+	}
+	body.tt-lightmode-on.ph-bg-is-light-on.tt-ph-visible #tt-header:not(.tt-filled) .tt-submenu-master > .tt-submenu-trigger > a::after {
+		background-color: var(--tt-light-color);
+	}
+}
+
+/* Make mobile menu trigger dark */
+body.tt-lightmode-on.ph-bg-is-light-on.tt-ph-visible:not(.tt-m-menu-active) #tt-header:not(.tt-filled) .tt-m-menu-toggle-btn-text {
+	color: var(--tt-light-color);
+}
+body.tt-lightmode-on.ph-bg-is-light-on.tt-ph-visible:not(.tt-m-menu-active) #tt-header:not(.tt-filled) .tt-m-menu-toggle-btn span::before, 
+body.tt-lightmode-on.ph-bg-is-light-on.tt-ph-visible:not(.tt-m-menu-active) #tt-header:not(.tt-filled) .tt-m-menu-toggle-btn span::after {
+	background-color: var(--tt-light-color);
+}
+
+/* Make header buttons dark */
+@media (min-width: 1025px) { 
+	body.tt-lightmode-on.ph-bg-is-light-on #tt-header:not(.tt-filled) .tt-btn-secondary {
+		background-color: var(--tt-light-color);
+	}
+	body.tt-lightmode-on.ph-bg-is-light-on #tt-header:not(.tt-filled) .tt-btn-secondary > *, 
+	body.tt-lightmode-on.ph-bg-is-light-on #tt-header:not(.tt-filled) .tt-btn-secondary > *::after {
+		color: var(--tt-dark-color);
+	}
+	body.tt-lightmode-on.ph-bg-is-light-on #tt-header:not(.tt-filled) .tt-btn-outline {
+		box-shadow: inset 0 0 0 2px var(--tt-light-color);
+	}
+	body.tt-lightmode-on.ph-bg-is-light-on #tt-header:not(.tt-filled) .tt-btn-outline > *, 
+	body.tt-lightmode-on.ph-bg-is-light-on #tt-header:not(.tt-filled) .tt-btn-outline > *::after {
+		color: var(--tt-light-color);
+	}
+	body.tt-lightmode-on.ph-bg-is-light-on #tt-header:not(.tt-filled) .tt-btn-link > *, 
+	body.tt-lightmode-on.ph-bg-is-light-on #tt-header:not(.tt-filled) .tt-btn-link > *::after {
+		color: var(--tt-light-color);
+	}
+	body.tt-lightmode-on.ph-bg-is-light-on #tt-header:not(.tt-filled) .tt-btn-line {
+		background-color: var(--tt-light-color);
+	}
+}
+
+/* Make page header elements dark */
+body.tt-lightmode-on.ph-bg-is-light-on #page-header,
+body.tt-lightmode-on.ph-bg-is-light-on #page-header a {
+	color: var(--tt-light-color);
+}
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-scroll-down text {
+	fill: var(--tt-light-color);
+}
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-scroll-down .tt-scrd-icon {
+	color: var(--tt-light-color);
+}
+
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .ph-share-trigger,
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .ph-share-buttons > ul > li a {
+	color: var(--tt-light-color);
+}
+
+/* Make page header buttons dark */
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-btn-secondary {
+	background-color: var(--tt-light-color);
+}
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-btn-secondary > *, 
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-btn-secondary > *::after {
+	color: var(--tt-dark-color);
+}
+
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-btn-outline {
+	box-shadow: inset 0 0 0 2px var(--tt-light-color);
+}
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-btn-outline > *, 
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-btn-outline > *::after {
+	color: var(--tt-light-color);
+}
+
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-big-round-ptn-inner {
+	color: var(--tt-light-color);
+}
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-big-round-ptn-inner:hover, 
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-big-round-ptn-inner:focus {
+	color: #FFF;
+}
+
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-btn-link > *, 
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-btn-link > *::after {
+	color: var(--tt-light-color);
+}
+body.tt-lightmode-on.ph-bg-is-light-on #page-header .tt-btn-line {
+	background-color: var(--tt-light-color);
+}
+
+
+/* ------------------------------------------------------------- *
+ * If class "tt-section-bg-on" is enabled on parent element
+/* ------------------------------------------------------------- */
+
+body.tt-lightmode-on .tt-section-bg-on {
+	color: var(--tt-dark-color);
+}
+
+body.tt-lightmode-on .tt-section-bg-on .tt-text-reveal > span {
+	color: var(--tt-dark-color);
+	-webkit-text-fill-color: rgb(255 255 255 / 20%);
+}
+
+
+/* Buttons 
+=========== */
+body.tt-lightmode-on .tt-section-bg-on .tt-btn-secondary {
+	background-color: var(--tt-dark-color);
+}
+body.tt-lightmode-on .tt-section-bg-on .tt-btn-secondary > *, 
+body.tt-lightmode-on .tt-section-bg-on .tt-btn-secondary > *::after {
+	color: var(--tt-light-color);
+}
+
+body.tt-lightmode-on .tt-section-bg-on .tt-btn-outline {
+	box-shadow: inset 0 0 0 2px var(--tt-dark-color);
+}
+body.tt-lightmode-on .tt-section-bg-on .tt-btn-outline > *, 
+body.tt-lightmode-on .tt-section-bg-on .tt-btn-outline > *::after {
+	color: var(--tt-dark-color);
+}
+
+
+/* ------------------------------------------------------------- *
+ * tt-Ggrid
+/* ------------------------------------------------------------- */
+
+/* tt-Ggrid categories nav
+=========================== */
+body.tt-lightmode-on .ttgr-cat-nav {
+	background-color: rgb(229 227 220 / 90%);
+}
+
+
+/* ------------------------------------------------------------- *
+ * Horizontal accordion
+/* ------------------------------------------------------------- */
+
+/* Horizontal accordion item alternative hover (no effect on small screens!) */
+@media (min-width: 1025px) {
+	body.tt-lightmode-on .tt-hac-alter-hover .tt-hac-item:first-child,
+	body.tt-lightmode-on .tt-hac-alter-hover .tt-hac-item.active {
+		background-color: var(--tt-light-color);
+		color: var(--tt-dark-color);
+		border-color: transparent;
+	}
+	body.tt-lightmode-on .tt-hac-alter-hover .tt-hac-item:first-child.inactive {
+		background-color: var(--tt-bg-color);
+		color: var(--tt-text-color);
+		border-color: var(--tt-border-color);
+	}
+}
+
+/* Horizontal accordion item for small screens only (effects only with alternative hover!) */
+@media (max-width: 1024px) {
+	body.tt-lightmode-on .tt-hac-alter-hover .tt-hac-item {
+		background-color: var(--tt-light-color);
+		color: var(--tt-dark-color);
+		border-color: transparent;
+	}
+	body.tt-lightmode-on .tt-hac-alter-hover .tt-hac-item .tt-btn-outline > *,
+	body.tt-lightmode-on .tt-hac-alter-hover .tt-hac-item .tt-btn-outline > *:after {
+		color: var(--tt-dark-color);
+	}
+	body.tt-lightmode-on .tt-hac-alter-hover .tt-hac-item .tt-btn-outline {
+		box-shadow: inset 0 0 0 2px var(--tt-dark-color);
+	}
+	body.tt-lightmode-on .tt-hac-alter-hover .tt-hac-item-count::before {
+		opacity: .6;
+	}
+}
+
+
+/* ------------------------------------------------------------- *
+ * Logo wall
+/* ------------------------------------------------------------- */
+
+body.tt-lightmode-on .tt-logo-wall-item,
+body.tt-lightmode-on a.tt-logo-wall-item:hover {
+	background-color: var(--tt-light-color);
+}
+
+body.tt-lightmode-on .tt-logo-wall.tt-lw-bordered a.tt-logo-wall-item:not(:hover) .tt-lv-img-dark {
+	display: block;
+}
+body.tt-lightmode-on .tt-logo-wall.tt-lw-bordered a.tt-logo-wall-item:not(:hover) .tt-lv-img-light {
+	display: none;
+}
+
+
+/* ------------------------------------------------------------- *
+ * Content carousel 
+/* ------------------------------------------------------------- */
+
+body.tt-lightmode-on .tt-content-carousel.cc-pagination-outside .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+	background-color: var(--tt-light-color);
+}
+body.tt-lightmode-on .tt-content-carousel.cc-pagination-outside .tt-cc-pagination-fraction {
+	color: var(--tt-light-color);
+}
+body.tt-lightmode-on .tt-content-carousel.cc-pagination-outside .tt-cc-pagination-progressbar {
+	background-color: rgb(139 138 138 / 30%);
+}
+body.tt-lightmode-on .tt-content-carousel.cc-pagination-outside .tt-cc-pagination-progressbar .swiper-pagination-progressbar-fill {
+	background-color: var(--tt-light-color);
+}
+
+
+/* ------------------------------------------------------------- *
+ * Portfolio sticky
+/* ------------------------------------------------------------- */
+
+body.tt-lightmode-on .tt-stp-item.stpi-bg-is-light,
+body.tt-lightmode-on .tt-stp-item.stpi-bg-is-light .tt-stp-item-caption {
+	color: var(--tt-light-color);
+}
+
+
+/* ------------------------------------------------------------- *
+ * Portfolio slider 
+/* ------------------------------------------------------------- */
+
+/* If portfolio slider item background is light
+================================================ */
+body.tt-lightmode-on.tt-posl-light-bg-on:not(.tt-m-menu-active) #tt-header:not(.tt-filled) {
+	color: var(--tt-light-color);
+}
+
+/* Make logo dark */ 
+body.tt-lightmode-on.tt-posl-light-bg-on:not(.tt-m-menu-active) #tt-header:not(.tt-filled) .tt-logo-light {
+	display: none;
+}
+body.tt-lightmode-on.tt-posl-light-bg-on:not(.tt-m-menu-active) #tt-header:not(.tt-filled) .tt-logo-dark {
+	display: block;
+}
+
+/* Make menu items dark (for desctop only) */
+@media (min-width: 1025px) {
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-main-menu-list > li > a, 
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-main-menu-list > li > .tt-submenu-trigger > a {
+		color: var(--tt-light-color);
+	}
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-submenu-master > .tt-submenu-trigger > a::after {
+		background-color: var(--tt-light-color);
+	}
+}
+
+/* Make mobile menu trigger dark */
+body.tt-lightmode-on.tt-posl-light-bg-on:not(.tt-m-menu-active) #tt-header:not(.tt-filled) .tt-m-menu-toggle-btn-text {
+	color: var(--tt-light-color);
+}
+body.tt-lightmode-on.tt-posl-light-bg-on:not(.tt-m-menu-active) #tt-header:not(.tt-filled) .tt-m-menu-toggle-btn span::before, 
+body.tt-lightmode-on.tt-posl-light-bg-on:not(.tt-m-menu-active) #tt-header:not(.tt-filled) .tt-m-menu-toggle-btn span::after {
+	background-color: var(--tt-light-color);
+}
+
+/* Make header buttons dark */
+@media (min-width: 1025px) { 
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-btn-secondary {
+		background-color: var(--tt-light-color);
+	}
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-btn-secondary > *, 
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-btn-secondary > *::after {
+		color: var(--tt-dark-color);
+	}
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-btn-outline {
+		box-shadow: inset 0 0 0 2px var(--tt-light-color);
+	}
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-btn-outline > *, 
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-btn-outline > *::after {
+		color: var(--tt-light-color);
+	}
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-btn-link > *, 
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-btn-link > *::after {
+		color: var(--tt-light-color);
+	}
+	body.tt-lightmode-on.tt-posl-light-bg-on #tt-header:not(.tt-filled) .tt-btn-line {
+		background-color: var(--tt-light-color);
+	}
+}
+
+/* Make portfolio slider elements dark */
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider,
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider a,
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-posl-item-title,
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-posl-item-title a,
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-posl-item-category,
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-posl-item-category a,
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-social-buttons > ul > li a,
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-posl-nav-arrow,
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-posl-pagination {
+	color: var(--tt-light-color);
+}
+
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-posl-pagination-fraction .swiper-pagination-total::before,
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-posl-pagination .swiper-pagination-bullet:not(.swiper-pagination-bullet-active),
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-posl-pagination-progressbar .swiper-pagination-progressbar-fill {
+	background-color: var(--tt-light-color);
+}
+
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-posl-nav-arrow svg {
+	fill: var(--tt-light-color);
+}
+
+/* Make portfolio slider buttons dark */
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-btn-secondary {
+	background-color: var(--tt-light-color);
+}
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-btn-secondary > *, 
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-btn-secondary > *::after {
+	color: var(--tt-dark-color);
+}
+
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-btn-outline {
+	box-shadow: inset 0 0 0 2px var(--tt-light-color);
+}
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-btn-outline > *, 
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-btn-outline > *::after {
+	color: var(--tt-light-color);
+}
+
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-big-round-ptn-inner {
+	color: var(--tt-light-color);
+}
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-big-round-ptn-inner:hover, 
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-big-round-ptn-inner:focus {
+	color: #FFF;
+}
+
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-btn-link > *, 
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-btn-link > *::after {
+	color: var(--tt-light-color);
+}
+body.tt-lightmode-on.tt-posl-light-bg-on .tt-portfolio-slider .tt-btn-line {
+	background-color: var(--tt-light-color);
+}
+
+/* Make portfolio slider cursor drag dark */
+body.tt-lightmode-on.tt-posl-light-bg-on #ball.ball-drag-mouse-down {
+	border-color: var(--tt-light-color);
+}
+body.tt-lightmode-on.tt-posl-light-bg-on #ball .ball-drag-mouse-down-inner {
+	color: var(--tt-light-color);
+}
