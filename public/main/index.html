@@ -1,1453 +1,1140 @@
 <!DOCTYPE html>
+<html lang="zxx">
+<!-- 
 
-
-<html lang="en">
+VVVVVVVV           VVVVVVVVIIIIIIIIII   SSSSSSSSSSSSSSS HHHHHHHHH     HHHHHHHHHNNNNNNNN        NNNNNNNNUUUUUUUU     UUUUUUUU     
+V::::::V           V::::::VI::::::::I SS:::::::::::::::SH:::::::H     H:::::::HN:::::::N       N::::::NU::::::U     U::::::U     
+V::::::V           V::::::VI::::::::IS:::::SSSSSS::::::SH:::::::H     H:::::::HN::::::::N      N::::::NU::::::U     U::::::U     
+V::::::V           V::::::VII::::::IIS:::::S     SSSSSSSHH::::::H     H::::::HHN:::::::::N     N::::::NUU:::::U     U:::::UU     
+ V:::::V           V:::::V   I::::I  S:::::S              H:::::H     H:::::H  N::::::::::N    N::::::N U:::::U     U:::::U      
+  V:::::V         V:::::V    I::::I  S:::::S              H:::::H     H:::::H  N:::::::::::N   N::::::N U:::::D     D:::::U      
+   V:::::V       V:::::V     I::::I   S::::SSSS           H::::::HHHHH::::::H  N:::::::N::::N  N::::::N U:::::D     D:::::U      
+    V:::::V     V:::::V      I::::I    SS::::::SSSSS      H:::::::::::::::::H  N::::::N N::::N N::::::N U:::::D     D:::::U      
+     V:::::V   V:::::V       I::::I      SSS::::::::SS    H:::::::::::::::::H  N::::::N  N::::N:::::::N U:::::D     D:::::U      
+      V:::::V V:::::V        I::::I         SSSSSS::::S   H::::::HHHHH::::::H  N::::::N   N:::::::::::N U:::::D     D:::::U      
+       V:::::V:::::V         I::::I              S:::::S  H:::::H     H:::::H  N::::::N    N::::::::::N U:::::D     D:::::U      
+        V:::::::::V          I::::I              S:::::S  H:::::H     H:::::H  N::::::N     N:::::::::N U::::::U   U::::::U      
+         V:::::::V         II::::::IISSSSSSS     S:::::SHH::::::H     H::::::HHN::::::N      N::::::::N U:::::::UUU:::::::U      
+          V:::::V          I::::::::IS::::::SSSSSS:::::SH:::::::H     H:::::::HN::::::N       N:::::::N  UU:::::::::::::UU       
+           V:::V           I::::::::IS:::::::::::::::SS H:::::::H     H:::::::HN::::::N        N::::::N    UU:::::::::UU         
+            VVV            IIIIIIIIII SSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHHNNNNNNNN         NNNNNNN      UUUUUUUUU           
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                
+                                       
+What are you doing here?! you sneaky developer...
+-->
 
 <head>
 
-		<!-- Title -->
-		<title> | VISHNU.S |  </title>
-		<link rel="icon" id="icon" href="../assets/emoji.png" /> 
-
-		<!-- Meta -->
-		<meta charset="utf-8">
-		<meta name="description" content="Vishnu.S - Portfolio">
-		<meta name="author" content="themetorium.net">
-
-		<!-- Mobile Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-		<link rel="preconnect" href="https://fonts.googleapis.com/">
-		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"> <!-- Body font -->
-		<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&amp;display=swap" rel="stylesheet"> <!-- Secondary/Alter font -->
-
-		<!-- Libs and Plugins CSS -->
-		<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css"> <!-- Font Icons CSS (https://fontawesome.com) Free version! -->
-		<link rel="stylesheet" href="assets/vendor/fancybox/css/fancybox.css"> <!-- Fancybox (lightbox) JS (https://fancyapps.com/) -->
-		<link rel="stylesheet" href="assets/vendor/swiper/css/swiper-bundle.min.css"> <!-- Swiper CSS (https://swiperjs.com/) -->
-
-		<!-- Master CSS -->
-		<link rel="stylesheet" href="assets/css/helper.css">
-		<link rel="stylesheet" href="assets/css/theme.css">
-
-		<!-- Light style CSS -->
-		<link rel="stylesheet" href="assets/css/theme-light.css">
-
-	</head>
-
-	
-
-	<body id="body" class="tt-transition tt-noise tt-magic-cursor tt-smooth-scroll">
-
-
-		<!-- *************************************
-		*********** Begin body inner ************* 
-		************************************** -->
-		<main id="body-inner">
-
-
-			<!-- Begin page transition (do not remove!!!) 
-			=========================== -->
-			<div id="tt-page-transition">
-				<div class="tt-ptr-overlay-top tt-noise"></div>
-				<div class="tt-ptr-overlay-bottom tt-noise"></div>
-				<div class="tt-ptr-preloader">
-					<div class="tt-ptr-prel-content">
-						<!-- Hint: You may need to change the img height and opacity to match your logo type. You can do this from the "theme.css" file (find: ".tt-ptr-prel-image"). -->
-						<img src="assets/img/logo-light.png" class="tt-ptr-prel-image" alt="Logo">
-					</div> <!-- /.tt-ptr-prel-content -->
-				</div> <!-- /.tt-ptr-preloader -->
-			</div>
-			<!-- End page transition -->
-
-			<!-- Begin magic cursor 
-			======================== -->
-			<div id="magic-cursor">
-				<div id="ball"></div>
-			</div>
-			<!-- End magic cursor --> 
-
-			<!-- ===================
-			///// Begin header /////
-			========================
-			* Use class "tt-header-scroll" to hide header on scroll down and show on scroll up.
-			* Use class "tt-header-fixed" to set header to fixed position (no effect with class "tt-header-scroll").
-			* Use class "tt-header-filled" to add background color to header on scroll (effect only with class "tt-header-scroll" and "tt-header-fixed").
-			* Use class "tt-header-alter" to enable alternative layout (for desktop only!).
-			-->
-			
-
-			
-			<!-- *************************************
-			*********** Begin content wrap *********** 
-			************************************** -->
-			<div id="tt-content-wrap">
-
-				
-				<!-- ========================
-				///// Begin page header /////
-				============================= 
-				* Use class "ph-full" to enable fullscreen size (no effect on small screens!).
-				* Use class "ph-full-m" to enable fullscreen size on small screens.
-				* Use class "ph-cap-sm", "ph-cap-lg", "ph-cap-xlg", "ph-cap-xxlg" "ph-cap-xxxlg" or "ph-cap-xxxxlg" to set caption size (no class = default size).
-				* Use class "ph-center" to align the content to the center. 
-				* Use class "ph-caption-parallax" to enable caption parallax.
-				* Use class "ph-image-parallax" to enable image/video parallax (if image/video exist).
-				* Use class "ph-bg-is-light" if needed, it makes the elements dark and more visible if you use a very light background image (effect only if the image/video exist).
-				-->
-				<div id="page-header" class="ph-full ph-full-m ph-center ph-cap-xxxxlg ph-image-parallax ph-caption-parallax">
-
-					<!-- Begin page header image 
-					============================= 
-					* Use class "ph-image-grayscale" to enable black & white image.
-					* Use class "ph-image-cover-*" to set image overlay opacity. For example "ph-image-cover-2" or "ph-image-cover-2-5" (up to "ph-image-cover-9-5"). 
-					-->
-					<!-- <div class="ph-image ph-image-cover-2">
-						<div class="ph-image-inner">
-							<img src="assets/img/page-header/ph-1.jpg" alt="Image">
-						</div>
-					</div> -->
-					<!-- End page header image -->
-
-					<!-- Begin page header video 
-					============================= 
-					* Use class "ph-video-grayscale" to enable black & white video.
-					* Use class "ph-video-cover-*" to set video overlay opacity. For example "ph-video-cover-2" or "ph-video-cover-2-5" (up to "ph-video-cover-9-5"). 
-					* Use attribute "loop" in <video> tag to make the video play repeatedly.
-					-->
-					<div class="ph-video ph-video-grayscale ph-video-cover-1">
-						<div class="ph-video-inner">
-							<video loop muted autoplay playsinline  poster="">
-								<source src="assets/vids/main_gradiant.mp4"  type="video/mp4">
-								
-							</video>
-						</div>
-					</div>
-					<!-- End page header video -->
-						
-					<div class="page-header-inner tt-wrap">
-
-						<div class="ph-caption">
-							<div class="ph-caption-inner">
-								<!-- <h2 class="ph-caption-subtitle">Subtitle</h2> -->
-								<h1 class="ph-caption-title"> VISHNU <br> </h1>
-								<div class="ph-caption-description max-width-700">
-									Designing since Ctrl+C and Ctrl+V <br> became muscle memory
-								</div>
-							</div> <!-- /.ph-caption-inner -->
-						</div> <!-- /.ph-caption -->
-
-					</div> <!-- /.page-header-inner -->
-
-					<!-- Begin page header mask
-					============================ 
-					Note: ph-mask is basically a clone of caption. If you want to use a different text on the mask then it is a bit tricky to fit. For better results, make sure that it will be the same length as possible as the original caption text (especially the title). It should also contain the same number of lines. Sometimes this can be difficult to achieve, in which case we recommend simply using identical text to the original caption.
-					-->
-					<div class="page-header-inner ph-mask">
-						<div class="ph-mask-inner tt-wrap">
-
-							<div class="ph-caption">
-								<div class="ph-caption-inner">
-									<!-- <h2 class="ph-caption-subtitle">Subtitle</h2> -->
-									<h1 class="ph-caption-title">VISHNU <br> </h1>
-									<div class="ph-caption-description max-width-700">
-										Designing since Ctrl+C and Ctrl+V <br> became muscle memory
-									</div>
-								</div> <!-- /.ph-caption-inner -->
-							</div> <!-- /.ph-caption -->
-
-						</div> <!-- /.ph-mask-inner -->
-					</div>
-					<!-- End page header mask -->
-
-
-					<!-- Begin social buttons
-					========================== -->
-					<div class="ph-social">
-						<ul>
-							<li><a href="https://www.facebook.com/themetorium" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a></li>
-							<li><a href="https://dribbble.com/Themetorium" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-dribbble"></i></a></li>
-							<li><a href="https://www.behance.net/Themetorium" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-behance"></i></a></li>
-							<li><a href="https://www.youtube.com/" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a></li>
-							<!-- <li><a href="https://x.com/Themetorium" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a></li> -->
-						</ul>
-					</div>
-					<!-- End social buttons -->
-
-					<!-- Begin scroll down
-					=======================
-					* Note: Circle shown only if class "ph-full" or "ph-full-m" is enabled in "page-header" but not on small screens! Otherwise, only the arrow icon will be shown to save space.
-					-->
-					<div class="tt-scroll-down">
-						<!-- You can change "data-offset" attribute to set scroll top offset -->
-						<a href="#tt-page-content" class="tt-scroll-down-inner tt-magnetic-item" data-offset="0">
-							<div class="tt-scrd-icon"></div>
-							<svg viewBox="0 0 500 500">
-								<defs>
-									<path d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250" id="textcircle"></path>
-								</defs>
-								<text dy="30">
-									<!-- If you change the text, you probably have to change the CSS parameters as well. In the "theme.css" file, find ".tt-scroll-down text {" and change the "font-size" and "letter-spacing" to fit the text correctly. -->
-									<textPath xlink:href="#textcircle">Scroll to Explore - Scroll to Explore -</textPath>
-								</text>
-							</svg>
-						</a> <!-- /.tt-scroll-down-inner -->
-					</div>
-					<!-- End scroll down -->
-
-				</div>
-				<!-- End page header -->
-
-
-				<!-- *************************************
-				*********** Begin page content *********** 
-				************************************** -->
-				<div id="tt-page-content">
-
-
-					<!-- =======================
-					///// Begin tt-section /////
-					============================ 
-					* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc.
-					* You can use classes "border-top" and "border-bottom" if needed. 
-					* Note: Each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-					-->
-					<div class="tt-section padding-top-xlg-140 padding-bottom-xlg-120">
-						<div class="tt-section-inner tt-wrap">
-
-							<div class="tt-row">
-								<div class="tt-col-lg-4">
-
-									<!-- Begin tt-Heading 
-									====================== 
-									* Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg", "tt-heading-xxlg" or "tt-heading-xxxlg" to set caption size (no class = default size).
-									* Use class "tt-heading-center" to align tt-Heading to center.
-									* Use class "tt-text-reveal" or "tt-anim-fadeinup" with title or subtitle element to enable text reveal animation.
-									* Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
-									-->
-									<div class="tt-heading tt-heading-xlg">
-										<!-- <h3 class="tt-heading-subtitle tt-text-reveal">Featured</h3> -->
-										<h2 class="tt-heading-title tt-text-reveal">About Me</h2> <!-- You can use <br> to break a text line if needed -->
-									</div>
-									<!-- End tt-Heading -->
-
-									<div class="tt-text-uppercase margin-top-30 tt-text-reveal">
-										Creative designer<br> based in Melbourne
-									</div>
-
-								</div> <!-- /.tt-col -->
-
-								<div class="tt-col-lg-1 padding-top-30">
-								</div> <!-- /.tt-col -->
-
-								<div class="tt-col-lg-7 tt-align-self-center">
-
-									<div class="text-xxlg font-500 tt-text-reveal">
-										I am dedicated to developing innovative solutions and impactful experiences that meet user needs and exceed expectations.
-									</div>
-
-									<a href="about-me.html" class="tt-btn tt-btn-outline margin-top-40 tt-magnetic-item tt-anim-fadeinup">
-										<span data-hover="Read More">Read More</span>
-									</a>
-									
-								</div> <!-- /.tt-col -->
-							</div><!-- /.tt-row -->
-
-						</div> <!-- /.tt-section-inner -->
-					</div>
-					<!-- End tt-section -->
-
-
-					<!-- =======================
-					///// Begin tt-section /////
-					============================ 
-					* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc.
-					* You can use classes "border-top" and "border-bottom" if needed. 
-					* Note: Each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-					-->
-					<div class="tt-section padding-top-xlg-140 border-top">
-						<div class="tt-section-inner tt-wrap">
-
-							<div class="tt-row">
-								<div class="tt-col-xl-8">
-
-									<!-- Begin tt-Heading 
-									====================== 
-									* Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg", "tt-heading-xxlg" or "tt-heading-xxxlg" to set caption size (no class = default size).
-									* Use class "tt-heading-center" to align tt-Heading to center.
-									* Use class "tt-text-reveal" or "tt-anim-fadeinup" with title or subtitle element to enable text reveal animation.
-									* Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
-									-->
-									<div class="tt-heading tt-heading-xxxlg">
-										<h3 class="tt-heading-subtitle tt-text-reveal">Featured Work</h3>
-										<h2 class="tt-heading-title tt-text-reveal">Projects</h2> <!-- You can use <br> to break a text line if needed -->
-									</div>
-									<!-- End tt-Heading -->
-
-									<div class="tt-text-uppercase max-width-400 margin-left-xlg-10-p text-pretty tt-text-reveal">
-										Please explore my selected projects below. Click on each one for an overview
-									</div>
-
-								</div> <!-- /.tt-col -->
-							
-								<div class="tt-col-xl-4 tt-align-self-end margin-top-30">
-
-									<!-- Begin big round button 
-									============================ -->
-									<div class="tt-big-round-ptn tt-anim-fadeinup">
-										<a href="portfolio-preview.html" class="tt-big-round-ptn-holder tt-magnetic-item">
-											<div class="tt-big-round-ptn-inner">All<br> Projects</div>
-										</a>
-									</div>
-									<!-- End big round button -->
-
-								</div> <!-- /.tt-col -->
-							</div><!-- /.tt-row -->
-
-						</div> <!-- /.tt-section-inner -->
-					</div>
-					<!-- End tt-section -->
-
-
-					<!-- =======================
-					///// Begin tt-section /////
-					============================ 
-					* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc.
-					* You can use classes "border-top" and "border-bottom" if needed. 
-					* Note: Each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-					-->
-					<div class="tt-section no-padding-top padding-top-xlg-80 padding-bottom-20 padding-bottom-xlg-80">
-						<div class="tt-section-inner">
-
-							<!-- Begin portfolio preview list 
-							==================================
-							* Use class "tt-ppli-portrait" to enable preview image portrait mode.
-							* Use class "tt-ppli-hover" to enable item hover effect.
-							-->
-							<div class="tt-portfolio-preview-list tt-ppli-portrait tt-ppli-hover">
-								<div class="tt-ppl-items-list">
-
-									<!-- Begin list item 
-									===================== -->
-									<a href="single-project-1.html" class="tt-ppl-item">
-										<div class="tt-ppli-preview">
-											<div class="tt-ppli-preview-image">
-												<!-- Note: The recommended maximum image width is 800px -->
-												<img src="assets/img/portfolio/800/portfolio-1.jpg" alt="Image">
-											</div> <!-- /.tt-ppli-preview-image -->
-										</div> <!-- /.tt-ppli-preview -->
-
-										<div class="tt-ppl-item-inner">
-											<div class="tt-ppl-item-holder">
-												<div class="tt-ppli-col tt-ppli-col-count">
-													<div class="tt-ppli-count"></div>
-												</div> <!-- /.tt-ppli-col -->
-												<div class="tt-ppli-col tt-ppli-col-caption">
-													<div class="tt-ppli-caption">
-														<h2 class="tt-ppli-title">Tortillas</h2>
-														<div class="tt-ppli-categories">
-															<div class="tt-ppli-category">Lifestyle</div>
-															<!-- <div class="tt-ppli-category">Varia</div> -->
-														</div> <!-- /.tt-ppli-categories -->
-													</div> <!-- /.tt-ppli-caption -->
-												</div> <!-- /.tt-ppli-col -->
-												<div class="tt-ppli-col tt-ppli-col-info tt-justify-content-md-end">
-													<div class="tt-ppli-info"> <!-- Use short text! 3 lines max. -->
-														Visual / Branding
-													</div> <!-- /.tt-ppli-info -->
-												</div> <!-- /.tt-ppli-col -->
-											</div> <!-- /.tt-ppl-item-holder -->
-										</div> <!-- /.tt-ppl-item-inner -->
-									</a>
-									<!-- End list item -->
-
-									<!-- Begin list item 
-									===================== -->
-									<a href="single-project-2.html" class="tt-ppl-item">
-										<div class="tt-ppli-preview">
-											<div class="tt-ppli-preview-image">
-												<!-- Note: The recommended maximum image width is 800px -->
-												<img src="assets/img/portfolio/800/portfolio-2.jpg" alt="Image">
-											</div> <!-- /.tt-ppli-preview-image -->
-										</div> <!-- /.tt-ppli-preview -->
-
-										<div class="tt-ppl-item-inner">
-											<div class="tt-ppl-item-holder">
-												<div class="tt-ppli-col tt-ppli-col-count">
-													<div class="tt-ppli-count"></div>
-												</div> <!-- /.tt-ppli-col -->
-												<div class="tt-ppli-col tt-ppli-col-caption">
-													<div class="tt-ppli-caption">
-														<h2 class="tt-ppli-title">Coffee Shop</h2>
-														<div class="tt-ppli-categories">
-															<div class="tt-ppli-category">Lifestyle</div>
-															<!-- <div class="tt-ppli-category">Varia</div> -->
-														</div> <!-- /.tt-ppli-categories -->
-													</div> <!-- /.tt-ppli-caption -->
-												</div> <!-- /.tt-ppli-col -->
-												<div class="tt-ppli-col tt-ppli-col-info tt-justify-content-md-end">
-													<div class="tt-ppli-info"> <!-- Use short text! 3 lines max. -->
-														Art Direction / Visual
-													</div> <!-- /.tt-ppli-info -->
-												</div> <!-- /.tt-ppli-col -->
-											</div> <!-- /.tt-ppl-item-holder -->
-										</div> <!-- /.tt-ppl-item-inner -->
-									</a>
-									<!-- End list item -->
-
-									<!-- Begin list item 
-									===================== -->
-									<a href="single-project-3.html" class="tt-ppl-item">
-										<div class="tt-ppli-preview">
-											<div class="tt-ppli-preview-video">
-												<!-- Note: The recommended maximum image width is 800px -->
-												<video loop muted preload="metadata" poster="assets/vids/800/video-4-800.jpg">
-													<source src="assets/vids/placeholder.mp4" data-src="assets/vids/800/video-4-800.mp4" type="video/mp4">
-													<source src="assets/vids/placeholder.webm" data-src="assets/vids/800/video-4-800.webm" type="video/webm">
-												</video>
-											</div> <!-- /.tt-ppli-preview-video -->
-										</div> <!-- /.tt-ppli-preview -->
-
-										<div class="tt-ppl-item-inner">
-											<div class="tt-ppl-item-holder">
-												<div class="tt-ppli-col tt-ppli-col-count">
-													<div class="tt-ppli-count"></div>
-												</div> <!-- /.tt-ppli-col -->
-												<div class="tt-ppli-col tt-ppli-col-caption">
-													<div class="tt-ppli-caption">
-														<h2 class="tt-ppli-title">Fashion Shoot</h2>
-														<div class="tt-ppli-categories">
-															<div class="tt-ppli-category">Artistic</div>
-															<!-- <div class="tt-ppli-category">Varia</div> -->
-														</div> <!-- /.tt-ppli-categories -->
-													</div> <!-- /.tt-ppli-caption -->
-												</div> <!-- /.tt-ppli-col -->
-												<div class="tt-ppli-col tt-ppli-col-info tt-justify-content-md-end">
-													<div class="tt-ppli-info"> <!-- Use short text! 3 lines max. -->
-														Photographer / Visual / Branding
-													</div> <!-- /.tt-ppli-info -->
-												</div> <!-- /.tt-ppli-col -->
-											</div> <!-- /.tt-ppl-item-holder -->
-										</div> <!-- /.tt-ppl-item-inner -->
-									</a>
-									<!-- End list item -->
-
-									<!-- Begin list item 
-									===================== -->
-									<a href="single-project-4.html" class="tt-ppl-item">
-										<div class="tt-ppli-preview">
-											<div class="tt-ppli-preview-image">
-												<!-- Note: The recommended maximum image width is 800px -->
-												<img src="assets/img/portfolio/800/portfolio-3.jpg" alt="Image">
-											</div> <!-- /.tt-ppli-preview-image -->
-										</div> <!-- /.tt-ppli-preview -->
-
-										<div class="tt-ppl-item-inner">
-											<div class="tt-ppl-item-holder">
-												<div class="tt-ppli-col tt-ppli-col-count">
-													<div class="tt-ppli-count"></div>
-												</div> <!-- /.tt-ppli-col -->
-												<div class="tt-ppli-col tt-ppli-col-caption">
-													<div class="tt-ppli-caption">
-														<h2 class="tt-ppli-title">Postorganic</h2>
-														<div class="tt-ppli-categories">
-															<div class="tt-ppli-category">Artistic</div>
-															<!-- <div class="tt-ppli-category">Varia</div> -->
-														</div> <!-- /.tt-ppli-categories -->
-													</div> <!-- /.tt-ppli-caption -->
-												</div> <!-- /.tt-ppli-col -->
-												<div class="tt-ppli-col tt-ppli-col-info tt-justify-content-md-end">
-													<div class="tt-ppli-info"> <!-- Use short text! 3 lines max. -->
-														Desing / Branding
-													</div> <!-- /.tt-ppli-info -->
-												</div> <!-- /.tt-ppli-col -->
-											</div> <!-- /.tt-ppl-item-holder -->
-										</div> <!-- /.tt-ppl-item-inner -->
-									</a>
-									<!-- End list item -->
-
-									<!-- Begin list item 
-									===================== -->
-									<a href="single-project-5.html" class="tt-ppl-item">
-										<div class="tt-ppli-preview">
-											<div class="tt-ppli-preview-image">
-												<!-- Note: The recommended maximum image width is 800px -->
-												<img src="assets/img/portfolio/800/portfolio-4.jpg" alt="Image">
-											</div> <!-- /.tt-ppli-preview-image -->
-										</div> <!-- /.tt-ppli-preview -->
-
-										<div class="tt-ppl-item-inner">
-											<div class="tt-ppl-item-holder">
-												<div class="tt-ppli-col tt-ppli-col-count">
-													<div class="tt-ppli-count"></div>
-												</div> <!-- /.tt-ppli-col -->
-												<div class="tt-ppli-col tt-ppli-col-caption">
-													<div class="tt-ppli-caption">
-														<h2 class="tt-ppli-title">Embrace Yourself</h2>
-														<div class="tt-ppli-categories">
-															<div class="tt-ppli-category">Wellness</div>
-															<!-- <div class="tt-ppli-category">Varia</div> -->
-														</div> <!-- /.tt-ppli-categories -->
-													</div> <!-- /.tt-ppli-caption -->
-												</div> <!-- /.tt-ppli-col -->
-												<div class="tt-ppli-col tt-ppli-col-info tt-justify-content-md-end">
-													<div class="tt-ppli-info"> <!-- Use short text! 3 lines max. -->
-														Art Direction / Desing / Branding
-													</div> <!-- /.tt-ppli-info -->
-												</div> <!-- /.tt-ppli-col -->
-											</div> <!-- /.tt-ppl-item-holder -->
-										</div> <!-- /.tt-ppl-item-inner -->
-									</a>
-									<!-- End list item -->
-
-								</div> <!-- /.tt-ppl-items-list -->
-							</div>
-							<!-- End portfolio preview list -->
-
-						</div> <!-- /.tt-section-inner -->
-					</div>
-					<!-- End tt-section -->
-
-
-					<!-- =======================
-					///// Begin tt-section /////
-					============================ 
-					* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc.
-					* You can use classes "border-top" and "border-bottom" if needed. 
-					* Note: Each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-					-->
-					<div class="tt-section no-padding padding-top-xlg-40 padding-bottom-xlg-40">
-						<div class="tt-section-inner">
-
-							<!-- Begin crossed scrolling text 
-							================================== -->
-							<div class="tt-scrolling-text-crossed">
-								<div class="tt-scrolling-text-crossed-inner">
-
-									<!-- Begin scrolling text
-									==========================
-									* Use class "scrt-color-reverse" to reverse colors.
-									* Use class "scrt-dyn-separator" to enable dynamic separator (works only with data-change-direction="true").
-									* Note: Ideally, the text should be long enough to cover the entire width of the screen. If you use a very short text (e.g. one word), duplicate it (including the separator) to compensate for the optimal length of the text.
-									Available data attributes:
-									  data-scroll-speed="10" ...................(lower number = higher speed). 
-									  data-change-direction="true" .............(true/false).
-									  data-opposite-direction="true" ...........(true/false).
-									-->
-									<div class="tt-scrolling-text scrt-dyn-separator scrt-color-reverse" data-scroll-speed="7" data-change-direction="true" data-opposite-direction="true">
-										<div class="tt-scrt-inner">
-											<div class="tt-scrt-content">
-												Over 15 years of experience 
-												<span class="tt-scrt-separator">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-														<path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"></path>
-													</svg>
-												</span> 
-											</div> <!-- /.tt-scrt-content -->
-										</div> <!-- /.tt-scrt-inner -->
-									</div> <!-- /.tt-scrolling-text -->
-									
-
-									<!-- Begin scrolling text
-									==========================
-									* Use class "scrt-color-reverse" to reverse colors.
-									* Use class "scrt-dyn-separator" to enable dynamic separator (works only with data-change-direction="true").
-									* Note: Ideally, the text should be long enough to cover the entire width of the screen. If you use a very short text (e.g. one word), duplicate it (including the separator) to compensate for the optimal length of the text.
-									Available data attributes:
-									  data-scroll-speed="10" ...................(lower number = higher speed). 
-									  data-change-direction="true" .............(true/false).
-									  data-opposite-direction="true" ...........(true/false).
-									-->
-									<div class="tt-scrolling-text scrt-dyn-separator" data-scroll-speed="7" data-change-direction="true">
-										<div class="tt-scrt-inner">
-											<div class="tt-scrt-content">
-												Over 15 years of experience 
-												<span class="tt-scrt-separator">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-														<path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"></path>
-													</svg>
-												</span>
-											</div> <!-- /.tt-scrt-content -->
-										</div> <!-- /.tt-scrt-inner -->
-									</div> <!-- /.tt-scrolling-text -->
-
-								</div> <!-- /.tt-scrolling-text-crossed-inner -->
-							</div>
-							<!-- End crossed scrolling text -->
-
-						</div> <!-- /.tt-section-inner -->
-					</div>
-					<!-- End tt-section -->
-
-
-					<!-- =======================
-					///// Begin tt-section /////
-					============================ 
-					* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc.
-					* You can use classes "border-top" and "border-bottom" if needed. 
-					* Note: Each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-					-->
-					<div class="tt-section no-padding-bottom padding-bottom-xlg-80">
-						<div class="tt-section-inner tt-wrap">
-
-							<div class="tt-row">
-								<div class="tt-col-xl-8">
-
-									<!-- Begin tt-Heading 
-									====================== 
-									* Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg", "tt-heading-xxlg" or "tt-heading-xxxlg" to set caption size (no class = default size).
-									* Use class "tt-heading-center" to align tt-Heading to center.
-									* Use class "tt-text-reveal" or "tt-anim-fadeinup" with title or subtitle element to enable text reveal animation.
-									* Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
-									-->
-									<div class="tt-heading tt-heading-xxxlg">
-										<h3 class="tt-heading-subtitle tt-text-reveal">What I Do</h3>
-										<h2 class="tt-heading-title tt-text-reveal">Services</h2> <!-- You can use <br> to break a text line if needed -->
-									</div>
-									<!-- End tt-Heading -->
-
-									<div class="tt-text-uppercase max-width-400 margin-left-xlg-10-p text-pretty tt-text-reveal">
-										Comprehensive digital services to boost your online presence and achieve impactful results.
-									</div>
-
-								</div> <!-- /.tt-col -->
-							
-								<div class="tt-col-xl-4 tt-align-self-end margin-top-40">
-
-									<!-- Begin big arrow 
-									====================== 
-									Use classes "tt-ba-angle-left", "tt-ba-angle-top", "tt-ba-angle-top-left", "tt-ba-angle-top-right", "tt-ba-angle-bottom", "tt-ba-angle-bottom-left", "tt-ba-angle-bottom-right" set change arrow pointing angle (no class = right).
-									-->
-									<div class="tt-big-arrow tt-ba-angle-bottom-left tt-anim-fadeinup">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-											<path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"></path>
-										</svg>
-									</div> 
-									<!-- End big arrow -->
-
-								</div> <!-- /.tt-col -->
-							</div><!-- /.tt-row -->
-
-						</div> <!-- /.tt-section-inner -->
-					</div>
-					<!-- End tt-section -->
-
-
-					<!-- =======================
-					///// Begin tt-section /////
-					============================ 
-					* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc.
-					* You can use classes "border-top" and "border-bottom" if needed. 
-					* Note: Each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-					-->
-					<div class="tt-section">
-						<div class="tt-section-inner">
-
-							<!-- Begin horizontal accordion
-							================================ 
-							* Use class "tt-hac-alter-hover" to enable alternative hover style (no effect on small screens!).
-							* INFO: Do not use too many items here! The more items, the narrower the space to display. Up to 5 items are optimal. If you want to display more items, use a vertical accordion instead.
-							-->
-							<div class="tt-horizontal-accordion tt-hac-alter-hover tt-anim-fadeinup">
-
-								<!-- Begin horizontal accordion item 
-								===================================== -->
-								<div class="tt-hac-item cursor-alter">
-									<div class="tt-hac-item-count"></div>
-									<div class="tt-hac-item-inner">
-										<div class="tt-hac-item-content">
-											<div class="tt-haci-content-top">
-												<h2 class="tt-haci-title">Digital<br> Strategy</h2>
-												<div class="tt-haci-description"> <!-- Max 4 lines of text displayed -->
-													Crafting data-driven strategies to elevate your online presence. I align your business goals with innovative digital solutions, ensuring measurable growth and a competitive edge in the digital landscape.
-												</div> <!-- /.tt-haci-description -->
-											</div> <!-- /.tt-haci-content-top -->
-
-											<div class="tt-haci-content-bottom">
-												<a href="services.html" class="tt-btn tt-btn-outline tt-magnetic-item">
-													<span data-hover="Read More">Read More</span>
-												</a>
-											</div> <!-- /.tt-haci-content-bottom -->
-										</div> <!-- /.tt-hac-item-content -->
-									</div> <!-- /.tt-hac-item-inner -->
-								</div>
-								<!-- End horizontal accordion item -->
-
-								<!-- Begin horizontal accordion item 
-								===================================== -->
-								<div class="tt-hac-item cursor-alter">
-									<div class="tt-hac-item-count"></div>
-									<div class="tt-hac-item-inner">
-										<div class="tt-hac-item-content">
-											<div class="tt-haci-content-top">
-												<h2 class="tt-haci-title">Branding<br> &amp; Identity</h2>
-												<div class="tt-haci-description"> <!-- Max 4 lines of text displayed -->
-													Building brands that resonate. From logos to messaging, I create cohesive and memorable identities that reflect your values, connect with your audience, and stand out in the market.
-												</div> <!-- /.tt-haci-description -->
-											</div> <!-- /.tt-haci-content-top -->
-
-											<div class="tt-haci-content-bottom">
-												<a href="services.html" class="tt-btn tt-btn-outline tt-magnetic-item">
-													<span data-hover="Read More">Read More</span>
-												</a>
-											</div> <!-- /.tt-haci-content-bottom -->
-										</div> <!-- /.tt-hac-item-content -->
-									</div> <!-- /.tt-hac-item-inner -->
-								</div>
-								<!-- End horizontal accordion item -->
-
-								<!-- Begin horizontal accordion item 
-								===================================== -->
-								<div class="tt-hac-item cursor-alter">
-									<div class="tt-hac-item-count"></div>
-									<div class="tt-hac-item-inner">
-										<div class="tt-hac-item-content">
-											<div class="tt-haci-content-top">
-												<h2 class="tt-haci-title">UI / UX<br> Design</h2>
-												<div class="tt-haci-description"> <!-- Max 4 lines of text displayed -->
-													Designing intuitive and engaging experiences. I blend user-centered design principles with cutting-edge aesthetics to create interfaces that are not only beautiful but also functional and easy to navigate.
-												</div> <!-- /.tt-haci-description -->
-											</div> <!-- /.tt-haci-content-top -->
-
-											<div class="tt-haci-content-bottom">
-												<a href="services.html" class="tt-btn tt-btn-outline tt-magnetic-item">
-													<span data-hover="Read More">Read More</span>
-												</a>
-											</div> <!-- /.tt-haci-content-bottom -->
-										</div> <!-- /.tt-hac-item-content -->
-									</div> <!-- /.tt-hac-item-inner -->
-								</div>
-								<!-- End horizontal accordion item -->
-
-								<!-- Begin horizontal accordion item 
-								===================================== -->
-								<div class="tt-hac-item cursor-alter">
-									<div class="tt-hac-item-count"></div>
-									<div class="tt-hac-item-inner">
-										<div class="tt-hac-item-content">
-											<div class="tt-haci-content-top">
-												<h2 class="tt-haci-title">Web<br> Design</h2>
-												<div class="tt-haci-description"> <!-- Max 4 lines of text displayed -->
-													Transforming ideas into stunning websites. My custom web designs are tailored to your brand, optimized for performance, and designed to captivate your audience while driving conversions.
-												</div> <!-- /.tt-haci-description -->
-											</div> <!-- /.tt-haci-content-top -->
-
-											<div class="tt-haci-content-bottom">
-												<a href="services.html" class="tt-btn tt-btn-outline tt-magnetic-item">
-													<span data-hover="Read More">Read More</span>
-												</a>
-											</div> <!-- /.tt-haci-content-bottom -->
-										</div> <!-- /.tt-hac-item-content -->
-									</div> <!-- /.tt-hac-item-inner -->
-								</div>
-								<!-- End horizontal accordion item -->
-
-								<!-- Begin horizontal accordion item 
-								===================================== -->
-								<div class="tt-hac-item cursor-alter">
-									<div class="tt-hac-item-count"></div>
-									<div class="tt-hac-item-inner">
-										<div class="tt-hac-item-content">
-											<div class="tt-haci-content-top">
-												<h2 class="tt-haci-title">Product<br> Design</h2>
-												<div class="tt-haci-description"> <!-- Max 4 lines of text displayed -->
-													Innovating with purpose. I design products that solve real problems, combining functionality, aesthetics, and user experience to deliver solutions that users love and businesses rely on.
-												</div> <!-- /.tt-haci-description -->
-											</div> <!-- /.tt-haci-content-top -->
-
-											<div class="tt-haci-content-bottom">
-												<a href="services.html" class="tt-btn tt-btn-outline tt-magnetic-item">
-													<span data-hover="Read More">Read More</span>
-												</a>
-											</div> <!-- /.tt-haci-content-bottom -->
-										</div> <!-- /.tt-hac-item-content -->
-									</div> <!-- /.tt-hac-item-inner -->
-								</div>
-								<!-- End horizontal accordion item -->
-
-							</div>
-							<!-- End horizontal accordion -->
-
-						</div> <!-- /.tt-section-inner -->
-					</div>
-					<!-- End tt-section -->
-
-
-					<!-- =======================
-					///// Begin tt-section /////
-					============================ 
-					* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc.
-					* You can use classes "border-top" and "border-bottom" if needed. 
-					* Note: Each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-					-->
-					<div class="tt-section no-padding-top">
-						<div class="tt-section-inner">
-
-							<!-- Begin clipper
-							=================== 
-							* Use class "tt-clipper-grayscale" to enable black & white background.
-							* Use class "tt-clipper-cover-*" to set background overlay opacity. For example "tt-clipper-cover-2" or "tt-clipper-cover-2-5" (up to "tt-clipper-cover-9-5").
-							* Supported media: "YouTube", "Vimeo", ".mp4", ".mp3 (requires data-type="html5video")". Just add your media link to the href="" tag.
-							-->
-							<div class="tt-clipper">
-								<a href="https://www.youtube.com/watch?v=6nGs9iGrpok" class="tt-clipper-inner" data-cursor="Play<br>Reel" data-fancybox data-caption="My awesome showreel. :)">
-
-									<!-- Clipper background (image) -->
-									<!-- <div class="tt-clipper-bg">
-										<img src="assets/vids/1920/showreel-1920.jpg" loading="lazy" alt="Image">
-									</div> -->
-
-									<!-- Clipper background (video) -->
-									<div class="tt-clipper-bg">
-										<video loop muted autoplay playsinline  poster="">
-											<source src="assets/vids/main_gradiant2.mp4"  type="video/mp4">
-											
-										</video>
-									</div>
-
-									<div class="tt-clipper-content">	
-
-										<!-- Clipper button (for mobile devices only!) -->
-										<div class="tt-clipper-btn">
-											<i class="fa-solid fa-play"></i>
-										</div>
-
-									</div> <!-- /.tt-clipper-content -->
-								</a> 
-							</div>
-							<!-- End clipper -->
-
-						</div> <!-- /.tt-section-inner -->
-					</div>
-					<!-- End tt-section -->
-
-
-					<!-- =======================
-					///// Begin tt-section /////
-					============================ 
-					* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc.
-					* You can use classes "border-top" and "border-bottom" if needed. 
-					* Note: Each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-					-->
-					<div class="tt-section border-bottom">
-						<div class="tt-section-inner tt-wrap">
-
-							<!-- Begin sticker
-							=================== -->
-							<div class="tt-sticker">
-
-								<div class="tt-row">
-									<div class="tt-col-lg-4 margin-bottom-40">
-
-										<!-- Begin sticky element
-										========================== -->
-										<div class="tt-sticker-sticky tt-sticky-element">
-
-											<!-- Begin tt-Heading 
-											====================== 
-											* Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg", "tt-heading-xxlg" or "tt-heading-xxxlg" to set caption size (no class = default size).
-											* Use class "tt-heading-center" to align tt-Heading to center.
-											* Use class "tt-text-reveal" or "tt-anim-fadeinup" with title or subtitle element to enable text reveal animation.
-											* Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
-											-->
-											<div class="tt-heading tt-heading-xxlg">
-												<h3 class="tt-heading-subtitle tt-text-reveal">Testimonials</h3>
-												<h2 class="tt-heading-title tt-text-reveal">What<br> They Say</h2> <!-- You can use <br> to break a text line if needed -->
-												<p class="max-width-500 tt-text-uppercase tt-text-reveal">Genuine words from the people I’ve had the pleasure to work with.</p>
-											</div>
-											<!-- End tt-Heading -->
-
-											<a href="dummy.html" class="tt-btn tt-btn-outline tt-magnetic-item tt-anim-fadeinup">
-												<span data-hover="Read More">Read More</span>
-											</a>
-
-										</div>
-										<!-- End sticky element -->
-
-									</div> <!-- /.tt-col -->
-
-									<div class="tt-col-lg-8">
-
-										<!-- Begin sticker scroller
-										============================ -->
-										<div class="tt-sticker-scroller">
-
-											<!-- Begin sticky testimonials 
-											============================== 
-											* Use class "tt-stte-center" to align the content to the center.
-											* Use class "tt-stte-reversed-colors" to enable reversed colors.
-											* Note: All cards have equal height, based on the tallest card.
-											-->
-											<div class="tt-sticky-testimonials tt-stte-reversed-colors">
-
-												<!-- Begin sticky testimonials item -->
-												<div class="tt-stte-item">
-													<div class="tt-stte-card cursor-alter">
-														<div class="tt-stte-card-counter"></div>
-														<div class="tt-stte-card-caption">
-															<div class="tt-stte-text">
-																"One of the best template I've ever had. I love it! It's fully customizable, well coded, fast and responsive - fitting for all kind of devices".
-															</div>
-															<div class="tt-stte-subtext">
-																<a href="https://themetorium.net/" class="tt-link" target="_blank" rel="noopener">- Wironimo</a>
-															</div>
-														</div> <!-- /.tt-stte-card-caption -->
-													</div> <!-- /.tt-stte-card -->
-												</div>
-												<!-- End sticky testimonials item -->
-
-												<!-- Begin sticky testimonials item -->
-												<div class="tt-stte-item">
-													<div class="tt-stte-card cursor-alter">
-														<div class="tt-stte-card-counter"></div>
-														<div class="tt-stte-card-caption">
-															<div class="tt-stte-text">
-																"Brilliant template. Tons of options, many concepts, design flexibility, code quality, explanatory comments in each section for easy styling".
-															</div>
-															<div class="tt-stte-subtext">- Gneto</div>
-														</div> <!-- /.tt-stte-card-caption -->
-													</div> <!-- /.tt-stte-card -->
-												</div>
-												<!-- End sticky testimonials item -->
-
-												<!-- Begin sticky testimonials item -->
-												<div class="tt-stte-item">
-													<div class="tt-stte-card cursor-alter">
-														<div class="tt-stte-card-counter"></div>
-														<div class="tt-stte-card-caption">
-															<div class="tt-stte-text">
-																"Easy to customize, plenty of choices to display your portfolio, fast loading times. Excellent support".
-															</div>
-															<div class="tt-stte-subtext">
-																<a href="https://themetorium.net/" class="tt-link" target="_blank" rel="noopener">- Brendak</a>
-															</div>
-														</div> <!-- /.tt-stte-card-caption -->
-													</div> <!-- /.tt-stte-card -->
-												</div>
-												<!-- End sticky testimonials item -->
-
-												<!-- Begin sticky testimonials item -->
-												<div class="tt-stte-item">
-													<div class="tt-stte-card cursor-alter">
-														<div class="tt-stte-card-counter"></div>
-														<div class="tt-stte-card-caption">
-															<div class="tt-stte-text">
-																"Very nice design and well organised and commented code. Also good customer service".
-															</div>
-															<div class="tt-stte-subtext">- Gazzzzz</div>
-														</div> <!-- /.tt-stte-card-caption -->
-													</div> <!-- /.tt-stte-card -->
-												</div>
-												<!-- End sticky testimonials item -->
-
-												<!-- Begin sticky testimonials item -->
-												<div class="tt-stte-item">
-													<div class="tt-stte-card cursor-alter">
-														<div class="tt-stte-card-counter"></div>
-														<div class="tt-stte-card-caption">
-															<div class="tt-stte-text">
-																"I founded a bug on Iphone and Ipad and the author fixed very quickly. I appreciated his efforts and his quickness in solving the problem".
-															</div>
-															<div class="tt-stte-subtext">- Admanente</div>
-														</div> <!-- /.tt-stte-card-caption -->
-													</div> <!-- /.tt-stte-card -->
-												</div>
-												<!-- End sticky testimonials item -->
-
-											</div>
-											<!-- End sticky testimonials  -->
-
-										</div>
-										<!-- End sticker scroller -->
-
-									</div> <!-- /.tt-col -->
-								</div> <!-- /.tt-row -->
-
-							</div>
-							<!-- End sticker -->
-
-						</div> <!-- /.tt-section-inner -->
-					</div>
-					<!-- End tt-section -->
-
-
-					<!-- =======================
-					///// Begin tt-section /////
-					============================ 
-					* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc.
-					* You can use classes "border-top" and "border-bottom" if needed. 
-					* Note: Each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-					-->
-					<div class="tt-section padding-top-xlg-120 no-padding-bottom">
-						<div class="tt-section-inner">
-
-							<!-- Begin tt-Heading 
-							====================== 
-							* Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg", "tt-heading-xxlg" or "tt-heading-xxxlg" to set caption size (no class = default size).
-							* Use class "tt-heading-center" to align tt-Heading to center.
-							* Use class "tt-text-reveal" or "tt-anim-fadeinup" with title or subtitle element to enable text reveal animation.
-							* Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
-							-->
-							<div class="tt-heading tt-heading-xxxlg tt-heading-center">
-								<h3 class="tt-heading-subtitle tt-text-reveal">Recognitions</h3>
-								<h2 class="tt-heading-title tt-text-reveal">Awards</h2> <!-- You can use <br> to break a text line if needed -->
-								<p class="max-width-500 tt-text-uppercase tt-text-reveal">List of recognitions<br> that make me proud</p>
-							</div>
-							<!-- End tt-Heading -->
-
-						</div> <!-- /.tt-section-inner -->
-					</div>
-					<!-- End tt-section -->
-
-
-					<!-- =======================
-					///// Begin tt-section /////
-					============================ 
-					* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc.
-					* You can use classes "border-top" and "border-bottom" if needed. 
-					* Note: Each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-					-->
-					<div class="tt-section">
-						<div class="tt-section-inner">
-
-							<!-- Begin avards list
-							========================= -->
-							<div class="tt-avards-list">
-
-								<!-- Begin avards list item
-								============================== -->
-								<a href="https://themetorium.net/" class="tt-avlist-item cursor-alter tt-anim-fadeinup" target="_blank" rel="nofollow">
-									<div class="tt-avlist-item-inner">
-
-										<div class="tt-avlist-col tt-avlist-col-count">
-											<div class="tt-avlist-count"></div>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-title">
-											<h4 class="tt-avlist-title">Awwwards</h4>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-description">
-											<div class="tt-avlist-description">
-												Developer Award, Site of the Month
-											</div> <!-- /.tt-avlist-description -->
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-info">
-											<div class="tt-avlist-info">
-												12x Avards
-											</div> <!-- /.tt-avlist-info -->
-										</div> <!-- /.tt-avlist-col -->
-
-									</div> <!-- /.tt-avlist-item-inner -->
-								</a>
-								<!-- End avards list item -->
-
-								<!-- Begin avards list item
-								============================== -->
-								<a href="https://themetorium.net/" class="tt-avlist-item cursor-alter tt-anim-fadeinup" target="_blank" rel="nofollow">
-									<div class="tt-avlist-item-inner">
-
-										<div class="tt-avlist-col tt-avlist-col-count">
-											<div class="tt-avlist-count"></div>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-title">
-											<h4 class="tt-avlist-title">CSS Design Awards</h4>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-description">
-											<div class="tt-avlist-description">
-												Website of the Day, Designer of the Year '23
-											</div> <!-- /.tt-avlist-description -->
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-info">
-											<div class="tt-avlist-info">
-												3x Avards
-											</div> <!-- /.tt-avlist-info -->
-										</div> <!-- /.tt-avlist-col -->
-
-									</div> <!-- /.tt-avlist-item-inner -->
-								</a>
-								<!-- End avards list item -->
-
-								<!-- Begin avards list item
-								============================== -->
-								<a href="https://themetorium.net/" class="tt-avlist-item cursor-alter tt-anim-fadeinup" target="_blank" rel="nofollow">
-									<div class="tt-avlist-item-inner">
-
-										<div class="tt-avlist-col tt-avlist-col-count">
-											<div class="tt-avlist-count"></div>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-title">
-											<h4 class="tt-avlist-title">Behance</h4>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-description">
-											<div class="tt-avlist-description">
-												UI Gallery Featured
-											</div> <!-- /.tt-avlist-description -->
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-info">
-											<div class="tt-avlist-info">
-												2x Avards
-											</div> <!-- /.tt-avlist-info -->
-										</div> <!-- /.tt-avlist-col -->
-
-									</div> <!-- /.tt-avlist-item-inner -->
-								</a>
-								<!-- End avards list item -->
-
-								<!-- Begin avards list item
-								============================== -->
-								<a href="https://themetorium.net/" class="tt-avlist-item cursor-alter tt-anim-fadeinup" target="_blank" rel="nofollow">
-									<div class="tt-avlist-item-inner">
-
-										<div class="tt-avlist-col tt-avlist-col-count">
-											<div class="tt-avlist-count"></div>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-title">
-											<h4 class="tt-avlist-title">CSS Winner</h4>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-description">
-											<div class="tt-avlist-description">
-												Site of the Day
-											</div> <!-- /.tt-avlist-description -->
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-info">
-											<div class="tt-avlist-info">
-												4x Avards
-											</div> <!-- /.tt-avlist-info -->
-										</div> <!-- /.tt-avlist-col -->
-
-									</div> <!-- /.tt-avlist-item-inner -->
-								</a>
-								<!-- End avards list item -->
-
-								<!-- Begin avards list item
-								============================== -->
-								<a href="https://themetorium.net/" class="tt-avlist-item cursor-alter tt-anim-fadeinup" target="_blank" rel="nofollow">
-									<div class="tt-avlist-item-inner">
-
-										<div class="tt-avlist-col tt-avlist-col-count">
-											<div class="tt-avlist-count"></div>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-title">
-											<h4 class="tt-avlist-title">FWA Awards</h4>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-description">
-											<div class="tt-avlist-description">
-												FWA of the Day, Special Mention
-											</div> <!-- /.tt-avlist-description -->
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-info">
-											<div class="tt-avlist-info">
-												8x Avards
-											</div> <!-- /.tt-avlist-info -->
-										</div> <!-- /.tt-avlist-col -->
-
-									</div> <!-- /.tt-avlist-item-inner -->
-								</a>
-								<!-- End avards list item -->
-
-								<!-- Begin avards list item
-								============================== -->
-								<a href="https://themetorium.net/" class="tt-avlist-item cursor-alter tt-anim-fadeinup" target="_blank" rel="nofollow">
-									<div class="tt-avlist-item-inner">
-
-										<div class="tt-avlist-col tt-avlist-col-count">
-											<div class="tt-avlist-count"></div>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-title">
-											<h4 class="tt-avlist-title">SiteInspire</h4>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-description">
-											<div class="tt-avlist-description">
-												Featured Design
-											</div> <!-- /.tt-avlist-description -->
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-info">
-											<div class="tt-avlist-info">
-												6x Avards
-											</div> <!-- /.tt-avlist-info -->
-										</div> <!-- /.tt-avlist-col -->
-
-									</div> <!-- /.tt-avlist-item-inner -->
-								</a>
-								<!-- End avards list item -->
-
-								<!-- Begin avards list item
-								============================== -->
-								<a href="https://themetorium.net/" class="tt-avlist-item cursor-alter tt-anim-fadeinup" target="_blank" rel="nofollow">
-									<div class="tt-avlist-item-inner">
-
-										<div class="tt-avlist-col tt-avlist-col-count">
-											<div class="tt-avlist-count"></div>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-title">
-											<h4 class="tt-avlist-title">One Page Love</h4>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-description">
-											<div class="tt-avlist-description">
-												Site of the Day
-											</div> <!-- /.tt-avlist-description -->
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-info">
-											<div class="tt-avlist-info">
-												2x Avards
-											</div> <!-- /.tt-avlist-info -->
-										</div> <!-- /.tt-avlist-col -->
-
-									</div> <!-- /.tt-avlist-item-inner -->
-								</a>
-								<!-- End avards list item -->
-
-								<!-- Begin avards list item
-								============================== -->
-								<a href="https://themetorium.net/" class="tt-avlist-item cursor-alter tt-anim-fadeinup" target="_blank" rel="nofollow">
-									<div class="tt-avlist-item-inner">
-
-										<div class="tt-avlist-col tt-avlist-col-count">
-											<div class="tt-avlist-count"></div>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-title">
-											<h4 class="tt-avlist-title">CSS Light</h4>
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-description">
-											<div class="tt-avlist-description">
-												Featured Design, Featured Website
-											</div> <!-- /.tt-avlist-description -->
-										</div> <!-- /.tt-avlist-col -->
-
-										<div class="tt-avlist-col tt-avlist-col-info">
-											<div class="tt-avlist-info">
-												4x Avards
-											</div> <!-- /.tt-avlist-info -->
-										</div> <!-- /.tt-avlist-col -->
-
-									</div> <!-- /.tt-avlist-item-inner -->
-								</a>
-								<!-- End avards list item -->
-
-							</div>
-							<!-- End avards list -->
-
-						</div> <!-- /.tt-section-inner -->
-					</div>
-					<!-- End tt-section -->
-
-
-					<!-- =======================
-					///// Begin tt-section /////
-					============================ 
-					* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc.
-					* You can use classes "border-top" and "border-bottom" if needed. 
-					* Note: Each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-					-->
-					<div class="tt-section padding-top-xlg-120 padding-bottom-xlg-120">
-						<div class="tt-section-inner tt-wrap">
-
-							<div class="tt-row margin-bottom-40">
-								<div class="tt-col-xl-8">
-
-									<!-- Begin tt-Heading 
-									====================== 
-									* Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg", "tt-heading-xxlg" or "tt-heading-xxxlg" to set caption size (no class = default size).
-									* Use class "tt-heading-center" to align tt-Heading to center.
-									* Use class "tt-text-reveal" or "tt-anim-fadeinup" with title or subtitle element to enable text reveal animation.
-									* Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
-									-->
-									<div class="tt-heading tt-heading-xxxlg no-margin">
-										<h3 class="tt-heading-subtitle tt-text-reveal">Contact</h3>
-										<h2 class="tt-heading-title tt-text-reveal">Let's Work<br> Together</h2> <!-- You can use <br> to break a text line if needed -->
-									</div>
-									<!-- End tt-Heading -->
-
-								</div> <!-- /.tt-col -->
-							
-								<div class="tt-col-xl-4 tt-align-self-end tt-xl-column-reverse margin-top-40">
-
-									<div class="max-width-600 margin-bottom-10 tt-text-uppercase text-pretty tt-text-reveal">
-										Feeling good about a new project? Write me what's in your mind<br> and let's talk about it!
-									</div>
-
-									<!-- Begin big round button 
-									============================ -->
-									<div class="tt-big-round-ptn margin-top-30 margin-bottom-xlg-80 tt-anim-fadeinup">
-										<a href="contact.html" class="tt-big-round-ptn-holder tt-magnetic-item">
-											<div class="tt-big-round-ptn-inner">Let's<br> Connect!</div>
-										</a>
-									</div>
-									<!-- End big round button -->
-
-								</div> <!-- /.tt-col -->
-							</div><!-- /.tt-row --> 
-
-					<a href="https://github.com/vishnu1100" target="_blank" >	<div id="github-live-chart" style="width: 100%;">
-							<img 
-								src="https://github-contributions-api.deno.dev/vishnu1100.svg?bg=black&font-color=ffffff&scheme=github" 
-								alt="GitHub Contributions"
-								style="width: 100%; height: auto; display: block;"
-							/>
-							</div>
-								</a>
-						</div> <!-- /.tt-section-inner -->
-						
-					</div>
-					<!-- End tt-section -->
-
-
-				</div>
-				<!-- End page content -->
-
-
-				<!-- ======================
-				///// Begin tt-footer /////
-				=========================== -->
-				<footer id="tt-footer" class="border-top">
-					<div class="tt-footer-inner tt-wrap">
-
-						<div class="tt-row">
-							<div class="tt-col-xl-3 tt-col-sm-6">
-								<div class="tt-footer-widget">
-									<h5 class="tt-footer-widget-heading">Links</h5>
-									<ul class="tt-footer-widget-list">
-										<li><a href="dummy.html" class="tt-link">Support</a></li>
-										<li><a href="dummy.html" class="tt-link">Licenses</a></li>
-										<li><a href="dummy.html" class="tt-link">Terms of Use</a></li>
-										<li><a href="dummy.html" class="tt-link">Privacy Policy</a></li>
-									</ul> <!-- /.tt-footer-widget-list -->
-								</div> <!-- /.tt-footer-widget -->
-							</div> <!-- /.tt-col -->
-
-							<div class="tt-col-xl-3 tt-col-sm-6">
-								<div class="tt-footer-widget">
-									<h5 class="tt-footer-widget-heading">Sitemap</h5>
-									<ul class="tt-footer-widget-list">
-										<li><a href="about-me.html" class="tt-link">About Me</a></li>
-										<li><a href="portfolio.html" class="tt-link">My Work</a></li>
-										<li><a href="services.html" class="tt-link">Services</a></li>
-										<li><a href="contact.html" class="tt-link">Contact</a></li>
-									</ul> <!-- /.tt-footer-widget-list -->
-								</div> <!-- /.tt-footer-widget -->
-							</div> <!-- /.tt-col -->
-
-							<div class="tt-col-xl-3 tt-col-sm-6">
-								<div class="tt-footer-widget">
-									<h5 class="tt-footer-widget-heading">Contact</h5>
-									<ul class="tt-footer-widget-list">
-										<li>
-											<a href="https://www.google.com/maps/place/121+King+St,+Melbourne+VIC+3000,+Austraalia/@-37.817251,144.955775,17z/data=!3m1!4b1!4m6!3m5!1s0x6ad65d4dd5a05d97:0x3e64f855a564844d!8m2!3d-37.817251!4d144.955775!16s%2Fg%2F11g0g8c54h" class="tt-link" target="_blank" rel="nofollow noopener">121 King Street,<br> Melbourne, Australia</a>
-										</li>
-										<li><a href="mailto:company@email.com" class="tt-link">company@email.com</a></li>
-										<li><a href="tel:+(123)456789000" class="tt-link"> +(123) 456 789 000</a></li>
-										<li>
-											<div class="tt-social-buttons">
-												<ul>
-													<li><a href="https://www.facebook.com/themetorium" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a></li>
-													<li><a href="https://dribbble.com/Themetorium" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-dribbble"></i></a></li>
-													<li><a href="https://www.behance.net/Themetorium" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-behance"></i></a></li>
-													<li><a href="https://www.youtube.com/" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a></li>
-													<!-- <li><a href="https://x.com/Themetorium" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a></li> -->
-												</ul>
-											</div> <!-- /.tt-social-buttons -->
-										</li>
-									</ul> <!-- /.tt-footer-widget-list -->
-								</div> <!-- /.tt-footer-widget -->
-							</div> <!-- /.tt-col -->
-
-							<div class="tt-col-xl-3 tt-col-sm-6 tt-justify-content-xl-end">
-								<div class="tt-footer-widget">
-									<ul class="tt-footer-widget-list">
-										<li>
-											<!-- You may need to change the img height to match your logo type. You can do this from the "theme.css" file (find: ".tt-footer-logo img").-->
-											<div class="tt-footer-logo"> 
-												<a href="index.html" class="tt-magnetic-item">
-													<img src="assets/img/logo-light.png" class="tt-logo-light" loading="lazy" alt="Logo"> <!-- logo light -->
-													<img src="assets/img/logo-dark.png" class="tt-logo-dark" loading="lazy" alt="Logo"> <!-- logo dark -->
-												</a>
-											</div> <!-- /.tt-footer-logo -->  
-										</li>
-										<li>
-											<div class="tt-footer-copyright">
-												© <span class="tt-copyright-year"></span> <a href="https://themetorium.net/" class="tt-link" target="_blank" rel="nofollow noopener"> Themetorium.net</a><br> 
-												All Rights Reserved
-											</div> <!-- /.tt-footer-copyright -->
-										</li>
-									</ul> <!-- /.tt-footer-widget-list -->
-								</div> <!-- /.tt-footer-widget -->
-							</div> <!-- /.tt-col -->
-						</div> <!-- /.tt-row -->
-
-					</div> <!-- /.tt-section-inner -->
-				</footer>
-				<!-- End tt-footer -->
-
-
-				<!-- Begin scroll to top button
-				================================ -->
-				<a href="#" class="tt-scroll-to-top">
-					<div class="tt-stt-progress tt-magnetic-item">
-						<svg class="tt-stt-progress-circle" width="100%" height="100%" viewBox="-1 -1 102 102">
-							<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
-						</svg>
-					</div> <!-- /.tt-stt-progress -->
-				</a>
-				<!-- End scroll to top button -->
-
-			</div>
-			<!-- End content wrap -->
-
-
-		</main>
-		<!-- End body inner -->
-
-
-        
-
-		<!-- ====================
-		///// Scripts below /////
-		===================== -->
-
-		<!-- Core JS -->
-		<script src="assets/vendor/jquery/jquery.min.js"></script> <!-- jquery JS (https://jquery.com) -->
-
-		<!-- Libs and Plugins JS -->
-		<script src="assets/vendor/gsap/gsap.min.js"></script> <!-- GSAP JS (https://gsap.com/) -->
-		<script src="assets/vendor/gsap/ScrollToPlugin.min.js"></script> <!-- GSAP ScrollToPlugin JS (https://gsap.com/docs/v3/Plugins/ScrollToPlugin/) -->
-		<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script> <!-- GSAP ScrollTrigger JS (https://gsap.com/docs/v3/Plugins/ScrollTrigger/) -->
-		<script src="assets/vendor/lenis.min.js"></script> <!-- Lenis (smooth scroll) JS (https://lenis.darkroom.engineering/) -->
-		<script src="assets/vendor/isotope/imagesloaded.pkgd.min.js"></script> <!-- imagesloaded JS (http://imagesloaded.desandro.com) -->
-		<script src="assets/vendor/isotope/isotope.pkgd.min.js"></script> <!-- Isotope JS (http://isotope.metafizzy.co) -->
-		<script src="assets/vendor/isotope/packery-mode.pkgd.min.js"></script> <!-- Isotope Packery Mode JS (https://isotope.metafizzy.co/layout-modes/packery.html) -->
-		<script src="assets/vendor/fancybox/js/fancybox.umd.js"></script> <!-- Fancybox (lightbox) JS (https://fancyapps.com/) -->
-		<script src="assets/vendor/swiper/js/swiper-bundle.min.js"></script> <!-- Swiper JS (https://swiperjs.com/) -->
-
-		<!-- Master JS -->
-		<script src="assets/js/theme.js"></script>
-
-
-
-	</body>
-
-
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="VISHNU.S">
+    <meta name="description" content="VISHNU.S">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ 
+    <!-- Title  -->
+    <title> | VISHNU.S |  </title>
+    <link rel="icon" id="icon" href="../assets/emoji.png" /> 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="../common/css/plugins.css">
+
+
+    <!-- Core Style Css -->
+    <link rel="stylesheet" href="../common/css/common_style.css">
+    <link rel="stylesheet" href="../assets/css/home6-style.css">
+    <link rel="stylesheet" href="../assets/css/custombutton.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+   
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.76/build/spline-viewer.js"></script>
+    
+</head>
+
+<body style="cursor: none;">
+
+
+
+    <!-- ==================== Start Loading ==================== -->
+
+    <div class="loader-wrap">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+            <path id="svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+        </svg>
+
+        <div class="loader-wrap-heading">
+            <div class="load-text">
+                <span>L</span>
+                <span>e</span>
+                <span>t</span>
+                <span>'</span>
+                <span>s</span>
+                <span> </span>
+                <span>g</span>
+                <span>o</span>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- ==================== End Loading ==================== -->
+
+
+    <div class="cursor"></div>
+
+
+    <!-- ==================== Start progress-scroll-button ==================== -->
+
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <!-- ==================== End progress-scroll-button ==================== -->
+
+
+
+    <div id="smooth-wrapper">
+
+
+        <div id="smooth-content">
+
+            <main>
+<!-- ==================== Start marquee ==================== -->
+
+<div class="marq-mp ontop">
+    <div class="main-marq gray-bg shadow-off">
+        <div class="slide-har st1">
+            <div class="box">
+                <div class="item">
+                    <h5>Debugging: Turning Coffee into Code</h5>
+                </div>
+                <div class="item">
+                    <h5>Ctrl + C and Hope for the Best</h5>
+                </div>
+                <div class="item">
+                    <h5>99 Bugs in the Code, Take One Down...</h5>
+                </div>
+                <div class="item">
+                    <h5>Trust me , I will Read  Documentation... Once</h5>
+                </div>
+                <div class="item">
+                    <h5  >“It Works on My Machine” </h5>
+                </div>
+                <div class="item">
+                    <h5>Code Now, Google Errors Later</h5>
+                </div>
+            </div>
+            <div class="box">
+                <div class="item">
+                    <h5>Debugging: Turning Coffee into Code</h5>
+                </div>
+                <div class="item">
+                    <h5>Ctrl + C and Hope for the Best</h5>
+                </div>
+                <div class="item">
+                    <h5>99 Bugs in the Code, Take One Down...</h5>
+                </div>
+                <div class="item">
+                    <h5>Trust me , I will Read  Documentation... Once</h5>
+                </div>
+                <div class="item">
+                    <h5>“It Works on My Machine” </h5>
+                </div>
+                <div class="item">
+                    <h5>Code Now, Google Errors Later</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-marq color-bg shadow-off">
+        <div class="slide-har st2">
+            <div class="box">
+                <div class="item">
+                    <h5>Coding: 10% Writing, 90% Debugging</h5>
+                </div>
+                <div class="item">
+                    <h5>Half Programmer, Half ChatGPT User</h5>
+                </div>
+                <div class="item">
+                    <h5>When in Doubt, Comment it Out</h5>
+                </div>
+                <div class="item">
+                    <h5>I Didn’t Break It, I Just Found It That Way</h5>
+                </div>
+                <div class="item">
+                    <h5>Junior Devs Write Code, Seniors Delete It</h5>
+                </div>
+                <div class="item">
+                    <h5>Code to Avoid Manual Work... </h5>
+                </div>
+            </div>
+            <div class="box">
+                <div class="item">
+                    <h5>Coding: 10% , 90% Debugging</h5>
+                </div>
+                <div class="item">
+                    <h5>Half Programmer, Half ChatGPT User</h5>
+                </div>
+                <div class="item">
+                    <h5>When in Doubt, Comment it Out</h5>
+                </div>
+                <div class="item">
+                    <h5>I Didn’t Break It, I Just Found It That Way</h5>
+                </div>
+                <div class="item">
+                    <h5>Junior Devs Write Code, Seniors Delete It</h5>
+                </div>
+                <div class="item">
+                    <h5>Code to Avoid Manual Work... </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- ==================== End marquee ==================== -->
+
+
+                <!-- ==================== Start Header ==================== -->
+
+                <header class="header-crv">
+                    <div class="container">
+                        <div class="caption">
+                           
+                           <svg viewbox="0 0 100 20">
+                            <defs>
+                              <linearGradient id="gradient">
+                                <stop color="#000"/>
+                              </linearGradient>
+                              <pattern id="wave" x="0" y="-0.5" width="100%" height="100%" patternUnits="userSpaceOnUse">
+                                <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" mask="url(#mask)" fill="url(#gradient)"> 
+                                  <animateTransform
+                                      attributeName="transform"
+                                      begin="0s"
+                                      dur="1.5s"
+                                      type="translate"
+                                      from="0,0"
+                                      to="40,0"
+                                      repeatCount="indefinite" />
+                                </path>
+                              </pattern>
+                            </defs>
+                            <text text-anchor="middle" x="50" y="15" font-size="20" fill="black" fill-opacity="0.1">  VISHNU  </text>
+                            <text text-anchor="middle" x="50" y="15" font-size="20" fill="url(#wave)"  fill-opacity="1">  VISHNU   </text>
+                          </svg>
+                        
+                            
+                        </div>
+                    </div>
+                    <div class="mimg fit-img">
+                        <img src="../assets/imgs/header/7.jpg" alt="" data-speed="0.6">
+                    </div>
+                </header>
+
+                <!-- ==================== End Header ==================== -->
+
+
+
+                <!-- ==================== Start Intro ==================== -->
+
+                <section class="intro-crv section-padding pb-0 wow fadeInUp slow" data-wow-delay="0.2s">
+                    <div class="container">
+                        <div class="sec-head mb-40">
+                            <div class="row">
+                                <div class="col-lg-5 sub-head md-mb50">
+                                    <h6 class="text-u fz-14 ls1">Liked IT ?</h6>
+                                    <div class="img-shape">
+                                        <!-- <img src="../assets/imgs/monoline.svg" alt=""> -->
+                                        <!-- <img src="../assets/imgs/monoline_anim.svg" alt=""> -->
+                                        <spline-viewer style="width: 25vw;height: 50vh;" url="https://prod.spline.design/sWm0HjilL56NJ1fS/scene.splinecode"></spline-viewer>
+                 
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <h3>My name is Vishnu , I am a  Developer, and I'm very passionate and dedicated to my work , as a software developer, I have acquired the skills and knowledge necessary to make your project a success. I enjoy every step of the development process, from discussion to  End. 
+                                        
+                                        </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-100 bord-thin-top pt-100">
+                            <div class="col-lg-6 d-flex align-items-end">
+                                <div class="exp md-mb50">
+                                    <h2 class="js-title">3</h2>
+                                    <span class="exp-item">Years of Experience</span>
+                                    <span class="exp-item hapy">8K+ Github Stars</span>
+                                    <span class="exp-item proj">60+ Completed Projects</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="skills pb-100">
+                                    <div class="sec-head">
+                                        <div class="sub-head">
+                                            <h6 class="text-u fz-14 ls1 mb-15">Best Skills</h6>
+                                        </div>
+                                        <h4 class="fz-40">Expertise & innovation</h4>
+                                    </div>
+                                    <div class="skills-box mt-60">
+
+                                        <div class="skill-item">
+                                            <h6 class="sub-title mb-15">UI / UX Design</h6>
+                                            <div class="skill-progress">
+                                                <div class="progres gray" data-value="70%"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="skill-item text-light">
+                                            <h6 class="sub-title mb-15"> Web Development </h6>
+                                            <div class="skill-progress">
+                                                <div class="progres dark" data-value="80%"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="skill-item">
+                                            <h6 class="sub-title mb-15">3D Rendering</h6>
+                                            <div class="skill-progress">
+                                                <div class="progres gray" data-value="30%" ></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="skill-item">
+                                            <h6 class="sub-title mb-15">Mobile App Development</h6>
+                                            <div class="skill-progress">
+                                                <div class="progres color" data-value="50%"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Intro ==================== -->
+
+
+<!-- ==================== Start marquee ==================== -->
+
+<div class="marq-mp ontop">
+    <div class="main-marq gray-bg shadow-off">
+        <div class="slide-har st1">
+            <div class="box">
+                <div class="item">
+                    <h5>Debugging: Turning Coffee into Code</h5>
+                </div>
+                <div class="item">
+                    <h5>Ctrl + C and Hope for the Best</h5>
+                </div>
+                <div class="item">
+                    <h5>99 Bugs in the Code, Take One Down...</h5>
+                </div>
+                <div class="item">
+                    <h5>Trust me , I will Read  Documentation... Once</h5>
+                </div>
+                <div class="item">
+                    <h5>“It Works on My Machine” </h5>
+                </div>
+                <div class="item">
+                    <h5>Code Now, Google Errors Later</h5>
+                </div>
+            </div>
+            <div class="box">
+                <div class="item">
+                    <h5>Debugging: Turning Coffee into Code</h5>
+                </div>
+                <div class="item">
+                    <h5>Ctrl + C and Hope for the Best</h5>
+                </div>
+                <div class="item">
+                    <h5>99 Bugs in the Code, Take One Down...</h5>
+                </div>
+                <div class="item">
+                    <h5>Trust me , I will Read  Documentation... Once</h5>
+                </div>
+                <div class="item">
+                    <h5>“It Works on My Machine” </h5>
+                </div>
+                <div class="item">
+                    <h5>Code Now, Google Errors Later</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-marq color-bg shadow-off">
+        <div class="slide-har st2">
+            <div class="box">
+                <div class="item">
+                    <h5>Coding: 10% Writing, 90% Debugging</h5>
+                </div>
+                <div class="item">
+                    <h5>Half Programmer, Half ChatGPT User</h5>
+                </div>
+                <div class="item">
+                    <h5>When in Doubt, Comment it Out</h5>
+                </div>
+                <div class="item">
+                    <h5>I Didn’t Break It, I Just Found It That Way</h5>
+                </div>
+                <div class="item">
+                    <h5>Junior Devs Write Code, Seniors Delete It</h5>
+                </div>
+                <div class="item">
+                    <h5>Code to Avoid Manual Work... </h5>
+                </div>
+            </div>
+            <div class="box">
+                <div class="item">
+                    <h5>Coding: 10% , 90% Debugging</h5>
+                </div>
+                <div class="item">
+                    <h5>Half Programmer, Half ChatGPT User</h5>
+                </div>
+                <div class="item">
+                    <h5>When in Doubt, Comment it Out</h5>
+                </div>
+                <div class="item">
+                    <h5>I Didn’t Break It, I Just Found It That Way</h5>
+                </div>
+                <div class="item">
+                    <h5>Junior Devs Write Code, Seniors Delete It</h5>
+                </div>
+                <div class="item">
+                    <h5>Code to Avoid Manual Work... </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- ==================== End marquee ==================== -->
+
+
+
+                <!-- ==================== Start Portfolio ==================== -->
+
+                <section class="works-ca section-padding">
+                    <div class="container">
+                        <div class="sec-head mb-100">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <h6 class="sub-head">Featured Works</h6>
+                                </div>
+                                <div class="col-lg-7">
+                                    <h4>Nothing ever becomes real until its
+                                        <span class="sub-color inline">Proved.</span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between">
+                            <div class="col-lg-7">
+                                <div class="item mb-60 wow fadeInUp slow" data-wow-delay="0.2s">
+                                   <a href="/gallery" > <div class="img">
+                                        <img src="../assets/imgs/works/forzamods.png" alt="">
+                                        
+                                    </div></a>
+                                    <h6>ForzaMods - Mods Showcase</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="item mb-60 wow fadeInUp slow" data-wow-delay="0.4s">
+                                    <a href="/gallery">
+                                    <div class="img square fit-img">
+                                        <img src="../assets/imgs/works/valoAPI.png" alt="">
+                                        <div class="tags">
+                                    
+                                        </div>
+                                    </div></a>
+                                    <h6>FASHE - Valorant-Database-API</h6>
+                                </div>
+                            </div>
+                        </div>
+                     
+                        
+
+                        <div class="text-center mt-20">
+                            <!-- <a href="contact.html"   class="butn butn-md butn-bg butn-rounded">
+                                <div class="d-flex align-items-center">
+                                    <span>Lets Chat </span>
+                                    <span class="icon ml-20">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </span>
+                                </div>
+                            </a> -->
+                            
+                            <a href="/gallery"><button>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 36 36"
+                                width="36px"
+                                height="36px"
+                              >
+                                <rect width="36" height="36" x="0" y="0" fill="#fdd835"></rect>
+                                <path
+                                  fill="#e53935"
+                                  d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z"
+                                ></path>
+                                <path
+                                  fill="#b71c1c"
+                                  d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79 c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7 c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5,6.07,2.35C40.68,33.85,39.8,38.9,39.02,42z"
+                                ></path>
+                                <path
+                                  fill="#212121"
+                                  d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17 c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32 c-1.31,1.6-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09 c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.28-0.76,7.67-0.25,9.77,1.13 C33.79,13.6,35,22.23,35,27.17z"
+                                ></path>
+                                <path
+                                  fill="#01579b"
+                                  d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337 c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"
+                                ></path>
+                                <path
+                                  fill="#212121"
+                                  d="M40.739,37.38c-0.28,1.99-0.69,3.53-1.22,4.62h-2.43c0.25-0.19,1.13-1.11,1.67-4.9 c0.57-4-0.23-11.79-0.93-12.78c-0.4-0.4-2.63-0.8-4.37-0.89l0.1-1.99c1.04,0.05,4.53,0.31,5.71,1.49 C40.689,24.36,41.289,33.53,40.739,37.38z"
+                                ></path>
+                                <path
+                                  fill="#81d4fa"
+                                  d="M10.154,20.201c0.261,2.059-0.196,3.351,2.543,3.546s8.076,1.022,9.402-0.554 c1.326-1.576,1.75-4.365-0.891-5.267C19.336,17.287,12.959,16.251,10.154,20.201z"
+                                ></path>
+                                <path
+                                  fill="#212121"
+                                  d="M17.615,29.677c-0.502,0-0.873-0.03-1.052-0.069c-0.086-0.019-0.236-0.035-0.434-0.06 c-5.344-0.679-8.053-2.784-8.052-6.255c0.001-2.698,1.17-7.238,8.986-7.32l0.181-0.002c3.444-0.038,6.414-0.068,8.272,1.818 c1.173,1.191,1.712,3,1.647,5.53c-0.044,1.688-0.785,3.147-2.144,4.217C22.785,29.296,19.388,29.677,17.615,29.677z M17.086,17.973 c-7.006,0.074-7.008,4.023-7.008,5.321c-0.001,3.109,3.598,3.926,6.305,4.27c0.273,0.035,0.48,0.063,0.601,0.089 c0.563,0.101,4.68,0.035,6.855-1.732c0.865-0.702,1.299-1.57,1.326-2.653c0.051-1.958-0.301-3.291-1.073-4.075 c-1.262-1.281-3.834-1.255-6.825-1.222L17.086,17.973z"
+                                ></path>
+                                <path
+                                  fill="#e1f5fe"
+                                  d="M15.078,19.043c1.957-0.326,5.122-0.529,4.435,1.304c-0.489,1.304-7.185,2.185-7.185,0.652 C12.328,19.467,15.078,19.043,15.078,19.043z"
+                                ></path>
+                              </svg>
+                              <span class="now">Works! </span>
+                              <span class="play">More</span>
+                            </button></a>
+                            
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ==================== End Portfolio ==================== -->
+
+
+
+                <!-- ==================== Start dark box ==================== -->
+
+                <section class="box-dark">
+
+
+                    <!-- ==================== Start Services ==================== -->
+
+                    <div class="services-mp section-padding ontop">
+                        <div class="container">
+                            <div class="sec-head mb-80">
+                                <div class="row">
+                                    <div class="col-lg-7 md-mb30">
+                                        <h2><span>What </span> I Do</h2>
+                                    </div>
+                                    <div class="col-lg-5 d-flex align-items-center">
+                                        <div class="ml-auto">
+                                            <span class="sub-head">As a tight-knit expert, I create memorable
+                                                and
+                                                emotional websites, digital experiences, and native apps.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row wow fadeInUp slow" data-wow-delay="0.2s">
+                                <div class="col-lg-7 valign">
+                                    <div class="serv-title md-mb50">
+                                        <div class="tab-title current" data-tab="tab-1">
+                                            <h2>Design</h2>
+                                        </div>
+                                        <div class="tab-title" data-tab="tab-2">
+                                            <h2>Deployment</h2>
+                                        </div>
+                                        <div class="tab-title" data-tab="tab-3">
+                                            <h2>Growth</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 content">
+                                    <div id="tab-1" class="item current">
+                                        <div class="img">
+                                            <img src="../assets/imgs/serv/1.jpg" alt="">
+                                        </div>
+                                        <div class="cont">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <span>Branding identity</span>
+                                                    <span>Strategy and planning</span>
+                                                    <span>rebrand</span>
+                                                    <span>pitchdesk</span>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <span>UI/UX Design</span>
+                                                    <span>Wireframe & prototype</span>
+                                                    <span>motion</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tab-2" class="item">
+                                        <div class="img">
+                                            <img src="../assets/imgs/serv/2.jpg" alt="">
+                                        </div>
+                                        <div class="cont">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <span>website development</span>
+                                                    <span>mobile app</span>
+                                                    <span>ecommerce website</span>
+                                                    <span>no-code website</span>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <span>landing page</span>
+                                                    <span>plugins</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tab-3" class="item">
+                                        <div class="img">
+                                            <img src="../assets/imgs/serv/3.jpg" alt="">
+                                        </div>
+                                        <div class="cont">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <span>Marketing Consult</span>
+                                                    <span>SEO / PPC</span>
+                                                    <span>Social Media</span>
+                                                    <span>GG/ FB Ads</span>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <span>Affiliate</span>
+                                                    <span>Email Marketing</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><br><br>
+
+                                <a href="/connect"><button>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 36 36"
+                                      width="36px"
+                                      height="36px"
+                                    >
+                                      <rect width="36" height="36" x="0" y="0" fill="#fdd835"></rect>
+                                      <path
+                                        fill="#e53935"
+                                        d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z"
+                                      ></path>
+                                      <path
+                                        fill="#b71c1c"
+                                        d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79 c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7 c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5,6.07,2.35C40.68,33.85,39.8,38.9,39.02,42z"
+                                      ></path>
+                                      <path
+                                        fill="#212121"
+                                        d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17 c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32 c-1.31,1.6-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09 c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.28-0.76,7.67-0.25,9.77,1.13 C33.79,13.6,35,22.23,35,27.17z"
+                                      ></path>
+                                      <path
+                                        fill="#01579b"
+                                        d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337 c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"
+                                      ></path>
+                                      <path
+                                        fill="#212121"
+                                        d="M40.739,37.38c-0.28,1.99-0.69,3.53-1.22,4.62h-2.43c0.25-0.19,1.13-1.11,1.67-4.9 c0.57-4-0.23-11.79-0.93-12.78c-0.4-0.4-2.63-0.8-4.37-0.89l0.1-1.99c1.04,0.05,4.53,0.31,5.71,1.49 C40.689,24.36,41.289,33.53,40.739,37.38z"
+                                      ></path>
+                                      <path
+                                        fill="#81d4fa"
+                                        d="M10.154,20.201c0.261,2.059-0.196,3.351,2.543,3.546s8.076,1.022,9.402-0.554 c1.326-1.576,1.75-4.365-0.891-5.267C19.336,17.287,12.959,16.251,10.154,20.201z"
+                                      ></path>
+                                      <path
+                                        fill="#212121"
+                                        d="M17.615,29.677c-0.502,0-0.873-0.03-1.052-0.069c-0.086-0.019-0.236-0.035-0.434-0.06 c-5.344-0.679-8.053-2.784-8.052-6.255c0.001-2.698,1.17-7.238,8.986-7.32l0.181-0.002c3.444-0.038,6.414-0.068,8.272,1.818 c1.173,1.191,1.712,3,1.647,5.53c-0.044,1.688-0.785,3.147-2.144,4.217C22.785,29.296,19.388,29.677,17.615,29.677z M17.086,17.973 c-7.006,0.074-7.008,4.023-7.008,5.321c-0.001,3.109,3.598,3.926,6.305,4.27c0.273,0.035,0.48,0.063,0.601,0.089 c0.563,0.101,4.68,0.035,6.855-1.732c0.865-0.702,1.299-1.57,1.326-2.653c0.051-1.958-0.301-3.291-1.073-4.075 c-1.262-1.281-3.834-1.255-6.825-1.222L17.086,17.973z"
+                                      ></path>
+                                      <path
+                                        fill="#e1f5fe"
+                                        d="M15.078,19.043c1.957-0.326,5.122-0.529,4.435,1.304c-0.489,1.304-7.185,2.185-7.185,0.652 C12.328,19.467,15.078,19.043,15.078,19.043z"
+                                      ></path>
+                                    </svg>
+                                    <span class="now">With me</span>
+                                    <span class="play">Connect</span>
+                                  </button></a>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <!-- ==================== End Services ==================== -->
+
+
+                  
+                </section>
+
+                <!-- ==================== End dark box ==================== -->
+
+
+
+                <!-- ==================== Start Awards ==================== -->
+
+                <section class="awards-sa section-padding"> 
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 wow fadeInUp slow" data-wow-delay="0.2s">
+                                <div class="sec-head md-mb80">
+                                    <h6 class="sub-head mb-30">My past experience</h6>
+                                    <h4>Nothing ever becomes real till it is 
+                                        <span class="sub-color inline">experienced.</span>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 offset-lg-1 wow fadeInUp slow" data-wow-delay="0.4s">
+                                <div>
+                                    <div class="item-title row">
+                                        <div class="col-md-9">
+                                            <div>
+                                                <h6 class="sub-title">Titles</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 d-flex justify-content-end">
+                                            <div>
+                                                <h6 class="sub-title">Date</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-line row">
+                                        <div class="col-md-9">
+                                            <div class="honors">
+                                                <h6>Sree Narayana Guru Open University</h6>
+                                            </div>
+                                            <div class="project-title">
+                                                <h6>Software Developer (Existing)</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-date">
+                                                <span>Dec 2023</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-line row">
+                                        <div class="col-md-9">
+                                            <div class="honors">
+                                                <h6>CYBERIA SOFTWARES</h6>
+                                            </div>
+                                            <div class="project-title">
+                                                <h6>Web Developer</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-date">
+                                                <span>Mar 2022</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="item-line row">
+                                        <div class="col-md-9">
+                                            <div class="honors">
+                                                <h6>Zion City Rolepay-GTAV ONLINE SERVER</h6>
+                                            </div>
+                                            <div class="project-title">
+                                                <h6>User Level Designer </h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-date">
+                                                <span>Remote</span>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="item-line row">
+                                        <div class="col-md-9">
+                                            <div class="honors">
+                                                <h6>Mobzway Technologies Studio</h6>
+                                            </div>
+                                            <div class="project-title">
+                                                <h6>Gameplay Tester</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-date">
+                                                <span>Remote</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Awards ==================== -->
+
+
+
+                <!-- ==================== Start Team ==================== -->
+
+                <section class="team-crv section-padding pt-0">
+
+                    <div class="main-marq shadow-off mb-100">
+                        <div class="slide-har st1">
+                            <div class="box">
+                                <div class="item">
+                                    <h2><span>Because 3D renders needed friends too,</span></h2>
+                                </div>
+                                <div class="item">
+                                    <h2><span>Yes, they all look the same—thank you, stock images!,</span></h2>
+                                </div>
+                                <div class="item">
+                                    <h2><span>3D models that totally don't judge you,</span></h2>
+                                </div>
+                                <div class="item">
+                                    <h2><span>The only group that won't ghost you... because they're rendered,</span></h2>
+                                </div>
+                                <div class="item">
+                                    <h2><span>Because who needs real people anyway?,</span></h2>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="item">
+                                    <h2><span>And yes, they’re all equally qualified in Photoshop,</span></h2>
+                                </div>
+                                <div class="item">
+                                    <h2><span>3D renders: the future of networking,</span></h2>
+                                </div>
+                                <div class="item">
+                                    <h2><span>They never argue about who’s taking the coffee break,</span></h2>
+                                </div>
+                                <div class="item">
+                                    <h2><span>Because we all know, rendering takes longer than real teamwork,</span></h2>
+                                </div>
+                                <div class="item">
+                                    <h2><span>Proof that looks can be deceiving—just like our renders!,</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+
+                </section>
+
+                <!-- ==================== End Team ==================== -->
+
+
+
+                <!-- ==================== Start dark box ==================== -->
+
+                <section class="box-dark no-out">
+
+
+                    <!-- ==================== Start Blog ==================== -->
+
+                    <div class="blog-sa">
+                        <div class="container section-padding bord-thin-bottom-light">
+                            <div class="sec-head mb-100">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <h6 class="sub-head md-mb30">Latest Works</h6>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <h4>Nothing ever becomes real until its 
+                                            <span class="sub-color inline">Proved.</span>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="item md-mb50 wow fadeInUp slow" data-wow-delay="0.2s">
+                                        <div class="img fit-img">
+                                            <img src="../assets/imgs/project_images/dis.jpg" alt="">
+                                        </div>
+                                        <div class="cont mt-30">
+                                            <h6>
+                                                <a href="https://github.com/vishnu1100/BetterDiscordNitroPlugin" target="_blank">Nitro Plugin Better Discord <br></a>
+                                            </h6>
+                                            <div class="info d-flex align-items-center mt-20">
+                                            
+                                                    <span> A Plugin used for improving better discord experience.</span>
+                                            
+                                             
+                                         
+                                          
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="item wow fadeInUp slow" data-wow-delay="0.4s">
+                                        <div class="img fit-img">
+                                            <img src="../assets/imgs/project_images/valo.png" alt="">
+                                        </div>
+                                        <div class="cont mt-30">
+                                            <h6>
+                                                <a href="https://github.com/vishnu1100/valorant-database-API" target="_blank">FASHE <br> </a>
+                                            </h6>
+                                            <div class="info d-flex align-items-center mt-20">
+                                                
+                                                    <span>A webpage to categorize the assets and data from valorant database using public API.</span>
+                                       
+                                                
+                                                   
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== End Blog ==================== -->
+
+
+                    <!-- ==================== Start clients ==================== -->
+
+                    <div class="clients-ds section-padding">
+                        <div class="container">
+                          
+                         <spline-viewer  url=""></spline-viewer>
+                            <!-- <div class="sec-head mb-70">
+                                <h6 class="sub-head">Favorite Tech Stacks</h6>
+                            </div>
+                            <div class="row sm-marg">
+                                <div class="col-lg col-md-4 col-6 md-mb30">
+                                    <div class="item d-flex align-items-center justify-content-center wow zoomIn slow" data-wow-delay="0.2s">
+                                        <div class="img">
+                                            <img src="../assets/imgs/clients/1.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg col-md-4 col-6 md-mb30">
+                                    <div class="item d-flex align-items-center justify-content-center wow zoomIn slow" data-wow-delay="0.4s">
+                                        <div class="img">
+                                            <img src="../assets/imgs/clients/2.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg col-md-4 col-6 md-mb30">
+                                    <div class="item d-flex align-items-center justify-content-center wow zoomIn slow" data-wow-delay="0.6s">
+                                        <div class="img">
+                                            <img src="../assets/imgs/clients/3.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg col-md-4 col-6 sm-mb30">
+                                    <div class="item d-flex align-items-center justify-content-center wow zoomIn slow" data-wow-delay="0.8s">
+                                        <div class="img">
+                                            <img src="../assets/imgs/clients/4.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg col-md-4 col-6">
+                                    <div class="item d-flex align-items-center justify-content-center wow zoomIn slow" data-wow-delay="1s">
+                                        <div class="img">
+                                            <img src="../assets/imgs/clients/5.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <!-- ==================== End clients ==================== -->
+
+                </section>
+
+                <!-- ==================== End dark box ==================== -->
+
+
+            </main>
+
+
+            <!-- ==================== Start Footer ==================== -->
+
+            <footer class="footer-sa bord-thin-top-light pb-80">
+                <div class="container section-padding">
+                    <div class="sec-head mb-80">
+                        <div class="row">
+                           
+                            <div class="col-lg-6">
+                                <h4>I hope to empower users and simplify
+                                    <span class="sub-color inline">their everyday tasks.</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div><a href="../assets/Vishnu'sResume.pdf"><button>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 36 36"
+                          width="36px"
+                          height="36px"
+                        >
+                          <rect width="36" height="36" x="0" y="0" fill="#fdd835"></rect>
+                          <path
+                            fill="#e53935"
+                            d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z"
+                          ></path>
+                          <path
+                            fill="#b71c1c"
+                            d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79 c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7 c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5,6.07,2.35C40.68,33.85,39.8,38.9,39.02,42z"
+                          ></path>
+                          <path
+                            fill="#212121"
+                            d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17 c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32 c-1.31,1.6-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09 c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.28-0.76,7.67-0.25,9.77,1.13 C33.79,13.6,35,22.23,35,27.17z"
+                          ></path>
+                          <path
+                            fill="#01579b"
+                            d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337 c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"
+                          ></path>
+                          <path
+                            fill="#212121"
+                            d="M40.739,37.38c-0.28,1.99-0.69,3.53-1.22,4.62h-2.43c0.25-0.19,1.13-1.11,1.67-4.9 c0.57-4-0.23-11.79-0.93-12.78c-0.4-0.4-2.63-0.8-4.37-0.89l0.1-1.99c1.04,0.05,4.53,0.31,5.71,1.49 C40.689,24.36,41.289,33.53,40.739,37.38z"
+                          ></path>
+                          <path
+                            fill="#81d4fa"
+                            d="M10.154,20.201c0.261,2.059-0.196,3.351,2.543,3.546s8.076,1.022,9.402-0.554 c1.326-1.576,1.75-4.365-0.891-5.267C19.336,17.287,12.959,16.251,10.154,20.201z"
+                          ></path>
+                          <path
+                            fill="#212121"
+                            d="M17.615,29.677c-0.502,0-0.873-0.03-1.052-0.069c-0.086-0.019-0.236-0.035-0.434-0.06 c-5.344-0.679-8.053-2.784-8.052-6.255c0.001-2.698,1.17-7.238,8.986-7.32l0.181-0.002c3.444-0.038,6.414-0.068,8.272,1.818 c1.173,1.191,1.712,3,1.647,5.53c-0.044,1.688-0.785,3.147-2.144,4.217C22.785,29.296,19.388,29.677,17.615,29.677z M17.086,17.973 c-7.006,0.074-7.008,4.023-7.008,5.321c-0.001,3.109,3.598,3.926,6.305,4.27c0.273,0.035,0.48,0.063,0.601,0.089 c0.563,0.101,4.68,0.035,6.855-1.732c0.865-0.702,1.299-1.57,1.326-2.653c0.051-1.958-0.301-3.291-1.073-4.075 c-1.262-1.281-3.834-1.255-6.825-1.222L17.086,17.973z"
+                          ></path>
+                          <path
+                            fill="#e1f5fe"
+                            d="M15.078,19.043c1.957-0.326,5.122-0.529,4.435,1.304c-0.489,1.304-7.185,2.185-7.185,0.652 C12.328,19.467,15.078,19.043,15.078,19.043z"
+                          ></path>
+                        </svg>
+                        <span class="now">Download  </span>
+                        <span class="play">Resume</span>
+                      </button></a>
+                    <div class="contact-info">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-5">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span class="sub-color">location</span>
+                                            <p>Kerala,India </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-end justify-end">
+                                        <div class="item">
+                                            <span class="sub-color">inquiry</span>
+                                            <p>Vishnusanthoshvr@gmail.com</p>
+                                            <p>+91 9746083905</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 offset-lg-5">
+                                <div class="social-icon">
+                                   
+                                    <a href="https://github.com/vishnu1100" target="_blank">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+
+                                    <a href="https://www.linkedin.com/in/vishnu-santhosh-000386247/" target="_blank">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                    </a>
+
+
+                                    <a href="https://uiverse.io/profile/vishnu1100" target="_blank">
+                                       <i class="fa-brands fa-uikit"></i>
+                                    </a>
+
+                                  
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="copy sub-color md-mb50">
+                                    <p>© 2024 <a href="#0">VishnuSanthosh</a>. All Right Reserved</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 d-flex justify-content-end">
+                                <div class="links sub-color d-flex justify-content-between">
+                                    <a href="" class="active">Home</a>
+                                    <a onclick="showtoast('Works Page Under maintanence')">Works</a>
+                                    <a onclick="showtoast('Studio Page Under maintanence')">Studio</a>
+                                    <a onclick="showtoast('News Page Under maintanence')">News</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- ==================== End Footer ==================== -->
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="../common/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="../common/js/lib/jquery-migrate-3.4.0.min.js"></script>
+
+    <!-- plugins -->
+    <script src="../common/js/lib/plugins.js"></script>
+
+    <!-- GSAP -->
+    <script src="../common/js/gsap_lib/gsap.min.js"></script>
+    <script src="../common/js/gsap_lib/ScrollSmoother.min.js"></script>
+    <script src="../common/js/gsap_lib/ScrollTrigger.min.js"></script>
+    <script src="../common/js/gsap_lib/SplitText.min.js"></script>
+    <script src="../common/js/gsap_lib/matter.js"></script>
+    <script src="../common/js/gsap_lib/throwable.js"></script>
+
+    <!-- common scripts -->
+    <script src="../common/js/common_scripts.js"></script>
+
+    <!-- custom scripts -->
+    <script src="../assets/js/scripts.js"></script>
+    
+    
+<!-- Start of OpenWidget (www.openwidget.com) code -->
+<script>
+  window.__ow = window.__ow || {};
+  window.__ow.organizationId = "db421598-1431-4eb3-adb8-f312586bfca4";
+  window.__ow.integration_name = "manual_settings";
+  window.__ow.product_name = "openwidget";   
+  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[OpenWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.openwidget.com/openwidget.js",t.head.appendChild(n)}};!n.__ow.asyncInit&&e.init(),n.OpenWidget=n.OpenWidget||e}(window,document,[].slice))
+</script>
+<noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
+<!-- End of OpenWidget code -->
+ <script src="../assets/js/spline_logo_remover.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/vishnu1100/ContentDeliveryNetwork/ToastMessageJS/toast.js"></script>
+</body>
 
 </html>
