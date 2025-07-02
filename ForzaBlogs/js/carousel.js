@@ -19,9 +19,7 @@ if ($(".sw-layout").length > 0) {
         var perGroupLg = swiperContainer.data("pagination-lg") || 1;
         var center = swiperContainer.data("slide-center") || false;
         var intitSlide = swiperContainer.data("init-slide") || 0;
-        var autoplay =
-            swiperContainer.data("autoplay") === true ||
-            swiperContainer.data("autoplay") === "true";
+        var autoplay = true;
         var paginationType =
             swiperContainer.data("pagination-type") || "bullets";
         var loop =
@@ -49,12 +47,10 @@ if ($(".sw-layout").length > 0) {
                 : false,
             observer: true,
             observeParents: true,
-            autoplay: autoplay
-                ? {
-                      delay: 3000,
-                      disableOnInteraction: false,
-                  }
-                : false,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
             navigation: {
                 clickable: true,
                 nextEl: nextBtn,
