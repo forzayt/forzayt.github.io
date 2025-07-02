@@ -313,4 +313,18 @@
         handleVideo();
         oneNavOnePage();
     });
+
+  
+
 })(jQuery);
+
+
+   function comingsoon() {
+    Toastify({
+        text: "Coming soon...",
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        backgroundColor: "#4fbe87",
+    }).showToast();
+}
