@@ -325,6 +325,6 @@
         duration: 3000,
         gravity: "top",
         position: "right",
-        backgroundColor: "#4fbe87",
+        backgroundColor: "#161616",
     }).showToast();
 }
