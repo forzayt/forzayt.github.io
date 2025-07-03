@@ -528,8 +528,12 @@
           
             <!-- section-latest-posts -->
             <div class="tf-container w-xxl tf-spacing-1">
-                <div class="heading-section mb_28">
-                    <h3>Latest Posts</h3>
+                <div class="heading-section mb_28" style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+                    <h3 style="margin-bottom: 0;">Latest Posts</h3>
+                    <form id="latest-posts-search-form" style="display: flex; align-items: center; gap: 0.5rem; min-width: 250px;">
+                        <input type="text" id="latest-posts-search" class="form-control" placeholder="Search posts..." style="border-radius: 20px; padding: 6px 16px; border: 1px solid #ddd; outline: none; font-size: 1rem;" />
+                        
+                    </form>
                 </div>
                 <div class="tf-grid-layout lg-col-4 md-col-2">
                     <div class="feature-post-item style-default style-border hover-image-translate ">
@@ -668,7 +672,38 @@
     <!-- toastify -->
    
     <!-- /Javascript -->
+    <script>
+    // Search functionality for Latest Posts
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchForm = document.getElementById('latest-posts-search-form');
+        const searchInput = document.getElementById('latest-posts-search');
+        const postsGrid = document.querySelector('.tf-grid-layout.lg-col-4.md-col-2');
+        const postItems = postsGrid ? Array.from(postsGrid.getElementsByClassName('feature-post-item')) : [];
 
+        function filterPosts(query) {
+            const q = query.trim().toLowerCase();
+            postItems.forEach(item => {
+                const title = item.querySelector('.title')?.textContent?.toLowerCase() || '';
+                const author = item.querySelector('ul.meta-feature a.link')?.textContent?.toLowerCase() || '';
+                if (title.includes(q) || author.includes(q)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        if (searchForm && searchInput && postItems.length) {
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                filterPosts(searchInput.value);
+            });
+            searchInput.addEventListener('input', function() {
+                filterPosts(searchInput.value);
+            });
+        }
+    });
+    </script>
 </body>
 
 
