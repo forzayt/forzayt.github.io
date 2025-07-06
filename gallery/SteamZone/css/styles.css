@@ -392,6 +392,35 @@ header .header-options .auth:hover {
   }
 }
 
+/* Responsive: Only for #new-release game cards */
+@media (max-width: 1000px) {
+  #new-release .container .new-games-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  #new-release .container .new-games-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #new-release .container .new-games-list .single-game {
+    height: 400px;
+  }
+  #new-release .container .new-games-list .single-game .img-box {
+    height: 200px;
+  }
+}
+@media (max-width: 500px) {
+  #new-release .container .new-games-list {
+    grid-template-columns: 1fr;
+  }
+  #new-release .container .new-games-list .single-game {
+    height: 350px;
+  }
+  #new-release .container .new-games-list .single-game .img-box {
+    height: 150px;
+  }
+}
+
 /* free-games-section */
 
 #free-games-weekly {

@@ -145,5 +145,22 @@
   
    
    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.querySelector('.search input');
+        const cards = document.querySelectorAll('.new-games-list .single-game');
+        searchInput.addEventListener('input', function () {
+          const query = this.value.trim().toLowerCase();
+          cards.forEach(card => {
+            const title = card.querySelector('.title').textContent.toLowerCase();
+            if (title.includes(query)) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
