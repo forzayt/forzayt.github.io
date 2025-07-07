@@ -142,6 +142,10 @@ header .header-options .auth:hover {
   align-items: center;
 }
 
+  .white-placeholder::placeholder {
+    color: white;
+  }
+
 #hp-prim-show .container .top-bar .options .option {
   margin: 0 20px 0 0;
   font-size: 15px;
@@ -150,9 +154,10 @@ header .header-options .auth:hover {
 
 #hp-prim-show .container .top-bar .search input {
   border: none;
-  background: #2a2a2a;
+  background: #808080;
   padding: 10px 20px;
   border-radius: 2px;
+  
 }
 
 #hp-prim-show .container .content {
@@ -335,6 +340,7 @@ header .header-options .auth:hover {
   height: 100%;
   left: 50%;
   transform: translate(-50%);
+  border-radius: 25px;
 }
 
 #new-release .container .new-games-list .single-game .img-box .game-logo {
@@ -539,6 +545,7 @@ header .header-options .auth:hover {
   height: 100%;
   left: 50%;
   transform: translate(-50%);
+  border-radius: 25px;
 }
 
 #top-sellers .container .games .game .img-box .game-logo {
@@ -756,6 +763,7 @@ header .header-options .auth:hover {
   height: 100%;
   left: 50%;
   transform: translate(-50%);
+  border-radius: 25px;
 }
 
 #coming-soon .container .games .game .img-box .game-logo {
@@ -972,6 +980,7 @@ header .header-options .auth:hover {
   height: 100%;
   left: 50%;
   transform: translate(-50%);
+  border-radius: 25px;
 }
 
 #rising .container .games .game .img-box .game-logo {
@@ -1059,6 +1068,7 @@ header .header-options .auth:hover {
   height: 100%;
   left: 50%;
   transform: translate(-50%);
+  border-radius: 25px;
 }
 
 #most-pop .container .games .game .img-box .game-logo {
