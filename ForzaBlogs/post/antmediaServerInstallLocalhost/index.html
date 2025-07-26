@@ -53,10 +53,10 @@
                 <div class="content text-center">
                     <div class="wrap-meta-feature d-flex align-items-center justify-content-center">
                         <span class="tag">
-                       CLOUD
+                       STREAMING 
                         </span>
                         <ul class="meta-feature fw-7 d-flex mb_16 text-body-1 mb-0  align-items-center">
-                            <li>FEBRUARY 12, 2025</li>
+                            <li>July 26, 2025</li>
                             <li><span class="text_secodary2-color">POST BY</span> FORZA
                             </li>
                             <div class="mode-check">
@@ -68,9 +68,10 @@
                             </div>
                         </ul>
                     </div>
+                    <br><br><br>
                     <h1 class="mb_16">
                         
-                        Automate Your EC2 Deployments with GitHub Actions – The Easy CI/CD Pipeline
+                        Self-Host Ant Media Server on Ubuntu (Locally)  
                     
                     </h1>
                    
@@ -88,89 +89,157 @@
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="share-bar text-center lg-hide">
-                                <h6 class="mb_20">Share This Post</h6>
-                                <ul class="d-grid gap_6">
-                                    <li><a href="#"
-                                            class="social-item d-flex align-items-center justify-content-center text-body-1 fw-7 gap_8">
-                                            <i class="icon-FacebookLogo"></i>Facebook
-                                        </a></li>
-                                    <li><a href="#"
-                                            class="social-item d-flex align-items-center justify-content-center text-body-1 fw-7 gap_8">
-                                            <i class="icon-XLogo"></i>Twitter
-                                        </a></li>
-                                    <li><a href="#"
-                                            class="social-item d-flex align-items-center justify-content-center text-body-1 fw-7 gap_8">
-                                            <i class="icon-InstagramLogo"></i>Instagram
-                                        </a></li>
-                                    <li><a href="#"
-                                            class="social-item d-flex align-items-center justify-content-center text-body-1 fw-7 gap_8">
-                                            <i class="icon-PinterestLogo"></i>Pinterest
-                                        </a></li>
-                                </ul>
-                            </div>
+    <h6 class="mb_20">Share This Post</h6>
+    <ul class="d-grid gap_6">
+        <li>
+            <a href="#" data-platform="facebook" class="social-item d-flex align-items-center justify-content-center text-body-1 fw-7 gap_8">
+                <i class="icon-FacebookLogo"></i>Facebook
+            </a>
+        </li>
+        <li>
+            <a href="#" data-platform="twitter" class="social-item d-flex align-items-center justify-content-center text-body-1 fw-7 gap_8">
+                <i class="icon-XLogo"></i>Twitter
+            </a>
+        </li>
+        <!-- <li>
+            <a href="#" data-platform="pinterest" class="social-item d-flex align-items-center justify-content-center text-body-1 fw-7 gap_8">
+                <i class="icon-PinterestLogo"></i>Pinterest
+            </a>
+        </li>
+        <li>
+            <a href="#" data-platform="instagram" class="social-item d-flex align-items-center justify-content-center text-body-1 fw-7 gap_8">
+                <i class="icon-InstagramLogo"></i>Instagram
+            </a>
+        </li> -->
+    </ul>
+</div>
+
                         </div>
                         <div class="col-lg-6">
                             <div class="post-details">
                                 <p class="mb_28">
                                 
-                                    Managing a server can feel overwhelming — especially when you’re manually
-                                    logging into your EC2 instance every time you push code. But what if you
-                                    could automate that entire process? With GitHub Actions, you can build a
-                                    simple, secure, and lightweight CI/CD pipeline that connects directly
-                                    to your AWS EC2 instance and updates your codebase as soon as you push
-                                    changes. No need to set up Docker, Kubernetes, or complicated cloud deployments.
+                                   If you're looking to run your own live streaming platform 
+                                   like YouTube Live or Twitch, Ant Media Server is one of
+                                    the best self-hosted options. In this blog post, I’ll
+                                     guide you step-by-step on how to install and run Ant
+                                      Media Server (Community Edition) on your Ubuntu machine locally.
                                 
                                 
                                 </p>
                                 <div class="passage mb_28">
-                                    <h5 class="title mb_12">Let’s walk through how to automate your EC2 deployments using GitHub Workflow.</h5>
+                                    <h5 class="title mb_12">📌 What is Ant Media Server?</h5>
                                         
-                                    <p>Start your mornings by writing down three things you're grateful for, no matter
-                                        how small. End your day by reflecting on one positive moment, even if the day
-                                        felt challenging. Over time, these bookends of gratitude anchor your days in
-                                        positivity, build resilience, and increase your overall satisfaction with life.
+                                    <p>
+                                    
+                                    
+                                    <ul>
+                                        <li>📡 <strong>WebRTC</strong> (ultra-low latency)</li> <br>
+                                        <li>🎥 <strong>RTMP</strong>, <strong>HLS</strong>, and <strong>DASH</strong></li> <br>
+                                        <li>🧠 <strong>Recording, Transcoding, Adaptive Bitrate</strong> (Pro)</li><br>
+                                        <li>🤝 Scalable with clustering</li><br>
+                                    </ul>
+                                    
+                                    
+                                    
                                     </p>
                                 </div>
                                 <div class="passage ">
-                                    <h5 class="title mb_12">2. Move Your Body With Joy.</h5>
-                                    <p class="mb_8">Exercise shouldn’t feel like a chore; it should feel like a
-                                        celebration of what your body can do. Instead of forcing yourself into rigid
-                                        workouts you hate, find movement that sparks joy — dancing, hiking, stretching,
-                                        yoga, or even a playful walk with your dog.</p>
-                                    <p>Physical activity boosts endorphins, reduces stress, and energizes you from the
-                                        inside out.</p>
+
+
+                                    <h5 class="title mb_12">🧰 Prerequisites</h5>
+
+
+                                    <p class="mb_8">
+                                    
+                                    <ul>
+                                        <li>Ubuntu 20.04 or 22.04 (64-bit)</li><br>
+                                        <li>4 GB RAM or more</li><br>
+                                        <li>Java 8 (OpenJDK)</li><br>
+                                        <li>Basic terminal skills</li><br>
+                                    </ul>
+                                    
+                                    
+                                    </p>
+                                    <p>
+                                        
+                                      
+                                    
+                                    
+                                    </p>
                                 </div>
-                                <div class="quote text-center">
-                                    <span class="divider mx-auto"></span>
-                                    <p class="h4 mb_16 ">"Joy Is Not Found In Grand Moments, But In The Quiet, Simple
-                                        Habits We Nurture Every Day."</p>
-                                    <a href="#" class="text-title text_secodary-color link fw-7">John Smith</a>
-                                </div>
+                                
+
+
                                 <div class="passage mb_28">
-                                    <h5 class="title mb_12">3. Create Space For Meaningful Connections.</h5>
-                                    <p class="mb_8">Human connection is one of the strongest predictors of happiness. In
-                                        a busy world, it's easy to let true relationships fade. Make a conscious effort
-                                        to reach out — send that text, schedule that coffee date, write that heartfelt
-                                        message.</p>
-                                    <p>Invest in quality over quantity. A few deep, supportive relationships nourish
-                                        your heart far more than a hundred surface-level ones.</p>
+
+
+                                    <h5 class="title mb_12">
+                                        
+                                  📦 Step 1: Update Your System
+                                    
+                                    </h5>
+                                    <p class="mb_8">
+                                        
+                                        
+                                     
+                          <pre class="bg-light p-3 rounded border"><code>sudo apt update && sudo apt upgrade -y</code></pre>
+
+
+                                    
+                                    </p>
+                                    <p>
+                                        
+                                        
+                                     
+                                    
+                                    </p>
+
                                 </div>
                                 <div class="passage">
-                                    <h5 class="title mb_12">4. Design A Nurturing Environment.</h5>
-                                    <p class="mb_8">Your environment dramatically influences your mood and mental
-                                        clarity. Create spaces around you that inspire peace and creativity. Declutter
-                                        your room, add plants, hang art you love, or light a candle that makes you feel
-                                        calm.</p>
-                                    <p>A beautiful, intentional space isn't about perfection — it's about designing
-                                        surroundings that reflect and support who you want to become.</p>
+                                    <h5 class="title mb_12">
+                                        
+                                       ☕ Step 2: Install Java 8
+                                    
+                                    </h5>
+                                    <p class="mb_8">
+                                        
+                                      <pre class="bg-light p-3 rounded border"><code>sudo apt install openjdk-8-jdk -y</code></pre>
+                                    
+                                    </p>
+                                 
+                                      <p>Verify Java installation:</p>
+
+
+                                      <p class="mb_8">
+
+                                         <pre class="bg-light p-3 rounded border"><code>java -version</code></pre>
+                                      </p>
+                                   
                                 </div>
                                 <br>
+
+
                                 <div class="passage">
+
+
                                     <h5 class="title mb_12">Final Thoughts.</h5>
-                                    <p class="mb_8">Happiness doesn’t have to be complicated. By cultivating small,
+
+
+                                    <p class="mb_8">
+                                        
+                                        
+                                        Happiness doesn’t have to be complicated. By cultivating small,
                                         consistent habits that honor your mind, body, and spirit, you naturally create a
-                                        foundation for a more joyful and fulfilling life.</p>
-                                    <p>Start with just one habit today — your future self will thank you.</p>
+                                        foundation for a more joyful and fulfilling life.
+                                    
+                                    </p>
+
+                                    <p>
+                                        
+                                        Start with just one habit today — your future self will thank you.
+                                    
+                                    </p>
                                 </div>
                                 <div class="wrap-tag d-flex flex-wrap align-items-center gap_12 ">
                                     <span class="text-title text_on-surface-color fw-7">Tag:</span>

@@ -328,3 +328,38 @@
         backgroundColor: "#161616",
     }).showToast();
 }
+
+
+
+    const currentUrl = encodeURIComponent(window.location.href);
+    document.querySelectorAll(".share-bar a").forEach(anchor => {
+        const platform = anchor.getAttribute("data-platform");
+
+        let shareUrl = "#";
+
+        switch (platform) {
+            case "facebook":
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+                break;
+            case "twitter":
+                shareUrl = `https://twitter.com/intent/tweet?url=${currentUrl}`;
+                break;
+            case "pinterest":
+                shareUrl = `https://pinterest.com/pin/create/button/?url=${currentUrl}`;
+                break;
+            default:
+                shareUrl = currentUrl;
+        }
+
+        anchor.href = shareUrl;
+        anchor.target = "_blank";
+    });
+
+
+
+     function copyToClipboard() {
+    const text = document.getElementById("copyCommand").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Copied to clipboard!");
+    });
+  }
