@@ -119,23 +119,23 @@
                             <div class="post-details">
                                 <p class="mb_28">
                                 
-                                   If you're looking to run your own live streaming platform 
-                                   like YouTube Live or Twitch, Ant Media Server is one of
-                                    the best self-hosted options. In this blog post, I’ll
-                                     guide you step-by-step on how to install and run Ant
-                                      Media Server (Community Edition) on your Ubuntu machine locally.
+                                   If you're looking to run your own live streaming platform <br>
+                                   like YouTube Live or Twitch, Ant Media Server is one of <br>
+                                    the best self-hosted options. In this blog post, I'll <br>
+                                     guide you step-by-step on how to install and run Ant <br>
+                                      Media Server (Community Edition) on your Ubuntu machine locally. <br>
                                 
                                 
                                 </p>
                                 <div class="passage mb_28">
-                                    <h5 class="title mb_12">📌 What is Ant Media Server?</h5>
+                                    <h5 class="title mb_12">📌 What is Ant Media Server?</h5><br>
                                         
                                     <p>
                                     
                                     
                                     <ul>
-                                        <li>📡 <strong>WebRTC</strong> (ultra-low latency)</li> <br>
-                                        <li>🎥 <strong>RTMP</strong>, <strong>HLS</strong>, and <strong>DASH</strong></li> <br>
+                                        <li>📡 <strong>WebRTC</strong> (ultra-low latency)</li><br>
+                                        <li>🎥 <strong>RTMP</strong>, <strong>HLS</strong>, and <strong>DASH</strong></li><br>
                                         <li>🧠 <strong>Recording, Transcoding, Adaptive Bitrate</strong> (Pro)</li><br>
                                         <li>🤝 Scalable with clustering</li><br>
                                     </ul>
@@ -147,7 +147,7 @@
                                 <div class="passage ">
 
 
-                                    <h5 class="title mb_12">🧰 Prerequisites</h5>
+                                    <h5 class="title mb_12">🧰 Prerequisites</h5><br>
 
 
                                     <p class="mb_8">
@@ -178,12 +178,12 @@
                                         
                                   📦 Step 1: Update Your System
                                     
-                                    </h5>
+                                    </h5><br>
                                     <p class="mb_8">
                                         
                                         
                                      
-                          <pre class="bg-light p-3 rounded border"><code>sudo apt update && sudo apt upgrade -y</code></pre>
+                          <pre class="bg-light p-3 rounded border"><code>sudo apt update && sudo apt upgrade -y<br></code></pre>
 
 
                                     
@@ -201,10 +201,10 @@
                                         
                                        ☕ Step 2: Install Java 8
                                     
-                                    </h5>
+                                    </h5><br>
                                     <p class="mb_8">
                                         
-                                      <pre class="bg-light p-3 rounded border"><code>sudo apt install openjdk-8-jdk -y</code></pre>
+                                      <pre class="bg-light p-3 rounded border"><code>sudo apt install openjdk-8-jdk -y<br></code></pre>
                                     
                                     </p>
                                  
@@ -213,40 +213,203 @@
 
                                       <p class="mb_8">
 
-                                         <pre class="bg-light p-3 rounded border"><code>java -version</code></pre>
+                                         <pre class="bg-light p-3 rounded border"><code>java -version<br></code></pre>
+                                      </p>
+                                      
+                                      <p class="mb_8">
+                                          <strong>Expected output:</strong> <code>openjdk version "1.8.x"</code>
                                       </p>
                                    
                                 </div>
                                 <br>
 
-
-                                <div class="passage">
-
-
-                                    <h5 class="title mb_12">Final Thoughts.</h5>
-
-
+                                <div class="passage mb_28">
+                                    <h5 class="title mb_12">
+                                        
+                                       📥 Step 3: Download Ant Media
+                                    
+                                    </h5><br>
+                                    <p class="mb_8">
+                                        Download from the <strong><a style="color: aqua;" href="https://antmedia.io/" target="_blank"> ANT MEDIA OFFICAL WEBISTE </a></strong> or use: <br>
+                                    </p>
                                     <p class="mb_8">
                                         
-                                        
-                                        Happiness doesn’t have to be complicated. By cultivating small,
-                                        consistent habits that honor your mind, body, and spirit, you naturally create a
-                                        foundation for a more joyful and fulfilling life.
+                                      <pre class="bg-light p-3 rounded border"><code>wget https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.8.2/ant-media-server-community-2.8.2.zip<br></code></pre>
                                     
                                     </p>
+                                </div>
 
-                                    <p>
+                                <div class="passage mb_28">
+                                    <h5 class="title mb_12">
                                         
-                                        Start with just one habit today — your future self will thank you.
+                                       📂 Step 4: Unzip the File
+                                    
+                                    </h5><br>
+                                    <p class="mb_8">
+                                        Install unzip:<br>
+                                        <pre class="bg-light p-3 rounded border"><code>sudo apt install unzip -y<br></code></pre>
+                                    </p>
+                                    <p class="mb_8">
+                                        Unzip the downloaded file:<br>
+                                        <pre class="bg-light p-3 rounded border"><code>unzip ant-media-server-community-2.8.2.zip<br></code></pre>
+                                    </p>
+                                    <p class="mb_8">
+                                        Change directory:<br>
+                                        <pre class="bg-light p-3 rounded border"><code>cd ant-media-server<br></code></pre>
+                                    </p>
+                                </div>
+
+                                <div class="passage mb_28">
+                                    <h5 class="title mb_12">
+                                        
+                                       ▶️ Step 5: Start the Server
+                                    
+                                    </h5><br>
+                                    <p class="mb_8">
+                                        
+                                      <pre class="bg-light p-3 rounded border"><code>./start.sh<br></code></pre>
                                     
                                     </p>
+                                    <p class="mb_8">
+                                        You should see: <code>Ant Media Server is started.</code>
+                                    </p>
+                                </div>
+
+                                <div class="passage mb_28">
+                                    <h5 class="title mb_12">
+                                        
+                                       🌐 Step 6: Access the Web Dashboard
+                                    
+                                    </h5><br>
+                                    <p class="mb_8">
+                                        Open your browser and go to: <br>
+                                    </p>
+                                    <p class="mb_8">
+                                        
+                                      <pre class="bg-light p-3 rounded border"><code>http://localhost:5080<br></code></pre>
+                                    
+                                    </p>
+                                    <p class="mb_8">
+                                        <strong>Login:</strong> <br>
+                                    </p>
+                                    <ul>
+                                        <li>Username: <strong> Admin</strong></li><br>
+                                        <li>Password: <strong> Admin</strong></li>
+                                    </ul>
+                                </div>
+
+                                <div class="passage mb_28">
+                                    <h5 class="title mb_12">
+                                        
+                                       🧪 Step 7: Test a Stream
+                                    
+                                    </h5><br>
+                                    <ol>
+                                        <li>Go to the <strong>Applications</strong> tab</li><br>
+                                        <li>Choose <strong>LiveApp</strong></li><br>
+                                        <li>Use OBS or browser webcam to test</li><br>
+                                    </ol>
+                                    <p class="mb_8">
+                                        <strong>OBS RTMP settings:</strong> <br>
+                                    </p>
+                                    <p class="mb_8">
+                                        
+                                      <pre class="bg-light p-3 rounded border"><code>rtmp://localhost/LiveApp/stream1<br></code></pre>
+                                    
+                                    </p>
+                                </div>
+
+                                <div class="passage mb_28">
+                                    <h5 class="title mb_12">
+                                        
+                                       🌍 Step 8: Access From Another Device
+                                    
+                                    </h5><br>
+                                    <p class="mb_8">
+                                        
+                                      <pre class="bg-light p-3 rounded border"><code>hostname -I<br></code></pre>
+                                    
+                                    </p>
+                                    <p class="mb_8">
+                                        Use the IP you get, for example: <br>
+                                    </p>
+                                    <p class="mb_8">
+                                        
+                                      <pre class="bg-light p-3 rounded border"><code>http://192.168.1.42:5080<br></code></pre>
+                                    
+                                    </p>
+                                    <p class="mb_8">
+                                        ⚠️ Make sure port 5080 is not blocked by UFW or firewall. <br>
+                                    </p>
+                                </div>
+
+                                <div class="passage mb_28">
+                                    <h5 class="title mb_12">
+                                        
+                                       ✅ Conclusion
+                                    
+                                    </h5><br>
+                                    <p class="mb_8">
+                                        You now have a local, self-hosted Ant Media Server running on Ubuntu! Use it to: <br>
+                                    </p>
+                                    <ul>
+                                        <li>Build your own YouTube/Twitch-style service</li><br>
+                                        <li>Experiment with WebRTC/RTMP/HLS</li><br>
+                                        <li>Learn streaming technology hands-on</li><br>
+                                    </ul>
+                                </div>
+
+                                <div class="passage mb_28">
+                                    <h5 class="title mb_12">
+                                        
+                                       🔁 Quick Commands Summary
+                                    
+                                    </h5><br>
+                                    <div class="quick-commands-list">
+                                      <ol>
+                                        <li>
+                                          <strong>Update system:</strong>
+                                          <pre class="bg-light p-3 rounded border"><code>sudo apt update && sudo apt upgrade -y</code></pre>
+                                        </li>
+                                        <li>
+                                          <strong>Install Java:</strong>
+                                          <pre class="bg-light p-3 rounded border"><code>sudo apt install openjdk-8-jdk -y</code></pre>
+                                        </li>
+                                        <li>
+                                          <strong>Download Ant Media:</strong>
+                                          <pre class="bg-light p-3 rounded border"><code>wget https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.8.2/ant-media-server-community-2.8.2.zip</code></pre>
+                                        </li>
+                                        <li>
+                                          <strong>Install unzip:</strong>
+                                          <pre class="bg-light p-3 rounded border"><code>sudo apt install unzip -y</code></pre>
+                                        </li>
+                                        <li>
+                                          <strong>Unzip file:</strong>
+                                          <pre class="bg-light p-3 rounded border"><code>unzip ant-media-server-community-2.8.2.zip</code></pre>
+                                        </li>
+                                        <li>
+                                          <strong>Change directory:</strong>
+                                          <pre class="bg-light p-3 rounded border"><code>cd ant-media-server</code></pre>
+                                        </li>
+                                        <li>
+                                          <strong>Start server:</strong>
+                                          <pre class="bg-light p-3 rounded border"><code>./start.sh</code></pre>
+                                        </li>
+                                        <li>
+                                          <strong>Open Dashboard:</strong>
+                                          <pre class="bg-light p-3 rounded border"><code>http://localhost:5080</code></pre>
+                                        </li>
+                                      </ol>
+                                    </div>
                                 </div>
                                 <div class="wrap-tag d-flex flex-wrap align-items-center gap_12 ">
                                     <span class="text-title text_on-surface-color fw-7">Tag:</span>
                                     <ul class="d-flex flex-wrap gap_12">
-                                        <li><a href="#" class="tag text-caption-1">Fashion</a></li>
-                                        <li><a href="#" class="tag text-caption-1">Technology</a></li>
-                                        <li><a href="#" class="tag text-caption-1">Travel List</a></li>
+                                        <li><a href="#" class="tag text-caption-1">Streaming</a></li>
+                                        <li><a href="#" class="tag text-caption-1">Ubuntu</a></li>
+                                        <li><a href="#" class="tag text-caption-1">Server Setup</a></li>
+                                        <li><a href="#" class="tag text-caption-1">WebRTC</a></li>
+                                        <li><a href="#" class="tag text-caption-1">RTMP</a></li>
                                     </ul>
                                 </div>
                                
