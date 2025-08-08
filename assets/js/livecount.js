@@ -45,7 +45,7 @@ if (roomElement) {
     const cnt = snapshot ? snapshot.numChildren() : 0;
     const livecountElement = document.getElementById("livecount");
     if (livecountElement) {
-      livecountElement.innerText = cnt + " visitors";
+      livecountElement.innerText = cnt + " viewers";
     }
   });
   
