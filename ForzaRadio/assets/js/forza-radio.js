@@ -263,11 +263,21 @@ class ForzaRadio {
                     // Set up event listeners for the new audio
                     newAudio.addEventListener('canplaythrough', () => {
                         console.log(`✅ New audio ready to play: ${song.name}`);
+                        // Clear the loading timeout since audio is ready
+                        if (this._audioLoadingTimeout) {
+                            clearTimeout(this._audioLoadingTimeout);
+                            this._audioLoadingTimeout = null;
+                        }
                         this.switchToNewAudio(newAudio, song);
                     });
                     
                     newAudio.addEventListener('error', (error) => {
                         console.error(`Failed to load new audio: ${song.downloadUrl}`, error);
+                        // Clear the loading timeout
+                        if (this._audioLoadingTimeout) {
+                            clearTimeout(this._audioLoadingTimeout);
+                            this._audioLoadingTimeout = null;
+                        }
                         // Try to play next song if current fails
                         setTimeout(() => {
                             if (this.isRadioMode) {
@@ -275,6 +285,15 @@ class ForzaRadio {
                             }
                         }, 1000);
                     });
+                    
+                    // Set a 3-second timeout for audio loading
+                    this._audioLoadingTimeout = setTimeout(() => {
+                        console.log(`⏰ Audio loading timeout reached (3s) for: ${song.name}, skipping to next song...`);
+                        this._audioLoadingTimeout = null;
+                        if (this.isRadioMode) {
+                            window.iaRadio.playNext();
+                        }
+                    }, 3000);
                     
                     // Start loading the new audio
                     newAudio.src = song.downloadUrl;
@@ -475,6 +494,15 @@ class ForzaRadio {
             this.mainAudio.removeEventListener("loadeddata", this._handleLoadedDataBound);
             this.mainAudio.removeEventListener("canplaythrough", this._handleCanPlayThroughBound);
             this.mainAudio.removeEventListener("error", this._handleAudioErrorBound);
+        }
+    }
+
+    // Clean up audio loading timeout
+    cleanupAudioLoadingTimeout() {
+        if (this._audioLoadingTimeout) {
+            clearTimeout(this._audioLoadingTimeout);
+            this._audioLoadingTimeout = null;
+            console.log("🧹 Audio loading timeout cleared");
         }
     }
 
@@ -750,14 +778,37 @@ class ForzaRadio {
                 });
             } else {
                 console.log("⏳ Audio not ready, waiting for data...");
+                
+                // Set a 3-second timeout to skip to next song if audio doesn't load
+                const audioLoadTimeout = setTimeout(() => {
+                    console.log("⏰ Audio loading timeout reached (3s), skipping to next song...");
+                    if (this.isRadioMode) {
+                        // Skip to next song in radio mode
+                        window.iaRadio.playNext();
+                    } else {
+                        // Reset button state for non-radio mode
+                        this.wrapper.classList.remove("paused");
+                        this.playPauseBtn.querySelector("i").innerText = "play_arrow";
+                    }
+                }, 3000);
+                
                 // Wait for audio to be ready
                 this.mainAudio.addEventListener('canplay', () => {
                     console.log("✅ Audio can play now, attempting to play...");
+                    // Clear the timeout since audio is ready
+                    clearTimeout(audioLoadTimeout);
+                    
                     this.mainAudio.play().catch(error => {
                         console.error("Failed to play audio after loading:", error);
                         this.wrapper.classList.remove("paused");
                         this.playPauseBtn.querySelector("i").innerText = "play_arrow";
                     });
+                }, { once: true });
+                
+                // Also listen for error events to clear timeout
+                this.mainAudio.addEventListener('error', () => {
+                    console.log("❌ Audio error during loading, clearing timeout...");
+                    clearTimeout(audioLoadTimeout);
                 }, { once: true });
             }
         } catch (error) {
