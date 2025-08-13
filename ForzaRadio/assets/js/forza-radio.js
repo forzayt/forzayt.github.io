@@ -286,14 +286,14 @@ class ForzaRadio {
                         }, 1000);
                     });
                     
-                    // Set a 3-second timeout for audio loading
+                    // Set a 5-second timeout for audio loading
                     this._audioLoadingTimeout = setTimeout(() => {
-                        console.log(`⏰ Audio loading timeout reached (3s) for: ${song.name}, skipping to next song...`);
+                        console.log(`⏰ Audio loading timeout reached (5s) for: ${song.name}, skipping to next song...`);
                         this._audioLoadingTimeout = null;
                         if (this.isRadioMode) {
                             window.iaRadio.playNext();
                         }
-                    }, 3000);
+                    }, 5000);
                     
                     // Start loading the new audio
                     newAudio.src = song.downloadUrl;
@@ -779,9 +779,9 @@ class ForzaRadio {
             } else {
                 console.log("⏳ Audio not ready, waiting for data...");
                 
-                // Set a 3-second timeout to skip to next song if audio doesn't load
+                // Set a 5-second timeout to skip to next song if audio doesn't load
                 const audioLoadTimeout = setTimeout(() => {
-                    console.log("⏰ Audio loading timeout reached (3s), skipping to next song...");
+                    console.log("⏰ Audio loading timeout reached (5s), skipping to next song...");
                     if (this.isRadioMode) {
                         // Skip to next song in radio mode
                         window.iaRadio.playNext();
@@ -790,7 +790,7 @@ class ForzaRadio {
                         this.wrapper.classList.remove("paused");
                         this.playPauseBtn.querySelector("i").innerText = "play_arrow";
                     }
-                }, 3000);
+                }, 5000);
                 
                 // Wait for audio to be ready
                 this.mainAudio.addEventListener('canplay', () => {
