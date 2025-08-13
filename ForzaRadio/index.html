@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ForzaRadio - Non-Stop Music </title>
+    <link rel="icon" id="icon" href="favicon.ico" />
+    <meta name="description" content="ForzaRadio - A non-stop radio player that streams music from Internet Archive collections. Enjoy continuous music streaming with shuffle and sequential playback modes.">
+    <meta name="keywords" content="ForzaRadio, Internet Archive, Music Player, Radio, Streaming, IA Radio">
+    <meta name="author" content="ForzaRadio">
+    
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="top-bar">
+      <div class="top-play-pause">
+        <i class="material-icons play">play_arrow</i>
+      </div>
+      <span>Now Playing</span>
+      <i class="material-icons fullscreen-toggle" id="fullscreen-toggle" title="Toggle Fullscreen">fullscreen</i>
+    </div>
+    <div class="img-area">
+      <img src="" alt="Music Image">
+    </div>
+    <div class="song-details">
+      <p class="name"></p>
+      <p class="artist"></p>
+    </div>
+    <div class="progress-area">
+      <div class="progress-bar">
+        <audio id="main-audio" src=""></audio>
+      </div>
+      <div class="song-timer">
+        <span class="current-time">0:00</span>
+        <span class="max-duration">0:00</span>
+      </div>
+    </div>
+    <div class="controls">
+      <!-- Music list button removed as requested -->
+    </div>
+    <div class="music-list">
+      <div class="header">
+        <div class="row">
+          <span>Music list</span>
+        </div>
+        <i id="close" class="material-icons">close</i>
+      </div>
+      <ul>
+        <!-- here li list are coming from js -->
+      </ul>
+    </div>
+  </div>
+
+  <script src="assets/js/api-config.js"></script>
+  <script src="assets/js/music-list.js"></script>
+  <script src="assets/js/ia-radio.js"></script>
+  <script src="assets/js/forza-radio.js"></script>
+
+</body>
+</html>
