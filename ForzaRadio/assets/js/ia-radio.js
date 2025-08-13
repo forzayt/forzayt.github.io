@@ -543,17 +543,85 @@ class IARadio {
 
     // Play next song
     playNext() {
+        // Prevent rapid song changes
+        if (this._isChangingSong) {
+            console.log("🎵 Song change already in progress, skipping...");
+            return;
+        }
+        
+        this._isChangingSong = true;
+        
         const nextSong = this.getNextSong();
         if (nextSong) {
-            this.loadAndPlaySong(nextSong);
+            console.log(`🎵 Playing next song: "${nextSong.name}"`);
+            
+            // Instead of directly manipulating audio, notify the main player
+            if (window.forzaRadio && window.forzaRadio.isRadioMode) {
+                // Add a small delay to ensure smooth transition
+                setTimeout(() => {
+                    window.forzaRadio.loadMusicFromIA(nextSong);
+                    
+                    // Auto-play the new song after it's loaded
+                    setTimeout(() => {
+                        if (window.forzaRadio && !window.forzaRadio.mainAudio.paused) {
+                            // Only auto-play if it was already playing
+                            window.forzaRadio.playMusic();
+                        }
+                        
+                        // Reset the flag after transition
+                        setTimeout(() => {
+                            this._isChangingSong = false;
+                        }, 500);
+                    }, 200);
+                }, 100);
+            } else {
+                this._isChangingSong = false;
+            }
+        } else {
+            console.log("❌ No next song available");
+            this._isChangingSong = false;
         }
     }
 
     // Play previous song
     playPrev() {
+        // Prevent rapid song changes
+        if (this._isChangingSong) {
+            console.log("🎵 Song change already in progress, skipping...");
+            return;
+        }
+        
+        this._isChangingSong = true;
+        
         const prevSong = this.getPrevSong();
         if (prevSong) {
-            this.loadAndPlaySong(prevSong);
+            console.log(`🎵 Playing previous song: "${prevSong.name}"`);
+            
+            // Instead of directly manipulating audio, notify the main player
+            if (window.forzaRadio && window.forzaRadio.isRadioMode) {
+                // Add a small delay to ensure smooth transition
+                setTimeout(() => {
+                    window.forzaRadio.loadMusicFromIA(prevSong);
+                    
+                    // Auto-play the new song after it's loaded
+                    setTimeout(() => {
+                        if (window.forzaRadio && !window.forzaRadio.mainAudio.paused) {
+                            // Only auto-play if it was already playing
+                            window.forzaRadio.playMusic();
+                        }
+                        
+                        // Reset the flag after transition
+                        setTimeout(() => {
+                            this._isChangingSong = false;
+                        }, 500);
+                    }, 200);
+                }, 100);
+            } else {
+                this._isChangingSong = false;
+            }
+        } else {
+            console.log("❌ No previous song available");
+            this._isChangingSong = false;
         }
     }
 
@@ -561,40 +629,16 @@ class IARadio {
     async loadAndPlaySong(song) {
         if (!song) return;
         
-        // Update UI
-        const musicName = document.querySelector('.song-details .name');
-        const musicArtist = document.querySelector('.song-details .artist');
-        const musicImg = document.querySelector('.img-area img');
-        const audio = document.getElementById('main-audio');
-        
-        if (musicName) musicName.innerText = song.name;
-        if (musicArtist) musicArtist.innerText = song.artist;
-        
-        // Fetch dynamic image
-        if (musicImg) {
-            try {
-                const imageUrl = await this.getDynamicImage(song.name, song.artist);
-                musicImg.src = imageUrl;
-                
-                // Update background with album art
-                this.updateBackgroundImage(imageUrl);
-            } catch (error) {
-                console.log("Error loading dynamic image:", error);
-                // Fallback to generated gradient
-                const fallbackImage = this.generateGradientImage(song.name, song.artist);
-                musicImg.src = fallbackImage;
-                this.updateBackgroundImage(fallbackImage);
-            }
+        // Instead of directly manipulating audio, work through the main player
+        if (window.forzaRadio && window.forzaRadio.isRadioMode) {
+            window.forzaRadio.loadMusicFromIA(song);
+            // Auto-play the new song
+            setTimeout(() => {
+                if (window.forzaRadio) {
+                    window.forzaRadio.playMusic();
+                }
+            }, 100);
         }
-        
-        if (audio) {
-            audio.src = song.downloadUrl;
-            audio.load();
-            audio.play().catch(e => console.error("Auto-play failed:", e));
-        }
-        
-        // Update playlist UI to highlight current song
-        this.updatePlaylistUI();
     }
 
     // Update playlist UI to show current song
@@ -713,9 +757,41 @@ class IARadio {
     // Play song by index
     playSongByIndex(index) {
         if (index >= 0 && index < this.currentPlaylist.length) {
+            // Prevent rapid song changes
+            if (this._isChangingSong) {
+                console.log("🎵 Song change already in progress, skipping...");
+                return;
+            }
+            
+            this._isChangingSong = true;
+            
             this.currentIndex = index;
             const song = this.getCurrentSong();
-            this.loadAndPlaySong(song);
+            
+            console.log(`🎵 Playing song by index ${index}: "${song.name}"`);
+            
+            // Work through the main player instead of directly manipulating audio
+            if (window.forzaRadio && window.forzaRadio.isRadioMode) {
+                // Add a small delay to ensure smooth transition
+                setTimeout(() => {
+                    window.forzaRadio.loadMusicFromIA(song);
+                    
+                    // Auto-play the new song after it's loaded
+                    setTimeout(() => {
+                        if (window.forzaRadio && !window.forzaRadio.mainAudio.paused) {
+                            // Only auto-play if it was already playing
+                            window.forzaRadio.playMusic();
+                        }
+                        
+                        // Reset the flag after transition
+                        setTimeout(() => {
+                            this._isChangingSong = false;
+                        }, 500);
+                    }, 200);
+                }, 100);
+            } else {
+                this._isChangingSong = false;
+            }
             
             // Update playlist UI to highlight current song
             this.updatePlaylistUI();
@@ -751,198 +827,54 @@ class IARadio {
             console.log("🎨 Updated background with album art");
         }
     }
+
+    // Preload next song for smooth transitions
+    preloadNextSong() {
+        if (this.currentPlaylist.length === 0) return null;
+        
+        const nextIndex = (this.currentIndex + 1) % this.currentPlaylist.length;
+        const nextSong = this.currentPlaylist[nextIndex];
+        
+        if (nextSong && nextSong.downloadUrl) {
+            console.log(`🎵 Preloading next song: "${nextSong.name}"`);
+            
+            // Create a hidden audio element to preload
+            const preloadAudio = new Audio();
+            preloadAudio.preload = 'auto';
+            preloadAudio.src = nextSong.downloadUrl;
+            preloadAudio.load();
+            
+            // Store the preloaded audio for quick access
+            this._preloadedNextAudio = preloadAudio;
+            
+            preloadAudio.addEventListener('canplaythrough', () => {
+                console.log(`✅ Next song preloaded: "${nextSong.name}"`);
+            });
+            
+            preloadAudio.addEventListener('error', (error) => {
+                console.log(`❌ Failed to preload next song: "${nextSong.name}"`, error);
+                this._preloadedNextAudio = null;
+            });
+            
+            return nextSong;
+        }
+        
+        return null;
+    }
+
+    // Get preloaded next song audio if available
+    getPreloadedNextAudio() {
+        return this._preloadedNextAudio;
+    }
+
+    // Clear preloaded audio
+    clearPreloadedAudio() {
+        if (this._preloadedNextAudio) {
+            this._preloadedNextAudio.src = '';
+            this._preloadedNextAudio = null;
+        }
+    }
 }
 
 // Global IA Radio instance
 window.iaRadio = new IARadio();
-
-// Debug function to manually initialize radio
-window.initForzaRadio = async () => {
-    console.log("🚀 Manually initializing ForzaRadio...");
-    try {
-        const success = await window.iaRadio.initRadio();
-        if (success) {
-            console.log("✅ Radio initialized successfully!");
-            console.log("📊 Radio status:", window.iaRadio.getStatus());
-        } else {
-            console.log("❌ Failed to initialize radio");
-        }
-    } catch (error) {
-        console.error("💥 Error initializing radio:", error);
-    }
-};
-
-    // Auto-initialize when page loads
-    document.addEventListener('DOMContentLoaded', () => {
-        console.log("🌐 DOM loaded, auto-initializing ForzaRadio...");
-        setTimeout(() => {
-            window.initForzaRadio();
-        }, 1000); // Wait 1 second for everything to load
-        
-        // Initialize volume control
-        initVolumeControl();
-        
-        // Initialize timeline/progress bar
-        initTimeline();
-        
-        // Initialize player controls
-        initPlayerControls();
-    });
-
-    // Initialize volume control functionality
-    function initVolumeControl() {
-        const volumeSlider = document.getElementById('volume-slider');
-        const volumeIcon = document.querySelector('.volume-icon');
-        const audio = document.getElementById('main-audio');
-        
-        if (!volumeSlider || !volumeIcon || !audio) {
-            console.log("❌ Volume control elements not found");
-            return;
-        }
-        
-        // Set initial volume
-        audio.volume = volumeSlider.value / 100;
-        
-        // Volume slider change event
-        volumeSlider.addEventListener('input', (e) => {
-            const volume = e.target.value / 100;
-            audio.volume = volume;
-            
-            // Update volume icon based on level
-            updateVolumeIcon(volume);
-            
-            // Save volume preference
-            localStorage.setItem('forza_radio_volume', volume);
-        });
-        
-        // Volume icon click to mute/unmute
-        volumeIcon.addEventListener('click', () => {
-            if (audio.volume > 0) {
-                // Mute
-                localStorage.setItem('forza_radio_volume', audio.volume);
-                audio.volume = 0;
-                volumeSlider.value = 0;
-                updateVolumeIcon(0);
-            } else {
-                // Unmute with previous volume
-                const savedVolume = localStorage.getItem('forza_radio_volume') || 1;
-                audio.volume = savedVolume;
-                volumeSlider.value = savedVolume * 100;
-                updateVolumeIcon(savedVolume);
-            }
-        });
-        
-        // Load saved volume preference
-        const savedVolume = localStorage.getItem('forza_radio_volume');
-        if (savedVolume !== null) {
-            audio.volume = savedVolume;
-            volumeSlider.value = savedVolume * 100;
-            updateVolumeIcon(savedVolume);
-        }
-    }
-    
-    // Update volume icon based on volume level
-    function updateVolumeIcon(volume) {
-        const volumeIcon = document.querySelector('.volume-icon');
-        if (!volumeIcon) return;
-        
-        if (volume === 0) {
-            volumeIcon.textContent = 'volume_off';
-        } else if (volume < 0.5) {
-            volumeIcon.textContent = 'volume_down';
-        } else {
-            volumeIcon.textContent = 'volume_up';
-        }
-    }
-    
-    // Initialize timeline/progress bar functionality
-    function initTimeline() {
-        const progressArea = document.querySelector('.progress-area');
-        const progressBar = document.querySelector('.progress-bar');
-        const audio = document.getElementById('main-audio');
-        const currentTimeSpan = document.querySelector('.current-time');
-        const maxDurationSpan = document.querySelector('.max-duration');
-        
-        if (!progressArea || !progressBar || !audio) {
-            console.log("❌ Timeline elements not found");
-            return;
-        }
-        
-        // Update progress bar and time display
-        function updateTimeline() {
-            if (audio.duration && isFinite(audio.duration)) {
-                const progressPercent = (audio.currentTime / audio.duration) * 100;
-                progressBar.style.width = progressPercent + '%';
-                
-                // Update time displays
-                if (currentTimeSpan) {
-                    currentTimeSpan.textContent = formatTime(audio.currentTime);
-                }
-                if (maxDurationSpan) {
-                    maxDurationSpan.textContent = formatTime(audio.duration);
-                }
-            }
-        }
-        
-        // Format time in MM:SS format
-        function formatTime(seconds) {
-            if (!isFinite(seconds)) return '0:00';
-            
-            const minutes = Math.floor(seconds / 60);
-            const remainingSeconds = Math.floor(seconds % 60);
-            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-        }
-        
-        // Click on progress bar to seek
-        progressArea.addEventListener('click', (e) => {
-            const rect = progressArea.getBoundingClientRect();
-            const clickX = e.clientX - rect.left;
-            const progressWidth = rect.width;
-            const seekPercent = clickX / progressWidth;
-            
-            if (audio.duration && isFinite(audio.duration)) {
-                audio.currentTime = seekPercent * audio.duration;
-            }
-        });
-        
-        // Note: Timeline updates are now handled by the main ForzaRadio class
-        // to avoid duplicate event listeners
-        
-        console.log("✅ Timeline initialized successfully");
-    }
-    
-    // Initialize player controls functionality
-    function initPlayerControls() {
-        const playPauseBtn = document.querySelector('.top-play-pause');
-        const repeatBtn = document.querySelector('.repeat-btn');
-
-
-        const audio = document.getElementById('main-audio');
-        
-        if (!playPauseBtn || !repeatBtn || !audio) {
-            console.log("❌ Player control elements not found");
-            return;
-        }
-        
-        let isPlaying = false;
-        
-        // Note: Play/Pause functionality is handled by the main ForzaRadio class
-        // to avoid conflicts and ensure consistent behavior
-        
-        // Repeat button (toggle shuffle)
-        repeatBtn.addEventListener('click', () => {
-            if (window.iaRadio && window.iaRadio.isRadioMode) {
-                const shuffleMode = window.iaRadio.toggleShuffle();
-                repeatBtn.style.background = shuffleMode ? 
-                    'linear-gradient(var(--pink) 0%, var(--violet) 100%)' : 
-                    'transparent';
-                repeatBtn.style.color = shuffleMode ? 'white' : 'inherit';
-                console.log(`🔄 Shuffle mode: ${shuffleMode ? 'ON' : 'OFF'}`);
-            }
-        });
-        
-        // Note: Play/pause state updates and auto-play are now handled by 
-        // the main ForzaRadio class to avoid duplicate event listeners
-        
-        console.log("✅ Player controls initialized successfully");
-    }

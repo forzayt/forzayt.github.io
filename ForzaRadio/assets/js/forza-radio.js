@@ -42,6 +42,7 @@ class ForzaRadio {
         this.isMusicPaused = true;
         this.isRadioMode = false;
         this.originalMusicList = [];
+        this._lastPlayTime = Date.now(); // Track when music was last playing
         
         this.init();
     }
@@ -207,10 +208,23 @@ class ForzaRadio {
     async loadMusicFromIA(song) {
         if (!song) return;
         
+        // Prevent loading the same song multiple times in quick succession
+        if (this._lastLoadedSong === song.downloadUrl && Date.now() - this._lastLoadTime < 1000) {
+            console.log(`🎵 Song "${song.name}" was just loaded, skipping duplicate load`);
+            return;
+        }
+        
+        this._lastLoadedSong = song.downloadUrl;
+        this._lastLoadTime = Date.now();
+        
+        console.log(`🎵 Loading music from IA: "${song.name}" by "${song.artist}"`);
+        console.log(`🎵 Download URL: ${song.downloadUrl}`);
+        
+        // Update UI first
         this.musicName.innerText = song.name;
         this.musicArtist.innerText = song.artist;
         
-        // Reset timeline first
+        // Reset timeline
         this.resetTimeline();
         
         // Fetch dynamic image
@@ -227,49 +241,257 @@ class ForzaRadio {
             this.updateBackgroundImage(fallbackImage);
         }
         
-        // Load audio with better error handling
-        if (song.downloadUrl) {
-            try {
-                // Pause current audio if playing
-                if (!this.mainAudio.paused) {
-                    this.mainAudio.pause();
-                }
-                
-                // Set new source and load
-                this.mainAudio.src = song.downloadUrl;
-                this.mainAudio.load();
-                
-                // Add error handling for audio loading
-                this.mainAudio.onerror = () => {
-                    console.error(`Failed to load audio: ${song.downloadUrl}`);
+        // Check if we have a preloaded version of this song
+        const preloadedAudio = window.iaRadio.getPreloadedNextAudio();
+        let audioToUse = null;
+        
+        if (preloadedAudio && preloadedAudio.src === song.downloadUrl) {
+            console.log(`🎵 Using preloaded audio for: "${song.name}"`);
+            audioToUse = preloadedAudio;
+            // Clear the preloaded audio since we're using it
+            window.iaRadio.clearPreloadedAudio();
+        } else {
+            // Load audio with improved transition logic
+            if (song.downloadUrl) {
+                try {
+                    console.log(`🎵 Setting audio source to: ${song.downloadUrl}`);
+                    
+                    // Create a new audio element for smooth transition
+                    const newAudio = new Audio();
+                    newAudio.preload = 'auto';
+                    
+                    // Set up event listeners for the new audio
+                    newAudio.addEventListener('canplaythrough', () => {
+                        console.log(`✅ New audio ready to play: ${song.name}`);
+                        this.switchToNewAudio(newAudio, song);
+                    });
+                    
+                    newAudio.addEventListener('error', (error) => {
+                        console.error(`Failed to load new audio: ${song.downloadUrl}`, error);
+                        // Try to play next song if current fails
+                        setTimeout(() => {
+                            if (this.isRadioMode) {
+                                window.iaRadio.playNext();
+                            }
+                        }, 1000);
+                    });
+                    
+                    // Start loading the new audio
+                    newAudio.src = song.downloadUrl;
+                    newAudio.load();
+                    
+                    audioToUse = newAudio;
+                    
+                } catch (error) {
+                    console.error("Error setting audio source:", error);
                     // Try to play next song if current fails
                     setTimeout(() => {
                         if (this.isRadioMode) {
                             window.iaRadio.playNext();
                         }
                     }, 1000);
-                };
-                
-                // Add canplaythrough listener for better loading
-                this.mainAudio.oncanplaythrough = () => {
-                    console.log(`✅ Audio loaded successfully: ${song.name}`);
-                };
-                
-            } catch (error) {
-                console.error("Error setting audio source:", error);
-                // Try to play next song if current fails
-                setTimeout(() => {
-                    if (this.isRadioMode) {
-                        window.iaRadio.playNext();
-                    }
-                }, 1000);
+                }
+            } else {
+                console.error("No download URL available for song:", song);
             }
-        } else {
-            console.error("No download URL available for song:", song);
+        }
+        
+        // If we have audio ready, switch to it
+        if (audioToUse) {
+            this.switchToNewAudio(audioToUse, song);
+        }
+        
+        // For radio mode, ensure auto-play happens even if switchToNewAudio doesn't trigger it
+        if (this.isRadioMode && !this.mainAudio.paused) {
+            // If we're in radio mode and should be playing, ensure the new song starts
+            setTimeout(() => {
+                if (this.mainAudio.paused && this.isRadioMode) {
+                    console.log("🎵 Radio mode auto-play fallback triggered");
+                    this.playMusic();
+                }
+            }, 500);
+        }
+        
+        // Start preloading the next song for smooth transitions
+        if (this.isRadioMode) {
+            setTimeout(() => {
+                window.iaRadio.preloadNextSong();
+            }, 1000);
         }
         
         // Update playlist UI
         this.updatePlaylistUI();
+    }
+
+    // Smoothly switch to new audio without interruption
+    switchToNewAudio(newAudio, song) {
+        try {
+            console.log(`🔄 Switching to new audio: ${song.name}`);
+            
+            // Store current playback state
+            const wasPlaying = !this.mainAudio.paused;
+            const currentTime = this.mainAudio.currentTime;
+            
+            // For radio mode, we want to auto-play new songs even if the previous one ended
+            // Check if this is an auto-advance scenario (radio mode and song was playing recently)
+            const shouldAutoPlay = this.isRadioMode || wasPlaying || this._lastPlayTime > Date.now() - 5000;
+            
+            // Use crossfade for smoother transitions
+            if (wasPlaying) {
+                this.crossfadeAudio(this.mainAudio, newAudio, () => {
+                    this.completeAudioSwitch(newAudio, song, shouldAutoPlay);
+                });
+            } else {
+                // If not playing, switch immediately
+                this.completeAudioSwitch(newAudio, song, shouldAutoPlay);
+            }
+            
+        } catch (error) {
+            console.error("Error switching audio:", error);
+            // Fallback to direct switch - auto-play in radio mode
+            this.completeAudioSwitch(newAudio, song, this.isRadioMode);
+        }
+    }
+
+    // Crossfade between two audio elements for smooth transitions
+    crossfadeAudio(oldAudio, newAudio, callback) {
+        const crossfadeDuration = 800; // 800ms crossfade
+        const crossfadeSteps = 25;
+        const crossfadeInterval = crossfadeDuration / crossfadeSteps;
+        let currentStep = 0;
+        
+        // Set initial volumes
+        oldAudio.volume = 1;
+        newAudio.volume = 0;
+        
+        // Start playing the new audio
+        newAudio.play().catch(error => {
+            console.error("Error playing new audio during crossfade:", error);
+            // Fallback to simple fade out
+            this.fadeOutAudio(oldAudio, callback);
+            return;
+        });
+        
+        const crossfadeTimer = setInterval(() => {
+            currentStep++;
+            const progress = currentStep / crossfadeSteps;
+            
+            // Fade out old audio
+            oldAudio.volume = Math.max(0, 1 - progress);
+            
+            // Fade in new audio
+            newAudio.volume = Math.min(1, progress);
+            
+            if (currentStep >= crossfadeSteps) {
+                clearInterval(crossfadeTimer);
+                
+                // Pause old audio and complete transition
+                oldAudio.pause();
+                oldAudio.volume = 1; // Reset volume for future use
+                
+                if (callback) callback();
+            }
+        }, crossfadeInterval);
+    }
+
+    // Fade out current audio smoothly
+    fadeOutAudio(audio, callback) {
+        const fadeDuration = 500; // 500ms fade
+        const fadeSteps = 20;
+        const fadeInterval = fadeDuration / fadeSteps;
+        let currentStep = 0;
+        
+        const fadeTimer = setInterval(() => {
+            currentStep++;
+            const volume = 1 - (currentStep / fadeSteps);
+            
+            if (audio.volume !== undefined) {
+                audio.volume = Math.max(0, volume);
+            }
+            
+            if (currentStep >= fadeSteps) {
+                clearInterval(fadeTimer);
+                audio.pause();
+                if (callback) callback();
+            }
+        }, fadeInterval);
+    }
+
+    // Complete the audio switch
+    completeAudioSwitch(newAudio, song, shouldPlay) {
+        try {
+            console.log(`✅ Completing audio switch for: ${song.name}`);
+            
+            // Transfer event listeners to new audio
+            this.transferEventListeners(this.mainAudio, newAudio);
+            
+            // Replace the main audio element
+            this.mainAudio = newAudio;
+            
+            // Reset volume
+            this.mainAudio.volume = 1;
+            
+            // Auto-play if it was playing before
+            if (shouldPlay) {
+                setTimeout(() => {
+                    this.playMusic();
+                }, 100);
+            }
+            
+            console.log(`✅ Audio switch completed for: ${song.name}`);
+            
+        } catch (error) {
+            console.error("Error completing audio switch:", error);
+        }
+    }
+
+    // Transfer event listeners from old audio to new audio
+    transferEventListeners(oldAudio, newAudio) {
+        try {
+            // Remove listeners from old audio
+            if (oldAudio && this._handleSongEndedBound) {
+                oldAudio.removeEventListener("ended", this._handleSongEndedBound);
+                oldAudio.removeEventListener("timeupdate", this._handleTimeUpdateBound);
+                oldAudio.removeEventListener("loadeddata", this._handleLoadedDataBound);
+            }
+            
+            // Add listeners to new audio
+            if (newAudio && this._handleSongEndedBound) {
+                newAudio.addEventListener("ended", this._handleSongEndedBound);
+                newAudio.addEventListener("timeupdate", this._handleTimeUpdateBound);
+                newAudio.addEventListener("loadeddata", this._handleLoadedDataBound);
+                console.log("✅ Event listeners transferred to new audio");
+            }
+        } catch (error) {
+            console.error("Error transferring event listeners:", error);
+        }
+    }
+
+    // Clean up audio event listeners
+    cleanupAudioEventListeners() {
+        if (this.mainAudio) {
+            this.mainAudio.removeEventListener("ended", this._handleSongEndedBound);
+            this.mainAudio.removeEventListener("timeupdate", this._handleTimeUpdateBound);
+            this.mainAudio.removeEventListener("loadeddata", this._handleLoadedDataBound);
+            this.mainAudio.removeEventListener("canplaythrough", this._handleCanPlayThroughBound);
+            this.mainAudio.removeEventListener("error", this._handleAudioErrorBound);
+        }
+    }
+
+    // Handle canplaythrough event
+    handleCanPlayThrough() {
+        console.log("✅ Audio can play through without interruption");
+    }
+
+    // Handle audio error
+    handleAudioError(error) {
+        console.error("Audio error occurred:", error);
+        // Try to recover by playing next song
+        setTimeout(() => {
+            if (this.isRadioMode) {
+                window.iaRadio.playNext();
+            }
+        }, 1000);
     }
 
     loadInitialMusic() {
@@ -412,34 +634,22 @@ class ForzaRadio {
             console.error("❌ Close music list button not found!");
         }
 
-        // Audio ended
+        // Audio ended - attach this once and keep it
         if (this.mainAudio) {
-            this.mainAudio.addEventListener("ended", () => {
-                console.log("🎵 Audio ended event fired");
-                this.handleSongEnded();
-            });
+            // Create bound functions to use for event listeners
+            this._handleSongEndedBound = this.handleSongEnded.bind(this);
+            this._handleTimeUpdateBound = this.handleTimeUpdate.bind(this);
+            this._handleLoadedDataBound = this.handleLoadedData.bind(this);
+            
+            this.mainAudio.addEventListener("ended", this._handleSongEndedBound);
             console.log("✅ Audio ended event listener added");
 
             // Time update
-            this.mainAudio.addEventListener("timeupdate", (e) => {
-                this.handleTimeUpdate(e);
-            });
+            this.mainAudio.addEventListener("timeupdate", this._handleTimeUpdateBound);
             console.log("✅ Audio timeupdate event listener added");
 
             // Add loadeddata listener for duration
-            this.mainAudio.addEventListener("loadeddata", () => {
-                console.log("🎵 Audio loadeddata event fired");
-                let mainAdDuration = this.mainAudio.duration;
-                let totalMin = Math.floor(mainAdDuration / 60);
-                let totalSec = Math.floor(mainAdDuration % 60);
-                if(totalSec < 10) {
-                    totalSec = `0${totalSec}`;
-                }
-                let musicDuration = this.wrapper.querySelector(".max-duration");
-                if (musicDuration) {
-                    musicDuration.innerText = `${totalMin}:${totalSec}`;
-                }
-            });
+            this.mainAudio.addEventListener("loadeddata", this._handleLoadedDataBound);
             console.log("✅ Audio loadeddata event listener added");
         } else {
             console.error("❌ Main audio element not found!");
@@ -451,7 +661,24 @@ class ForzaRadio {
         document.addEventListener("msfullscreenchange", () => this.handleFullscreenChange());
         console.log("✅ Fullscreen event listeners added");
         
+        // Start time-based auto-advance check
+        this.startAutoAdvanceCheck();
+        
         console.log("🎯 Event listeners setup complete");
+    }
+
+    // Start time-based auto-advance check as a fallback
+    startAutoAdvanceCheck() {
+        setInterval(() => {
+            if (this.mainAudio && !this.mainAudio.paused && this.mainAudio.duration > 0) {
+                // Check if we're very close to the end (within 100ms)
+                const timeUntilEnd = this.mainAudio.duration - this.mainAudio.currentTime;
+                if (timeUntilEnd <= 0.1 && timeUntilEnd > 0) {
+                    console.log("🎵 Time-based auto-advance triggered");
+                    this.handleSongEnded();
+                }
+            }
+        }, 100); // Check every 100ms
     }
 
     playMusic() {
@@ -467,6 +694,9 @@ class ForzaRadio {
             
             this.wrapper.classList.add("paused");
             this.playPauseBtn.querySelector("i").innerText = "pause";
+            
+            // Update last play time for auto-play logic
+            this._lastPlayTime = Date.now();
             
             // Ensure audio is loaded before playing
             if (this.mainAudio.readyState >= 2) { // HAVE_CURRENT_DATA
@@ -559,23 +789,27 @@ class ForzaRadio {
 
     handleSongEnded() {
         console.log("🎵 Song ended, handling...");
+        console.log("🎵 Current radio mode:", this.isRadioMode);
         
         if (this.isRadioMode) {
-            // Radio mode auto-plays next
+            // Radio mode - auto-play next song
             console.log("🎵 Radio mode - playing next song");
             try {
-                window.iaRadio.playNext();
-            } catch (error) {
-                console.error("Error playing next song in radio mode:", error);
-                // Fallback: try to reload current song
+                // Small delay to ensure smooth transition
                 setTimeout(() => {
                     if (this.isRadioMode) {
-                        const currentSong = window.iaRadio.getCurrentSong();
-                        if (currentSong) {
-                            this.loadMusicFromIA(currentSong);
-                        }
+                        console.log("🎵 Transitioning to next song");
+                        window.iaRadio.playNext();
                     }
-                }, 2000);
+                }, 500);
+            } catch (error) {
+                console.error("Error playing next song:", error);
+                // Fallback: try to play next song directly
+                setTimeout(() => {
+                    if (this.isRadioMode) {
+                        window.iaRadio.playNext();
+                    }
+                }, 1000);
             }
         } else {
             // Auto-play next song for non-radio mode
@@ -593,6 +827,24 @@ class ForzaRadio {
                 console.error("Error loading next song:", error);
             });
             this.playingSong();
+        }
+    }
+
+    handleLoadedData() {
+        console.log("🎵 Audio loadeddata event fired");
+        try {
+            let mainAdDuration = this.mainAudio.duration;
+            let totalMin = Math.floor(mainAdDuration / 60);
+            let totalSec = Math.floor(mainAdDuration % 60);
+            if(totalSec < 10) {
+                totalSec = `0${totalSec}`;
+            }
+            let musicDuration = this.wrapper.querySelector(".max-duration");
+            if (musicDuration) {
+                musicDuration.innerText = `${totalMin}:${totalSec}`;
+            }
+        } catch (error) {
+            console.error("Error in handleLoadedData:", error);
         }
     }
 

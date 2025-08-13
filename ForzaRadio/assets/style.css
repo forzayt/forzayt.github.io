@@ -416,3 +416,82 @@ ul li.playing{
   
   /* Volume control removed */
 }
+
+/* Smooth transitions for audio elements */
+audio {
+  transition: all 0.3s ease;
+}
+
+/* Smooth transitions for song changes */
+.song-details .name,
+.song-details .artist {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.img-area img {
+  transition: all 0.5s ease;
+  transform: scale(1);
+}
+
+.img-area img:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth progress bar transitions */
+.progress-bar {
+  transition: width 0.1s ease;
+}
+
+/* Smooth playlist transitions */
+.music-list ul li {
+  transition: all 0.3s ease;
+}
+
+.music-list ul li:hover {
+  transform: translateX(5px);
+  background: rgba(255, 116, 164, 0.1);
+}
+
+.music-list ul li.playing {
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, var(--pink), var(--violet));
+  color: white;
+  transform: translateX(10px);
+}
+
+/* Smooth button transitions */
+.top-play-pause i,
+.controls i {
+  transition: all 0.2s ease;
+}
+
+.top-play-pause:hover i,
+.controls:hover i {
+  transform: scale(1.1);
+}
+
+/* Smooth fullscreen transitions */
+.wrapper {
+  transition: all 0.3s ease;
+}
+
+/* Audio loading states */
+.audio-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.audio-loading::after {
+  content: '⏳';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
