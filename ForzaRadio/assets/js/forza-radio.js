@@ -496,15 +496,54 @@ class ForzaRadio {
 
     loadInitialMusic() {
         if (this.isRadioMode) {
-            const currentSong = window.iaRadio.getCurrentSong();
-            if (currentSong) {
-                this.loadMusicFromIA(currentSong);
+            // Check if IA Radio is initialized
+            if (window.iaRadio && window.iaRadio.isInitialized) {
+                const currentSong = window.iaRadio.getCurrentSong();
+                if (currentSong) {
+                    this.loadMusicFromIA(currentSong);
+                }
+            } else {
+                // Wait for IA Radio to initialize
+                this.waitForIARadioInit();
             }
         } else {
             // Original music loading logic
             this.loadMusic(this.musicIndex).catch(console.error);
         }
         this.playingSong();
+    }
+
+    // Wait for IA Radio to initialize
+    async waitForIARadioInit() {
+        console.log("⏳ Waiting for IA Radio to initialize...");
+        
+        // Check every 100ms for initialization
+        const checkInterval = setInterval(() => {
+            if (window.iaRadio && window.iaRadio.isInitialized) {
+                clearInterval(checkInterval);
+                console.log("✅ IA Radio initialized, loading initial song...");
+                
+                const currentSong = window.iaRadio.getCurrentSong();
+                if (currentSong) {
+                    this.loadMusicFromIA(currentSong);
+                }
+            }
+        }, 100);
+        
+        // Timeout after 10 seconds
+        setTimeout(() => {
+            clearInterval(checkInterval);
+            console.error("❌ IA Radio initialization timeout");
+        }, 10000);
+    }
+
+    // Update playlist UI
+    updatePlaylistUI() {
+        if (this.isRadioMode) {
+            this.generateIAPlaylist();
+        } else {
+            this.generateOriginalPlaylist();
+        }
     }
 
     async loadMusic(indexNumb) {
@@ -904,14 +943,6 @@ class ForzaRadio {
             }
         } catch (error) {
             console.error("Error in handleTimeUpdate:", error);
-        }
-    }
-
-    updatePlaylistUI() {
-        if (this.isRadioMode) {
-            this.generateIAPlaylist();
-        } else {
-            this.generateOriginalPlaylist();
         }
     }
 

@@ -5,23 +5,36 @@ class IARadio {
     constructor() {
         this.uploaderEmail = "vishnusanthoshvr@gmail.com";
         this.currentPlaylist = [];
+        this.songPool = []; // Lazy loaded song pool
         this.currentIndex = 0;
         this.isRadioMode = false;
         this.autoPlayNext = true;
         this.shuffleMode = false;
         this.shuffledIndices = [];
+        this.isInitialized = false;
+        this.lazyLoadInProgress = false;
         
         // IA API endpoints
         this.searchUrl = `https://archive.org/advancedsearch.php?q=uploader:${this.uploaderEmail}&fl[]=identifier&fl[]=title&fl[]=creator&fl[]=description&output=json&rows=200`;
         this.downloadBase = "https://archive.org/download/";
+        
+        // Lazy loading configuration
+        this.lazyLoadBatchSize = 5; // Load 5 songs at a time
+        this.lazyLoadDelay = 2000; // 2 seconds between batches
+        this.maxPoolSize = 50; // Maximum songs to keep in memory
     }
 
-    // Initialize radio mode
+    // Initialize radio mode with lazy loading
     async initRadio() {
         try {
-            await this.loadPlaylist();
+            // Start with just one song for immediate playback
+            await this.loadInitialSong();
             this.isRadioMode = true;
             this.setupAutoPlay();
+            
+            // Start lazy loading other songs in the background
+            this.startLazyLoading();
+            
             return true;
         } catch (error) {
             console.error("Failed to initialize radio:", error);
@@ -29,8 +42,47 @@ class IARadio {
         }
     }
 
-    // Load playlist from Internet Archive
-    async loadPlaylist() {
+    // Load just one initial song for immediate playback
+    async loadInitialSong() {
+        try {
+            console.log("🚀 Loading initial song for immediate playback...");
+            
+            // Get basic song list first (just metadata, no MP3 URLs yet)
+            const basicSongList = await this.getBasicSongList();
+            
+            if (basicSongList.length === 0) {
+                throw new Error("No music uploads found");
+            }
+            
+            // Pick a random song for immediate playback
+            const randomIndex = Math.floor(Math.random() * basicSongList.length);
+            const randomSong = basicSongList[randomIndex];
+            
+            // Load the full song data for the random song
+            const fullSong = await this.loadFullSongData(randomSong);
+            
+            if (fullSong) {
+                this.currentPlaylist = [fullSong];
+                this.currentIndex = 0;
+                this.songPool = basicSongList.filter((_, index) => index !== randomIndex);
+                
+                console.log(`✅ Initial song loaded: "${fullSong.name}" by "${fullSong.artist}"`);
+                console.log(`📊 Song pool initialized with ${this.songPool.length} songs ready for lazy loading`);
+                
+                this.isInitialized = true;
+                return fullSong;
+            } else {
+                throw new Error("Failed to load initial song");
+            }
+            
+        } catch (error) {
+            console.error("Error loading initial song:", error);
+            throw error;
+        }
+    }
+
+    // Get basic song list (just metadata, no MP3 URLs)
+    async getBasicSongList() {
         try {
             const response = await fetch(this.searchUrl);
             const data = await response.json();
@@ -39,57 +91,125 @@ class IARadio {
                 throw new Error("No data returned from IA API");
             }
 
-            // Filter for music uploads
+            // Filter for music uploads and extract basic info
             const musicItems = data.response.docs.filter(doc => /^music/.test(doc.identifier));
             
             if (musicItems.length === 0) {
                 throw new Error("No music uploads found");
             }
 
-            // Get MP3 URLs for each item
-            this.currentPlaylist = [];
+            // Extract basic song info without loading MP3 URLs yet
+            const basicSongList = [];
             for (const doc of musicItems) {
                 try {
-                    const mp3Url = await this.getMP3Url(doc.identifier);
-                    if (mp3Url) {
-                        // Extract song info from IA metadata and filename
-                        const songInfo = await this.extractSongInfo(doc.identifier, doc.title, doc.creator);
-                        
-                        this.currentPlaylist.push({
-                            name: songInfo.song,
-                            artist: songInfo.artist,
-                            originalTitle: doc.title || doc.identifier,
-                            originalCreator: doc.creator,
-                            img: null, // Will be fetched dynamically
-                            src: doc.identifier,
-                            iaId: doc.identifier,
-                            downloadUrl: mp3Url
-                        });
-                        
-                        console.log(`📝 Extracted: "${songInfo.song}" by "${songInfo.artist}" from ${doc.identifier}`);
-                    }
+                    const songInfo = await this.extractSongInfo(doc.identifier, doc.title, doc.creator);
+                    
+                    basicSongList.push({
+                        name: songInfo.song,
+                        artist: songInfo.artist,
+                        originalTitle: doc.title || doc.identifier,
+                        originalCreator: doc.creator,
+                        img: null,
+                        src: doc.identifier,
+                        iaId: doc.identifier,
+                        downloadUrl: null, // Will be loaded later
+                        isLoaded: false
+                    });
+                    
                 } catch (error) {
-                    console.warn(`Failed to get MP3 URL for ${doc.identifier}:`, error);
+                    console.warn(`Failed to extract song info for ${doc.identifier}:`, error);
                 }
             }
 
-            if (this.currentPlaylist.length === 0) {
-                throw new Error("No valid MP3 files found in music uploads");
-            }
-
-            console.log(`Loaded ${this.currentPlaylist.length} songs from IA`);
+            console.log(`📝 Found ${basicSongList.length} songs in IA collection`);
+            return basicSongList;
             
-            // Initialize the playlist display
-            this.initPlaylistDisplay();
-            
-            return this.currentPlaylist;
         } catch (error) {
-            console.error("Error loading IA playlist:", error);
+            console.error("Error getting basic song list:", error);
             throw error;
         }
     }
 
-    // Get the first MP3 URL from an IA item (using your improved approach)
+    // Load full song data including MP3 URL
+    async loadFullSongData(basicSong) {
+        try {
+            const mp3Url = await this.getMP3Url(basicSong.iaId);
+            if (mp3Url) {
+                return {
+                    ...basicSong,
+                    downloadUrl: mp3Url,
+                    isLoaded: true
+                };
+            }
+            return null;
+        } catch (error) {
+            console.warn(`Failed to load full song data for ${basicSong.iaId}:`, error);
+            return null;
+        }
+    }
+
+    // Start lazy loading songs in the background
+    async startLazyLoading() {
+        if (this.lazyLoadInProgress || this.songPool.length === 0) {
+            return;
+        }
+        
+        this.lazyLoadInProgress = true;
+        console.log("🔄 Starting lazy loading of songs...");
+        
+        // Load songs in batches
+        let batchIndex = 0;
+        const loadNextBatch = async () => {
+            if (this.songPool.length === 0) {
+                this.lazyLoadInProgress = false;
+                console.log("✅ All songs loaded!");
+                return;
+            }
+            
+            const batch = this.songPool.splice(0, this.lazyLoadBatchSize);
+            console.log(`🔄 Loading batch ${batchIndex + 1}: ${batch.length} songs`);
+            
+            // Load songs in parallel
+            const loadPromises = batch.map(async (basicSong) => {
+                try {
+                    const fullSong = await this.loadFullSongData(basicSong);
+                    if (fullSong) {
+                        this.currentPlaylist.push(fullSong);
+                        console.log(`✅ Lazy loaded: "${fullSong.name}" by "${fullSong.artist}"`);
+                        return fullSong;
+                    }
+                } catch (error) {
+                    console.warn(`Failed to lazy load song ${basicSong.iaId}:`, error);
+                }
+                return null;
+            });
+            
+            // Wait for batch to complete
+            const loadedSongs = await Promise.all(loadPromises);
+            const successfulLoads = loadedSongs.filter(song => song !== null);
+            
+            console.log(`✅ Batch ${batchIndex + 1} complete: ${successfulLoads.length}/${batch.length} songs loaded`);
+            batchIndex++;
+            
+            // Update playlist UI if it exists
+            if (window.forzaRadio && window.forzaRadio.isRadioMode) {
+                window.forzaRadio.updatePlaylistUI();
+            }
+            
+            // Schedule next batch
+            if (this.songPool.length > 0) {
+                setTimeout(loadNextBatch, this.lazyLoadDelay);
+            } else {
+                this.lazyLoadInProgress = false;
+                console.log("✅ All songs loaded!");
+            }
+        };
+        
+        // Start the first batch
+        loadNextBatch();
+    }
+
+    // Get the first MP3 URL from an IA item
     async getMP3Url(id) {
         try {
             const res = await fetch(`https://archive.org/metadata/${id}`);
@@ -754,6 +874,57 @@ class IARadio {
         }
     }
 
+    // Get playlist loading status
+    getPlaylistStatus() {
+        return {
+            totalSongs: this.currentPlaylist.length + this.songPool.length,
+            loadedSongs: this.currentPlaylist.length,
+            remainingSongs: this.songPool.length,
+            isLazyLoading: this.lazyLoadInProgress,
+            isInitialized: this.isInitialized
+        };
+    }
+
+    // Refresh playlist from IA with lazy loading
+    async refreshPlaylist() {
+        try {
+            console.log("🔄 Refreshing playlist...");
+            
+            // Reset state
+            this.currentPlaylist = [];
+            this.songPool = [];
+            this.currentIndex = 0;
+            this.isInitialized = false;
+            this.lazyLoadInProgress = false;
+            
+            // Load initial song again
+            await this.loadInitialSong();
+            
+            // Start lazy loading
+            this.startLazyLoading();
+            
+            console.log("✅ Playlist refreshed successfully");
+            return true;
+        } catch (error) {
+            console.error("Failed to refresh playlist:", error);
+            return false;
+        }
+    }
+
+    // Get radio status with lazy loading info
+    getStatus() {
+        return {
+            isRadioMode: this.isRadioMode,
+            totalSongs: this.currentPlaylist.length + this.songPool.length,
+            loadedSongs: this.currentPlaylist.length,
+            currentIndex: this.currentIndex,
+            shuffleMode: this.shuffleMode,
+            autoPlayNext: this.autoPlayNext,
+            isLazyLoading: this.lazyLoadInProgress,
+            isInitialized: this.isInitialized
+        };
+    }
+    
     // Play song by index
     playSongByIndex(index) {
         if (index >= 0 && index < this.currentPlaylist.length) {
@@ -796,28 +967,6 @@ class IARadio {
             // Update playlist UI to highlight current song
             this.updatePlaylistUI();
         }
-    }
-
-    // Refresh playlist from IA
-    async refreshPlaylist() {
-        try {
-            await this.loadPlaylist();
-            return true;
-        } catch (error) {
-            console.error("Failed to refresh playlist:", error);
-            return false;
-        }
-    }
-
-    // Get radio status
-    getStatus() {
-        return {
-            isRadioMode: this.isRadioMode,
-            totalSongs: this.currentPlaylist.length,
-            currentIndex: this.currentIndex,
-            shuffleMode: this.shuffleMode,
-            autoPlayNext: this.autoPlayNext
-        };
     }
     
     // Update background with album art

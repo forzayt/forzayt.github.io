@@ -488,10 +488,10 @@ audio {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 24px;
-  animation: spin 1s linear infinite;
+  animation: rotate 1s linear infinite;
 }
 
-@keyframes spin {
+@keyframes rotate {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
