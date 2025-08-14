@@ -195,6 +195,7 @@
 
     <audio id="radio-player" preload="metadata"></audio>
 
+
 <script>
 const SONG_COLLECTION = { jsonFile: "https://raw.githubusercontent.com/forzayt/forzaRadio/refs/heads/main/songs.json" };
 
@@ -228,6 +229,15 @@ let isPlaying = false;
 let currentSongData = null;
 let currentAlbumArt = null;
 
+// ==== next-song buffering control (buffer only after some seconds) ====
+const PRELOAD_AFTER_SECONDS = 7;     // start buffering the next song after N seconds of playback
+let nextPreloadStarted = false;      // per-track flag so we only preload once
+let nextBufferedForIndex = -1;       // which index the buffer currently holds
+
+// Hidden preloader element (never added to DOM)
+const bufferPlayer = new Audio();
+bufferPlayer.preload = "auto";
+
 function formatTime(seconds) {
     if (isNaN(seconds)) return "0:00";
     const mins = Math.floor(seconds / 60);
@@ -241,6 +251,11 @@ function updateProgress() {
         progress.style.width = `${progressPercent}%`;
         currentTimeEl.textContent = formatTime(player.currentTime);
         durationEl.textContent = formatTime(player.duration);
+
+        // Start buffering the NEXT track only after some seconds of the CURRENT track
+        if (isPlaying && !nextPreloadStarted && player.currentTime >= PRELOAD_AFTER_SECONDS) {
+            preloadNext();
+        }
     }
 }
 
@@ -312,6 +327,31 @@ function togglePlayPause() {
     }
 }
 
+// ------- Buffering helpers -------
+function normalizeMatch(a, b) {
+    // compares absolute/relative src safely
+    if (!a || !b) return false;
+    return a === b || a.endsWith(b) || b.endsWith(a);
+}
+
+function preloadNext() {
+    if (items.length === 0) return;
+
+    // figure next index WITHOUT advancing pointer
+    let nextIndex = currentIndex;
+    if (nextIndex >= items.length) nextIndex = 0;
+
+    const nextSong = items[nextIndex];
+    const nextSrc = nextSong.audioUrl || nextSong.filename;
+
+    // set buffer only once per track
+    bufferPlayer.src = nextSrc;
+    bufferPlayer.preload = "auto";
+    bufferPlayer.load?.(); // in some browsers .load() kicks buffering
+    nextPreloadStarted = true;
+    nextBufferedForIndex = nextIndex;
+}
+
 function playNext() {
     if (items.length === 0) return;
 
@@ -321,32 +361,40 @@ function playNext() {
     }
 
     const song = items[currentIndex];
+    const expectedSrc = song.audioUrl || song.filename;
     updateSongInfo({ title: song.title, artist: song.artist });
-    
-    // Set the audio source
-    player.src = song.audioUrl || song.filename;
-    
-    // Add error handling for audio loading
+
+    // If the buffer already has THIS song ready, use it; else set src normally
+    if (nextBufferedForIndex === currentIndex &&
+        normalizeMatch(bufferPlayer.src, expectedSrc) &&
+        bufferPlayer.readyState >= 2 /* HAVE_CURRENT_DATA */) {
+        player.src = bufferPlayer.src;
+    } else {
+        player.src = expectedSrc;
+    }
+
+    // reset preload flags for the *newly started* track;
+    // we will start buffering the next one only after PRELOAD_AFTER_SECONDS
+    nextPreloadStarted = false;
+    nextBufferedForIndex = -1;
+
     player.onerror = () => {
         console.error('Failed to load audio:', song.title);
-        // Try to play next song if current one fails
         currentIndex++;
         setTimeout(playNext, 1000);
     };
-    
-    // Ensure audio plays when loaded
+
     player.oncanplay = () => {
         if (isPlaying) {
             player.play().catch(error => {
                 console.error('Autoplay failed:', error);
-                // If autoplay fails, we'll need user interaction to resume
                 isPlaying = false;
                 playBtn.classList.replace('fa-pause', 'fa-play');
             });
         }
     };
-    
-    currentIndex++;
+
+    currentIndex++; // advance pointer to the item that will become "next"
 }
 
 function playPrev() {
@@ -372,22 +420,17 @@ async function initPlayer() {
     }
     shuffleArray(items);
     currentIndex = 0;
-    
-    // Load first song but don't auto-play due to browser policies
+
+    // Load first song (do NOT buffer next yet)
     const song = items[currentIndex];
     updateSongInfo({ title: song.title, artist: song.artist });
     player.src = song.audioUrl || song.filename;
-    currentIndex++;
-    
-    // Set up audio event handlers
-    player.oncanplay = () => {
-        console.log('Audio ready to play');
-    };
-    
-    player.onerror = () => {
-        console.error('Failed to load initial audio:', song.title);
-        playNext();
-    };
+
+    // We mark that no preload has started for this first track.
+    nextPreloadStarted = false;
+    nextBufferedForIndex = -1;
+
+    currentIndex++; // point to what will be "next"
 }
 
 playBtn.addEventListener('click', togglePlayPause);
@@ -396,24 +439,21 @@ prevBtn.addEventListener('click', playPrev);
 fullscreenBtn.addEventListener('click', toggleFullscreen);
 player.addEventListener('timeupdate', updateProgress);
 player.addEventListener('ended', () => {
-    console.log('Song ended, playing next...');
     playNext();
 });
 
 // Fallback: Check if song has ended but event didn't fire
 setInterval(() => {
     if (isPlaying && player.duration && player.currentTime >= player.duration - 0.1) {
-        console.log('Fallback: Song appears to have ended');
         playNext();
     }
 }, 1000);
+
 playerProgress.addEventListener('click', e => {
     player.currentTime = (e.offsetX / playerProgress.clientWidth) * player.duration;
 });
 
 initPlayer();
-
-
 
 
 // ====== CONFIG: replace these with values from your Firebase console ======
@@ -425,8 +465,8 @@ const firebaseConfig = {
     storageBucket: "livecountupdate.firebasestorage.app",
     messagingSenderId: "392205412851",
     appId: "1:392205412851:web:3734f056ed22322ff7ca86"
-  };
-  // ========================================================================
+};
+// ========================================================================
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -437,10 +477,6 @@ const room = (location.pathname || "/")
   .replace(/\//g, "_")            // replace slashes with underscores
   .replace(/[.#$\[\]]/g, "_")     // remove illegal Firebase chars
   || "_root";
-
-// Room info for debugging (optional)
-// document.getElementById("room").innerText =
-//   "Room: " + decodeURIComponent(location.pathname || "/");
 
 // Reference to the room's viewers node
 const viewersRef = db.ref("viewers/" + room);
@@ -474,7 +510,7 @@ setInterval(async () => {
     });
   } catch (e) { /* ignore cleanup errors */ }
 }, 1000 * 60 * 5); // every 5 minutes
-
 </script>
+
 </body>
 </html>
