@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ForzaRadio - IA Music Player</title>
 <link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" id="icon" href="/assets/emoji.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 /* --- your original CSS unchanged --- */
@@ -77,7 +78,7 @@ const coverImg = document.getElementById('cover'),
     currentTimeEl = document.getElementById('current-time'),
     durationEl = document.getElementById('duration'),
     progress = document.getElementById('progress'),
-    playerProgress = document.getElementById('player-progress'),
+    // playerProgress = document.getElementById('player-progress'),
     prevBtn = document.getElementById('prev'),
     nextBtn = document.getElementById('next'),
     playBtn = document.getElementById('play'),
@@ -276,11 +277,11 @@ nextBtn.addEventListener('click', () => playNext(true));
 prevBtn.addEventListener('click', () => playPrev(true));
 fullscreenBtn.addEventListener('click', toggleFullscreen);
 player.addEventListener('ended', () => playNext(true));
-playerProgress.addEventListener('click', (e) => {
-    const width = playerProgress.clientWidth;
-    const clickX = e.offsetX;
-    player.currentTime = (clickX / width) * player.duration;
-});
+// playerProgress.addEventListener('click', (e) => {
+//     const width = playerProgress.clientWidth;
+//     const clickX = e.offsetX;
+//     player.currentTime = (clickX / width) * player.duration;
+// });
 
 /* START */
 initPlayer();
