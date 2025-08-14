@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForzaRadio - IA Music Player</title>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <link rel="icon" id="icon" href="https://forzayt.github.io/assets/emoji.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
@@ -118,6 +123,39 @@
         }
         .fullscreen-btn:hover { transform: scale(1.1); color: #1ed760; }
         .fullscreen-btn:active { transform: scale(0.95); }
+        
+        /* Live count styling */
+        .live-count {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+           
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .live-indicator {
+            width: 8px;
+            height: 8px;
+            background-color: #43b581;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .listeners-text {
+            font-family: 'Ubuntu', sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -125,6 +163,12 @@
     <button id="fullscreen-toggle" class="fullscreen-btn" title="Toggle Fullscreen">
         <i class="fa-solid fa-expand"></i>
     </button>
+
+    <div class="live-count">
+        <div class="live-indicator"></div>
+        <span id="livecount">0</span>
+        <span class="listeners-text"></span>
+    </div>
 
     <div class="background">
         <img src="" id="bg-img">
@@ -152,7 +196,7 @@
     <audio id="radio-player" preload="metadata"></audio>
 
 <script>
-const SONG_COLLECTION = { jsonFile: "https://raw.githubusercontent.com/forzayt/forzaRadio/refs/heads/main/songs.json" };
+const SONG_COLLECTION = { jsonFile: "songs.json" };
 
 async function loadSongList() {
     try {
@@ -237,12 +281,7 @@ async function searchSpotifyAlbumArt(songTitle, artistName) {
 }
 
 function getFallbackAlbumArt() {
-    const patterns = [
-        'https://via.placeholder.com/400x400/1DB954/191414?text=ForzaRadio',
-        'https://via.placeholder.com/400x400/1ed760/000000?text=Music+Player',
-        'https://via.placeholder.com/400x400/1fdf64/191414?text=IA+Music'
-    ];
-    return patterns[Math.floor(Math.random() * patterns.length)];
+    return 'https://avatars.githubusercontent.com/u/127679210?v=4';
 }
 
 async function updateSongInfo(songData) {
@@ -373,6 +412,69 @@ playerProgress.addEventListener('click', e => {
 });
 
 initPlayer();
+
+
+
+
+// ====== CONFIG: replace these with values from your Firebase console ======
+const firebaseConfig = {
+    apiKey: "AIzaSyBgWvYqf2pv2iCyMe8Ui7BKrVjGHXGoSfI",
+    authDomain: "livecountupdate.firebaseapp.com",
+    databaseURL: "https://livecountupdate-default-rtdb.firebaseio.com",
+    projectId: "livecountupdate",
+    storageBucket: "livecountupdate.firebasestorage.app",
+    messagingSenderId: "392205412851",
+    appId: "1:392205412851:web:3734f056ed22322ff7ca86"
+  };
+  // ========================================================================
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+// Safe room name based on page path
+const room = (location.pathname || "/")
+  .replace(/\//g, "_")            // replace slashes with underscores
+  .replace(/[.#$\[\]]/g, "_")     // remove illegal Firebase chars
+  || "_root";
+
+// Room info for debugging (optional)
+// document.getElementById("room").innerText =
+//   "Room: " + decodeURIComponent(location.pathname || "/");
+
+// Reference to the room's viewers node
+const viewersRef = db.ref("viewers/" + room);
+
+// Create a unique id for this visitor
+const myId = Date.now().toString() + "_" + Math.random().toString(36).substr(2, 9);
+
+// Add self to viewers list
+viewersRef.child(myId).set({ ts: firebase.database.ServerValue.TIMESTAMP })
+  .catch(err => console.error("Add viewer failed:", err));
+
+// Remove on disconnect
+viewersRef.child(myId).onDisconnect().remove();
+
+// Listen for changes and update count
+viewersRef.on("value", snapshot => {
+  const cnt = snapshot ? snapshot.numChildren() : 0;
+  document.getElementById("livecount").innerText = cnt;
+});
+
+// Optional: cleanup stale entries (in case onDisconnect fails)
+setInterval(async () => {
+  try {
+    const snap = await viewersRef.once("value");
+    const now = Date.now();
+    snap.forEach(child => {
+      const val = child.val();
+      if (val && val.ts && (now - val.ts) > (1000 * 60 * 10)) {
+        viewersRef.child(child.key).remove().catch(()=>{});
+      }
+    });
+  } catch (e) { /* ignore cleanup errors */ }
+}, 1000 * 60 * 5); // every 5 minutes
+
 </script>
 </body>
 </html>
