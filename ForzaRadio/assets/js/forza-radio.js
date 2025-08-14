@@ -779,9 +779,9 @@ class ForzaRadio {
             } else {
                 console.log("⏳ Audio not ready, waiting for data...");
                 
-                // Set a 5-second timeout to skip to next song if audio doesn't load
+                // Set a 10-second timeout to skip to next song if audio doesn't load
                 const audioLoadTimeout = setTimeout(() => {
-                    console.log("⏰ Audio loading timeout reached (5s), skipping to next song...");
+                    console.log("⏰ Audio loading timeout reached (10s), skipping to next song...");
                     if (this.isRadioMode) {
                         // Skip to next song in radio mode
                         window.iaRadio.playNext();
@@ -790,7 +790,7 @@ class ForzaRadio {
                         this.wrapper.classList.remove("paused");
                         this.playPauseBtn.querySelector("i").innerText = "play_arrow";
                     }
-                }, 5000);
+                }, 10000);
                 
                 // Wait for audio to be ready
                 this.mainAudio.addEventListener('canplay', () => {
