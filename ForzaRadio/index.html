@@ -5,35 +5,34 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ForzaRadio - IA Music Player</title>
-<link rel="stylesheet" href="/assets/style.css">
+
 <link rel="icon" id="icon" href="/assets/emoji.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-/* --- your original CSS unchanged --- */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
-html{box-sizing:border-box;}
-body{cursor:crosshair;margin:0;font-family:'Ubuntu',sans-serif;font-size:12px;min-height:100vh;display:flex;align-items:center;justify-content:center;}
-.background{position:fixed;width:200%;height:200%;top:-50%;left:-50%;z-index:-1;}
-.background img{position:absolute;margin:auto;top:0;left:0;bottom:0;right:0;min-width:50%;min-height:50%;filter:blur(15px);-webkit-filter:blur(50px);transform:scale(1.1);}
-.container{background-color:#e7e7e7;height:500px;width:400px;border-radius:20px;box-shadow:0 15px 30px rgba(0,0,0,0.3);transition:all 0.5s ease;}
-.container:hover{box-shadow:0 15px 30px rgba(0,0,0,0.6);}
-.player-img{width:300px;height:300px;position:relative;top:-50px;left:50px;}
-.player-img img{object-fit:cover;border-radius:20px;height:0;width:0;opacity:0;box-shadow:0 5px 30px 5px rgba(0,0,0,0.5);}
-.player-img:hover img{box-shadow:0 5px 30px 5px rgba(0,0,0,0.8);}
-.player-img img.active{width:100%;height:100%;transition:all 0.5s;opacity:1;}
-h2{font-size:25px;text-align:center;font-weight:500;margin:10px 0 0;}
-h3{font-size:18px;text-align:center;font-weight:500;margin:10px 0 0;}
-.player-progress{background-color:#fff;border-radius:5px;cursor:pointer;margin:40px 20px 35px;height:6px;width:90%;}
-.progress{border-radius:5px;height:100%;width:0%;transition:width 0.1s linear;background:linear-gradient(90deg,#ff7eb3,#ff758c,#f9d423,#ff4e50,#43cea2,#185a9d);background-size:400% 400%;animation:gradientShift 20s ease infinite;}
-@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.music-duration{position:relative;top:-25px;display:flex;justify-content:space-between;}
-.player-controls{position:relative;top:-15px;left:120px;width:200px;}
-.fa-solid{font-size:30px;color:#666;margin-right:30px;cursor:pointer;user-select:none;transition:all 0.3s ease;}
-.fa-solid:hover{filter:brightness(40%);}
-.play-button{font-size:44px;position:relative;top:3px;}
-.fullscreen-btn{position:fixed;top:10px;right:-20px;border:none;background:none;color:white;font-size:24px;cursor:pointer;z-index:1000;transition:all 0.3s ease;padding:8px;}
-.fullscreen-btn:hover{transform:scale(1.1);color:#1ed760;}
-.fullscreen-btn:active{transform:scale(0.95);}
+html { box-sizing: border-box; }
+body { cursor: crosshair; margin: 0; font-family: 'Ubuntu', sans-serif; font-size: 12px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.background { position: fixed; width: 200%; height: 200%; top: -50%; left: -50%; z-index: -1; }
+.background img { position: absolute; margin: auto; top: 0; left: 0; bottom: 0; right: 0; min-width: 50%; min-height: 50%; filter: blur(15px); -webkit-filter: blur(50px); transform: scale(1.1); }
+.container { background-color: #e7e7e7; height: 500px; width: 400px; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.3); transition: all 0.5s ease; }
+.container:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
+.player-img { width: 300px; height: 300px; position: relative; top: -50px; left: 50px; }
+.player-img img { object-fit: cover; border-radius: 20px; height: 0; width: 0; opacity: 0; box-shadow: 0 5px 30px 5px rgba(0,0,0,0.5); }
+.player-img:hover img { box-shadow: 0 5px 30px 5px rgba(0,0,0,0.8); }
+.player-img img.active { width: 100%; height: 100%; transition: all 0.5s; opacity: 1; }
+h2 { font-size: 25px; text-align: center; font-weight: 500; margin: 10px 0 0; }
+h3 { font-size: 18px; text-align: center; font-weight: 500; margin: 10px 0 0; }
+.player-progress { background-color: #fff; border-radius: 5px; cursor: pointer; margin: 40px 20px 35px; height: 6px; width: 90%; }
+.progress { border-radius: 5px; height: 100%; width: 0%; transition: width 0.1s linear; background: linear-gradient(90deg,#ff7eb3,#ff758c,#f9d423,#ff4e50,#43cea2,#185a9d); background-size: 400% 400%; animation: gradientShift 20s ease infinite; }
+@keyframes gradientShift { 0% { background-position: 0% 50% } 50% { background-position: 100% 50% } 100% { background-position: 0% 50% } }
+.music-duration { position: relative; top: -25px; display: flex; justify-content: space-between; }
+.player-controls { position: relative; top: -15px; left: 120px; width: 200px; }
+.fa-solid { font-size: 30px; color: #666; margin-right: 30px; cursor: pointer; user-select: none; transition: all 0.3s ease; }
+.fa-solid:hover { filter: brightness(40%); }
+.play-button { font-size: 44px; position: relative; top: 3px; }
+.fullscreen-btn { position: fixed; top: 10px; right: -20px; border: none; background: none; color: white; font-size: 24px; cursor: pointer; z-index: 1000; transition: all 0.3s ease; padding: 8px; }
+.fullscreen-btn:hover { transform: scale(1.1); color: #1ed760; }
+.fullscreen-btn:active { transform: scale(0.95); }
 </style>
 </head>
 <body>
@@ -68,17 +67,15 @@ h3{font-size:18px;text-align:center;font-weight:500;margin:10px 0 0;}
 <audio id="radio-player" preload="metadata"></audio>
 
 <script>
-/* CONFIG */
 const uploaderEmail = "vishnusanthoshvr@gmail.com";
 const searchUrl = `https://archive.org/advancedsearch.php?q=uploader:${uploaderEmail}&fl[]=identifier&output=json&rows=200`;
 
-/* DOM ELEMENTS */
 const coverImg = document.getElementById('cover'),
     titleEl = document.getElementById('music-title'),
     currentTimeEl = document.getElementById('current-time'),
     durationEl = document.getElementById('duration'),
     progress = document.getElementById('progress'),
-    // playerProgress = document.getElementById('player-progress'),
+    playerProgress = document.getElementById('player-progress'),
     prevBtn = document.getElementById('prev'),
     nextBtn = document.getElementById('next'),
     playBtn = document.getElementById('play'),
@@ -86,14 +83,12 @@ const coverImg = document.getElementById('cover'),
     player = document.getElementById('radio-player'),
     fullscreenBtn = document.getElementById('fullscreen-toggle');
 
-/* STATE */
 let items = [];
 let currentIndex = 0;
 let isPlaying = false;
 let currentAlbumArt = null;
 let nextSongMeta = null;
 
-/* FORMAT TIME */
 function formatTime(seconds) {
     if (isNaN(seconds)) return "0:00";
     const mins = Math.floor(seconds / 60);
@@ -101,7 +96,6 @@ function formatTime(seconds) {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
 }
 
-/* PROGRESS BAR UPDATE */
 function updateProgress() {
     if (player.duration) {
         const progressPercent = (player.currentTime / player.duration) * 100;
@@ -111,7 +105,6 @@ function updateProgress() {
     }
 }
 
-/* SPOTIFY ALBUM ART CONFIG */
 const SPOTIFY_CONFIG = {
     clientId: '57e7d63ff50e46058facee08174119c7',
     clientSecret: 'c8f8624cc0c245db82a065d2f8182f7c'
@@ -161,7 +154,6 @@ function getFallbackAlbumArt() {
     return patterns[Math.floor(Math.random() * patterns.length)];
 }
 
-/* UPDATE UI */
 async function updateSongInfo(songData) {
     titleEl.textContent = songData.title || "Unknown Title";
     try {
@@ -173,16 +165,20 @@ async function updateSongInfo(songData) {
     bgImg.src = currentAlbumArt;
 }
 
-/* PLAY SONG */
 function loadAndPlay(id, meta, autoPlay = true) {
     const mp3File = meta.files.find(f => f.format && f.format.toLowerCase().includes("mp3"));
     if (!mp3File) return false;
+
     const songData = {
         title: (meta.metadata?.title || id).replace(/^"(.*)"$/, '$1').replace(/"/g, ''),
         artist: meta.metadata?.creator || ""
     };
     updateSongInfo(songData);
-    player.src = `https://archive.org/download/${id}/${encodeURIComponent(mp3File.name)}?t=${Date.now()}`;
+
+    // ✅ Use provided URL instead of guessing pattern
+    let fileUrl = mp3File.url || `https://archive.org/download/${id}/${encodeURIComponent(mp3File.name)}`;
+    player.src = fileUrl + `?t=${Date.now()}`;
+
     if (autoPlay) {
         player.play().catch(err => console.log("Autoplay blocked:", err));
         isPlaying = true;
@@ -194,7 +190,6 @@ function loadAndPlay(id, meta, autoPlay = true) {
     return true;
 }
 
-/* NEXT / PREV */
 function playNext(autoPlay = true) {
     if (items.length === 0) return;
     if (currentIndex >= items.length) currentIndex = 0;
@@ -224,7 +219,6 @@ function playPrev() {
     playNext();
 }
 
-/* FULLSCREEN */
 function toggleFullscreen() {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().then(() => {
@@ -237,20 +231,18 @@ function toggleFullscreen() {
     }
 }
 
-/* INIT */
 function initPlayer() {
     fetch(searchUrl)
         .then(res => res.json())
         .then(data => {
             if (!data.response?.docs) return;
-            items = data.response.docs.map(doc => doc.identifier).filter(id => /^music/.test(id));
+            items = data.response.docs.map(doc => doc.identifier);
             if (items.length === 0) return;
             currentIndex = Math.floor(Math.random() * items.length);
-            playNext(false); // false = load but do not autoplay
+            playNext(false);
         });
 }
 
-/* PREFETCH NEXT SONG */
 player.addEventListener('timeupdate', () => {
     updateProgress();
     if (player.duration - player.currentTime < 3 && !nextSongMeta && items.length > 0) {
@@ -261,7 +253,6 @@ player.addEventListener('timeupdate', () => {
     }
 });
 
-/* EVENTS */
 playBtn.addEventListener('click', () => {
     if (isPlaying) {
         player.pause();
@@ -277,13 +268,13 @@ nextBtn.addEventListener('click', () => playNext(true));
 prevBtn.addEventListener('click', () => playPrev(true));
 fullscreenBtn.addEventListener('click', toggleFullscreen);
 player.addEventListener('ended', () => playNext(true));
-// playerProgress.addEventListener('click', (e) => {
-//     const width = playerProgress.clientWidth;
-//     const clickX = e.offsetX;
-//     player.currentTime = (clickX / width) * player.duration;
-// });
 
-/* START */
+playerProgress.addEventListener('click', (e) => {
+    const width = playerProgress.clientWidth;
+    const clickX = e.offsetX;
+    player.currentTime = (clickX / width) * player.duration;
+});
+
 initPlayer();
 </script>
 </body>
