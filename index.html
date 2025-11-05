@@ -11,15 +11,13 @@
             
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/custom.css">
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+      
         
         <!-- The livecount.js script will be loaded after DOM is fully loaded -->
       
     </head>
     <body>
-        <audio id="audio" src="assets/audio/Glass Animals - Heat Waves.mp3" preload="auto"></audio>
-
+      
         <!-- Snowfall Background Animation -->
         <section class="animated-background">
             <div id="stars1"></div>
@@ -28,21 +26,11 @@
         </section>
         <!-- End of Snowfall Background Animation -->
 
-        <!-- Live Count Display -->
-        <div id="live-count-container" style="position: fixed; top: 20px; right: 20px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); padding: 8px 15px; border-radius: 20px; z-index: 1000; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); display: flex; align-items: center;">
-            <div style="width: 8px; height: 8px; background-color: #4CAF50; border-radius: 50%; margin-right: 8px; animation: pulse 1.5s infinite;"></div>
-            <span id="livecount" style="color: white; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;">0</span>
-     
-        </div>
+       
         <!-- Hidden room display for debugging -->
-        <div id="room" style="display: none;"></div>
-
+      
         <div class="min-h-full flex-h-center" id="background_div">
-            <input type="hidden" value="https://bio.link" id="app-url">
-                <input type="hidden" value="null" id="is-featured">
-                    <canvas id="bg-canvas" class="background-overlay"></canvas>
-                </input>
-            </input>
+           
 
             <div class="mt-48 page-full-wrap relative ">
                 <input type="hidden" value="creator-page" id="page-type">
@@ -141,21 +129,7 @@
             </div>
         </div>
         
-        <script>
-            // Wait until the page is loaded, then play the audio
-            window.onload = function() {
-              var audio = document.getElementById('audio');
-              audio.play(); // Play the song as the page loads
-              
-              // Load the livecount.js script after DOM is fully loaded
-              var script = document.createElement('script');
-              script.src = 'assets/js/livecount.js';
-              document.body.appendChild(script);
-            };
-        </script>
+       
     </body>
-    <!--
-    A different snowfall    
-    <script  src="assets/js/snowfall.js"></script>
-    -->
+    
 </html>
