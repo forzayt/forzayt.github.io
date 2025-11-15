@@ -74,7 +74,7 @@ section span:hover
 section .signin
 {
   position: absolute;
-  width: 400px;
+  width: 65%;
   background: #222;  
   z-index: 1000;
   display: flex;
@@ -252,3 +252,5 @@ showing toast style  */
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
+
+
