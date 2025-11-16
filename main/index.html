@@ -144,12 +144,31 @@ What are you doing here?! you sneaky developer...
 					-->
 					<div class="ph-video ph-video-grayscale ph-video-cover-1">
 						<div class="ph-video-inner">
-							<video loop muted autoplay playsinline  poster="">
-								<source src="assets/vids/main_gradiant.mp4"  type="video/mp4">
-								
-							</video>
+						  <video id="heroVideo" loop muted autoplay playsinline poster="">
+							<!-- Fallback for old devices -->
+							<source src="assets/vids/main_gradiant.mp4" type="video/mp4">
+						  </video>
 						</div>
-					</div>
+					  </div>
+					  
+					  <!-- Include hls.js -->
+					  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+					  
+					  <script>
+						const video = document.getElementById('heroVideo');
+						const hlsSrc = "https://d1s6jz7jeei17.cloudfront.net/playlist/amg00056-vevotv-vevo2kau-samsungau/playlist.m3u8";
+					  
+						if (video.canPlayType('application/vnd.apple.mpegURL')) {
+						  // Safari and iOS support HLS natively
+						  video.src = hlsSrc;
+						} else if (Hls.isSupported()) {
+						  // For Chrome, Edge, Firefox etc.
+						  const hls = new Hls();
+						  hls.loadSource(hlsSrc);
+						  hls.attachMedia(video);
+						}
+					  </script>
+					  
 					<!-- End page header video -->
 						
 					<div class="page-header-inner tt-wrap">
