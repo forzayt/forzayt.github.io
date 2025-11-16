@@ -211,13 +211,43 @@ What are you doing here?! you sneaky developer...
 					========================== -->
 					<div class="ph-social">
 						<ul>
+							<li><a href="#" id="audioToggle" class="tt-magnetic-item" aria-label="Toggle audio"><i class="fa-solid fa-volume-high"></i></a></li>
 							<li><a href="https://www.linkedin.com/in/vishnu-santhosh-000386247/" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a></li>
 							<li><a href="https://github.com/forzayt" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a></li>
 							<li><a href="https://medium.com/@forzablogs" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-medium"></i></a></li>
 							<li><a href="https://forzayt.github.io/" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i></a></li>
-							<!-- <li><a href="https://x.com/Themetorium" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a></li> -->
+							<!-- <li><a href="https://x.com/Themetorium" class="tt-magnetic-item" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a></li> -->	
 						</ul>
 					</div>
+					<script>
+					(function(){
+					var t=document.getElementById('audioToggle');
+					var v=document.getElementById('heroVideo');
+					if(!t||!v){return;}
+					var i=t.querySelector('i');
+					function u(){
+					if(v.muted||v.volume===0){
+					if(i){i.classList.remove('fa-volume-high');i.classList.add('fa-volume-xmark');}
+					t.setAttribute('aria-label','Unmute audio');
+					}else{
+					if(i){i.classList.remove('fa-volume-xmark');i.classList.add('fa-volume-high');}
+					t.setAttribute('aria-label','Mute audio');
+					}
+					}
+					u();
+					t.addEventListener('click',function(e){
+					e.preventDefault();
+					if(v.muted||v.volume===0){
+					v.muted=false;
+					v.volume=1;
+					v.play().catch(function(){});
+					}else{
+					v.muted=true;
+					}
+					u();
+					});
+					})();
+					</script>
 					<!-- End social buttons -->
 
 					<!-- Begin scroll down
