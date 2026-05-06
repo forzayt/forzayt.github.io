@@ -144,7 +144,7 @@ What are you doing here?! you sneaky developer...
 					-->
 					<div class="ph-video ph-video-grayscale ph-video-cover-1">
 						<div class="ph-video-inner">
-						  <video id="heroVideo" loop muted autoplay playsinline poster="">
+						  <video id="heroVideo" loop autoplay playsinline poster="">
 							<!-- Fallback for old devices -->
 							<source src="assets/vids/main_gradiant.mp4" type="video/mp4">
 						  </video>
@@ -156,7 +156,7 @@ What are you doing here?! you sneaky developer...
 					  
 					  <script>
 						const video = document.getElementById('heroVideo');
-						const hlsSrc = "https://d128y56w6v2kax.cloudfront.net/playlist/amg00056-vevotv-vevopopau-samsungau/playlist.m3u8"; //  Vevo  POP live
+						const hlsSrc = "https://hugh.cdn.rumble.cloud/live/1n1ugl24/slot-49/7ttm-lexc_1080p/chunklist.m3u8"; //  Vevo  POP live
 
 					//	const hlsSrc = "https://d1s6jz7jeei17.cloudfront.net/playlist/amg00056-vevotv-vevo2kau-samsungau/playlist.m3u8"; //Vevo 2000 4K Live  
 
@@ -228,6 +228,8 @@ What are you doing here?! you sneaky developer...
 					var t=document.getElementById('audioToggle');
 					var v=document.getElementById('heroVideo');
 					if(!t||!v){return;}
+					v.muted = false;
+					v.volume = 1;
 					var i=t.querySelector('i');
 					function u(){
 					if(v.muted||v.volume===0){
@@ -239,6 +241,12 @@ What are you doing here?! you sneaky developer...
 					}
 					}
 					u();
+					v.play().catch(function() {
+						// Autoplay with sound might be blocked by browser.
+						v.muted = true;
+						v.play().catch(function() {});
+						u(); // Update UI if muted
+					});
 					t.addEventListener('click',function(e){
 					e.preventDefault();
 					if(v.muted||v.volume===0){
