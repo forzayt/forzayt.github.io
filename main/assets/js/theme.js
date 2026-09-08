@@ -1628,6 +1628,14 @@
 	// Scrolling text (Live GitHub Realtime Log)
 	// ================================================================
 
+	// ----------------------------------------------------------------
+	// MARQUEE SCROLL SPEED CONFIGURATION (Pixels per second)
+	// Change this single value to control marquee scroll speed everywhere!
+	// Lower value = Slower scroll (e.g., 10 or 15)
+	// Higher value = Faster scroll (e.g., 50 or 100)
+	// ----------------------------------------------------------------
+	const MARQUEE_SCROLL_SPEED_PX_PER_SEC = 150;
+
 	function initScrollingTextElements() {
 		$(".tt-scrolling-text").each(function() {
 			let $this = $(this);
@@ -1647,17 +1655,11 @@
 			// Scroll.
 			let $tt_scrtCurrentScroll = 0;
 			let $tt_scrtIsScrollingDown = true;
-			let $tt_scrtAtrSpeed = parseFloat($this.data("scroll-speed"));
 			let $tt_scrtAtrOpDirection = $this.data("opposite-direction") == true;
 			let $tt_scrtAtrChangeDirection = $this.data("change-direction") == true;
 
 			let contentWidth = $tt_scrtScrollerContent.outerWidth() || 2000;
-			// Target very slow scroll rate: ~25px per second
-			let pixelsPerSecond = 25;
-			let calculatedDuration = contentWidth / pixelsPerSecond;
-			if ($tt_scrtAtrSpeed && !isNaN($tt_scrtAtrSpeed)) {
-				calculatedDuration = Math.max(calculatedDuration, $tt_scrtAtrSpeed);
-			}
+			let calculatedDuration = contentWidth / MARQUEE_SCROLL_SPEED_PX_PER_SEC;
 
 			let $tt_scrtDirection = $tt_scrtAtrOpDirection ? 100 : -100;
 
