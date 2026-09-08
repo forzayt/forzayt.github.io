@@ -1779,7 +1779,7 @@
 				break;
 		}
 
-		return `[${tag}] ${detail} ${timeAgo ? `(${timeAgo})` : ''}`;
+		return `${detail} ${timeAgo ? `(${timeAgo})` : ''}`;
 	}
 
 	function separatorSvgHtml() {
