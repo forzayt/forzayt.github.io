@@ -1624,63 +1624,211 @@
 	// Scrolling text
 	// ================================================================
 
-	$(".tt-scrolling-text").each(function() {
-		let $this = $(this);
-		let $tt_scrtScrollerContent = $this.find(".tt-scrt-content");
+	// ================================================================
+	// Scrolling text (Live GitHub Realtime Log)
+	// ================================================================
 
-		// Clone content.
-		// ===============
-		let $tt_scrtClone = 5; // How many times to clone an item
-	  
-		for (let i = 0; i < $tt_scrtClone; i++) {
-			let $tt_scrtClonedItem = $tt_scrtScrollerContent.clone();
-			$tt_scrtClonedItem.attr("aria-hidden", true);
-			$tt_scrtClonedItem.insertAfter($tt_scrtScrollerContent);
-		}
+	function initScrollingTextElements() {
+		$(".tt-scrolling-text").each(function() {
+			let $this = $(this);
+			if ($this.data("scrt-initialized")) return;
+			$this.data("scrt-initialized", true);
 
-		// Scroll.
-		// ========
-		let $tt_scrtCurrentScroll = 0;
-		let $tt_scrtIsScrollingDown = true;
-		let $tt_scrtAtrSpeed = $this.data("scroll-speed");
-		let $tt_scrtAtrOpDirection = $this.data("opposite-direction") == true;
-		let $tt_scrtAtrChangeDirection = $this.data("change-direction") == true;
-	  
-		if ($tt_scrtAtrSpeed) {
-			var $tt_scrtSpeed = $tt_scrtAtrSpeed;
-		} else {
-			var $tt_scrtSpeed = 10; // Default value
-		}
-	  
-		if ($tt_scrtAtrOpDirection) {
-			var $tt_scrtDirection = 100;
-		} else {
-			var $tt_scrtDirection = -100; // Default value
-		}
-	  
-		let $tt_scrtTween = gsap.to($this.find(".tt-scrt-content"), { duration: $tt_scrtSpeed, xPercent: $tt_scrtDirection, repeat: -1, ease: "linear" }).totalProgress(0.5);
+			let $tt_scrtScrollerContent = $this.find(".tt-scrt-content");
 
-		gsap.set(".tt-scrt-inner", { xPercent: -50 });
-	  
-		if ($tt_scrtAtrChangeDirection) {
-			window.addEventListener("scroll", function() {
-				if (window.pageYOffset > $tt_scrtCurrentScroll) {
-					$tt_scrtIsScrollingDown = true;
-					$this.removeClass("scrolled-up");
-				} else {
-					$tt_scrtIsScrollingDown = false;
-					$this.addClass("scrolled-up");
-				}
+			// Clone content.
+			let $tt_scrtClone = 5; // How many times to clone an item
+			for (let i = 0; i < $tt_scrtClone; i++) {
+				let $tt_scrtClonedItem = $tt_scrtScrollerContent.clone();
+				$tt_scrtClonedItem.attr("aria-hidden", true);
+				$tt_scrtClonedItem.insertAfter($tt_scrtScrollerContent);
+			}
 
-				gsap.to($tt_scrtTween, { timeScale: $tt_scrtIsScrollingDown ? 1 : -1 });
+			// Scroll.
+			let $tt_scrtCurrentScroll = 0;
+			let $tt_scrtIsScrollingDown = true;
+			let $tt_scrtAtrSpeed = parseFloat($this.data("scroll-speed"));
+			let $tt_scrtAtrOpDirection = $this.data("opposite-direction") == true;
+			let $tt_scrtAtrChangeDirection = $this.data("change-direction") == true;
 
+			let contentWidth = $tt_scrtScrollerContent.outerWidth() || 2000;
+			// Target very slow scroll rate: ~25px per second
+			let pixelsPerSecond = 25;
+			let calculatedDuration = contentWidth / pixelsPerSecond;
+			if ($tt_scrtAtrSpeed && !isNaN($tt_scrtAtrSpeed)) {
+				calculatedDuration = Math.max(calculatedDuration, $tt_scrtAtrSpeed);
+			}
+
+			let $tt_scrtDirection = $tt_scrtAtrOpDirection ? 100 : -100;
+
+			let $tt_scrtTween = gsap.to($this.find(".tt-scrt-content"), { 
+				duration: calculatedDuration, 
+				xPercent: $tt_scrtDirection, 
+				repeat: -1, 
+				ease: "linear" 
+			}).totalProgress(0.5);
+
+			gsap.set($this.find(".tt-scrt-inner"), { xPercent: -50 });
+
+			if ($tt_scrtAtrChangeDirection) {
+				window.addEventListener("scroll", function() {
+					if (window.pageYOffset > $tt_scrtCurrentScroll) {
+						$tt_scrtIsScrollingDown = true;
+						$this.removeClass("scrolled-up");
+					} else {
+						$tt_scrtIsScrollingDown = false;
+						$this.addClass("scrolled-up");
+					}
+
+					gsap.to($tt_scrtTween, { timeScale: $tt_scrtIsScrollingDown ? 1 : -1 });
+
+					$tt_scrtCurrentScroll = window.pageYOffset;
+				});
+			} else {
 				$tt_scrtCurrentScroll = window.pageYOffset;
-			});
-		} else {
-			$tt_scrtCurrentScroll = window.pageYOffset;
+			}
+		});
+	}
+
+	function resetScrollingTextElements() {
+		$(".tt-scrolling-text").each(function() {
+			let $this = $(this);
+			$this.data("scrt-initialized", false);
+			gsap.killTweensOf($this.find(".tt-scrt-content"));
+		});
+	}
+
+	function formatTimeAgo(date) {
+		if (!date || isNaN(date.getTime())) return '';
+		const seconds = Math.floor((new Date() - date) / 1000);
+		if (seconds < 60) return `${Math.max(1, seconds)}s ago`;
+		const minutes = Math.floor(seconds / 60);
+		if (minutes < 60) return `${minutes}m ago`;
+		const hours = Math.floor(minutes / 60);
+		if (hours < 24) return `${hours}h ago`;
+		const days = Math.floor(hours / 24);
+		if (days < 30) return `${days}d ago`;
+		const months = Math.floor(days / 30);
+		if (months < 12) return `${months}mo ago`;
+		return `${Math.floor(months / 12)}y ago`;
+	}
+
+	function capitalizeStr(str) {
+		if (!str) return '';
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	}
+
+	function formatEventToLog(event) {
+		const type = event.type || '';
+		const repo = event.repo ? event.repo.name : 'repository';
+		const date = event.created_at ? new Date(event.created_at) : new Date();
+		const timeAgo = formatTimeAgo(date);
+
+		let tag = 'LOG';
+		let detail = '';
+
+		switch (type) {
+			case 'PushEvent':
+				tag = 'PUSH';
+				const branch = event.payload && event.payload.ref ? event.payload.ref.replace('refs/heads/', '') : 'main';
+				detail = `Pushed to ${repo}:${branch}`;
+				break;
+			case 'WatchEvent':
+				tag = 'STAR';
+				detail = `Starred ${repo}`;
+				break;
+			case 'IssuesEvent':
+				tag = 'ISSUE';
+				const action = event.payload && event.payload.action ? event.payload.action : 'updated';
+				const issueNum = event.payload && event.payload.issue ? `#${event.payload.issue.number}` : '';
+				detail = `${capitalizeStr(action)} issue ${issueNum} on ${repo}`;
+				break;
+			case 'IssueCommentEvent':
+				tag = 'COMMENT';
+				const cIssueNum = event.payload && event.payload.issue ? `#${event.payload.issue.number}` : '';
+				detail = `Commented on ${repo} ${cIssueNum}`;
+				break;
+			case 'CreateEvent':
+				tag = 'CREATE';
+				const refType = event.payload && event.payload.ref_type ? event.payload.ref_type : 'repo';
+				const refName = event.payload && event.payload.ref ? ` (${event.payload.ref})` : '';
+				detail = `Created ${refType}${refName} in ${repo}`;
+				break;
+			case 'PullRequestEvent':
+				tag = 'PR';
+				const prAction = event.payload && event.payload.action ? event.payload.action : 'updated';
+				const prNum = event.payload && event.payload.pull_request ? `#${event.payload.pull_request.number}` : '';
+				detail = `${capitalizeStr(prAction)} PR ${prNum} in ${repo}`;
+				break;
+			case 'ForkEvent':
+				tag = 'FORK';
+				const forkedTo = event.payload && event.payload.forkee ? event.payload.forkee.full_name : '';
+				detail = `Forked ${repo}${forkedTo ? ' → ' + forkedTo : ''}`;
+				break;
+			case 'DeleteEvent':
+				tag = 'DELETE';
+				const delType = event.payload && event.payload.ref_type ? event.payload.ref_type : 'ref';
+				const delRef = event.payload && event.payload.ref ? ` ${event.payload.ref}` : '';
+				detail = `Deleted ${delType}${delRef} in ${repo}`;
+				break;
+			default:
+				tag = type.replace('Event', '').toUpperCase() || 'ACTIVITY';
+				detail = `Activity on ${repo}`;
+				break;
 		}
 
-	});
+		return `[${tag}] ${detail} ${timeAgo ? `(${timeAgo})` : ''}`;
+	}
+
+	function separatorSvgHtml() {
+		return `<span class="tt-scrt-separator"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"></path></svg></span>`;
+	}
+
+	function fetchRealtimeGitHubLogs() {
+		const username = 'forzayt';
+		fetch(`https://api.github.com/users/${username}/events/public`)
+			.then(res => {
+				if (!res.ok) throw new Error('GitHub API response error');
+				return res.json();
+			})
+			.then(events => {
+				if (!Array.isArray(events) || events.length === 0) return;
+
+				const row1Logs = [];
+				const row2Logs = [];
+
+				events.forEach((event, idx) => {
+					const logMsg = formatEventToLog(event);
+					if (idx % 2 === 0) {
+						row1Logs.push(logMsg);
+					} else {
+						row2Logs.push(logMsg);
+					}
+				});
+
+				while (row1Logs.length < 3) row1Logs.push(...row1Logs);
+				while (row2Logs.length < 3) row2Logs.push(...row2Logs);
+
+				const row1Html = row1Logs.map(item => `${item} ${separatorSvgHtml()}`).join(' ');
+				const row2Html = row2Logs.map(item => `${item} ${separatorSvgHtml()}`).join(' ');
+
+				const $scrollingTexts = $(".tt-scrolling-text");
+				if ($scrollingTexts.length >= 2) {
+					resetScrollingTextElements();
+					$scrollingTexts.eq(0).find(".tt-scrt-inner").html(`<div class="tt-scrt-content">${row1Html}</div>`);
+					$scrollingTexts.eq(1).find(".tt-scrt-inner").html(`<div class="tt-scrt-content">${row2Html}</div>`);
+					initScrollingTextElements();
+				}
+			})
+			.catch(err => {
+				console.warn('Realtime GitHub logs fetch fallback active:', err);
+			});
+	}
+
+	// Initial setup with fallback elements
+	initScrollingTextElements();
+	// Fetch live logs and update scrolling text
+	fetchRealtimeGitHubLogs();
 
 
 
