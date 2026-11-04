@@ -314,6 +314,10 @@ body {
     margin-top: 6px;
     font-size: 13px;
     color: #777; }
+  #github-projects .item h6 a {
+    color: inherit; }
+    #github-projects .item h6 a:hover {
+      color: var(--main-color); }
 
 .projects-status {
   padding: 60px 0;

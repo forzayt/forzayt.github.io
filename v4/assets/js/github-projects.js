@@ -10,7 +10,7 @@
     var USERNAME = "forzayt";
     var REPOS_URL = "https://github.com/forzayt?tab=repositories";
     var LIMIT = 6;
-    var CACHE_KEY = "forzayt_github_projects_v2";
+    var CACHE_KEY = "forzayt_github_projects_v3";
     var CACHE_TTL = 10 * 60 * 1000; // 10 minutes
     var SEARCH_URL = "https://api.github.com/search/commits?q=author:" + USERNAME +
         "&sort=committer-date&order=desc&per_page=" + LIMIT;
@@ -124,6 +124,7 @@
 
             return {
                 repo: repository.full_name || repository.name || USERNAME,
+                url: repository.html_url || REPOS_URL,
                 message: commit.message,
                 sha: item.sha,
                 date: dates.date,
@@ -136,6 +137,7 @@
         return (repos || []).map(function (repo) {
             return {
                 repo: repo.full_name || repo.name,
+                url: repo.html_url || REPOS_URL,
                 message: repo.description || repo.name,
                 sha: "",
                 date: repo.pushed_at,
@@ -165,9 +167,9 @@
 
     /* ------------------------------ render ------------------------------- */
 
-    function createTag(label) {
+    function createTag(label, url) {
         var link = document.createElement("a");
-        link.href = REPOS_URL;
+        link.href = url || REPOS_URL;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
         link.textContent = label;
@@ -175,6 +177,8 @@
     }
 
     function createCard(project, slot) {
+        var repoUrl = project.url || REPOS_URL;
+
         var column = document.createElement("div");
         column.className = slot.col;
 
@@ -198,30 +202,35 @@
         var tags = document.createElement("div");
         tags.className = "tags";
         var language = project.language || (project.sha ? "Commit" : "Repository");
-        tags.appendChild(createTag(language));
+        tags.appendChild(createTag(language, repoUrl));
         if (project.sha) {
-            tags.appendChild(createTag(shortSha(project.sha)));
+            tags.appendChild(createTag(shortSha(project.sha), repoUrl));
         }
 
         var plink = document.createElement("a");
         plink.className = "plink";
-        plink.href = REPOS_URL;
+        plink.href = repoUrl;
         plink.target = "_blank";
         plink.rel = "noopener noreferrer";
-        plink.setAttribute("aria-label", "View all projects on GitHub");
+        plink.setAttribute("aria-label", "Open " + project.repo + " on GitHub");
 
         imageWrap.appendChild(image);
         imageWrap.appendChild(tags);
         imageWrap.appendChild(plink);
 
         var title = document.createElement("h6");
-        title.textContent = truncate(firstLine(project.message) || "Untitled project", 80);
+        var titleLink = document.createElement("a");
+        titleLink.href = repoUrl;
+        titleLink.target = "_blank";
+        titleLink.rel = "noopener noreferrer";
+        titleLink.textContent = repoSegments(project.repo).pop() || "Untitled project";
+        title.appendChild(titleLink);
 
         var meta = document.createElement("span");
         meta.className = "project-repo";
-        var repoName = repoSegments(project.repo).pop();
+        var message = truncate(firstLine(project.message) || "No commit message", 90);
         var date = formatDate(project.date);
-        meta.textContent = date ? repoName + " \u00b7 " + date : repoName;
+        meta.textContent = date ? message + " \u00b7 " + date : message;
 
         item.appendChild(imageWrap);
         item.appendChild(title);
