@@ -3,6 +3,11 @@
   --theme-color: #151515;
   --main-color: #F84438; }
 
+/* --------------- Custom cursor --------------- */
+html,
+body {
+  cursor: url("../imgs/sword_cursor.ico") 0 0, auto; }
+
 /* --------------- Clients --------------- */
 .left-side {
   height: 100vh;
