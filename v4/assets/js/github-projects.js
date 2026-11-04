@@ -219,6 +219,11 @@
         imageWrap.appendChild(plink);
 
         var title = document.createElement("h6");
+        var prefix = document.createElement("span");
+        prefix.className = "project-prefix";
+        prefix.textContent = "";
+        title.appendChild(prefix);
+
         var titleLink = document.createElement("a");
         titleLink.href = repoUrl;
         titleLink.target = "_blank";

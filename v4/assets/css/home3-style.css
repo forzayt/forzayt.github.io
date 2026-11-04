@@ -318,6 +318,10 @@ body {
     color: inherit; }
     #github-projects .item h6 a:hover {
       color: var(--main-color); }
+  #github-projects .item h6 .project-prefix {
+    font-size: 13px;
+    font-weight: 500;
+    color: #777; }
 
 .projects-status {
   padding: 60px 0;
