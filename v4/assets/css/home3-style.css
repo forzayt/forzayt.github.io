@@ -313,7 +313,11 @@ body {
     display: block;
     margin-top: 6px;
     font-size: 13px;
-    color: #777; }
+    color: #777;
+    text-decoration: none; }
+    #github-projects .project-repo:hover {
+      color: var(--main-color);
+      text-decoration: underline; }
   #github-projects .item h6 a {
     color: inherit; }
     #github-projects .item h6 a:hover {

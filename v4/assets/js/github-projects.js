@@ -125,6 +125,7 @@
             return {
                 repo: repository.full_name || repository.name || USERNAME,
                 url: repository.html_url || REPOS_URL,
+                commitUrl: item.html_url,
                 message: commit.message,
                 sha: item.sha,
                 date: dates.date,
@@ -138,6 +139,7 @@
             return {
                 repo: repo.full_name || repo.name,
                 url: repo.html_url || REPOS_URL,
+                commitUrl: repo.html_url,
                 message: repo.description || repo.name,
                 sha: "",
                 date: repo.pushed_at,
@@ -231,8 +233,11 @@
         titleLink.textContent = repoSegments(project.repo).pop() || "Untitled project";
         title.appendChild(titleLink);
 
-        var meta = document.createElement("span");
+        var meta = document.createElement("a");
         meta.className = "project-repo";
+        meta.href = project.commitUrl || repoUrl;
+        meta.target = "_blank";
+        meta.rel = "noopener noreferrer";
         var message = truncate(firstLine(project.message) || "No commit message", 90);
         var date = formatDate(project.date);
         meta.textContent = date ? message + " \u00b7 " + date : message;
