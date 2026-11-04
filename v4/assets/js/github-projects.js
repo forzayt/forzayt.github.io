@@ -10,8 +10,7 @@
     var USERNAME = "forzayt";
     var REPOS_URL = "https://github.com/forzayt?tab=repositories";
     var LIMIT = 6;
-    var CACHE_KEY = "forzayt_github_projects_v3";
-    var CACHE_TTL = 10 * 60 * 1000; // 10 minutes
+    var CACHE_KEY = "forzayt_github_projects_fallback";
     var SEARCH_URL = "https://api.github.com/search/commits?q=author:" + USERNAME +
         "&sort=committer-date&order=desc&per_page=" + LIMIT;
     var REPOS_API_URL = "https://api.github.com/users/" + USERNAME +
@@ -74,14 +73,14 @@
         return "https://placehold.co/800x600/e9e9e9/555555?text=" + label;
     }
 
-    function readCache() {
+    function readFallbackCache() {
         try {
-            var raw = sessionStorage.getItem(CACHE_KEY);
+            var raw = localStorage.getItem(CACHE_KEY);
             if (!raw) {
                 return null;
             }
             var cached = JSON.parse(raw);
-            if (!cached || !cached.time || Date.now() - cached.time > CACHE_TTL) {
+            if (!cached || !Array.isArray(cached.items) || !cached.items.length) {
                 return null;
             }
             return cached.items;
@@ -90,9 +89,9 @@
         }
     }
 
-    function writeCache(items) {
+    function writeFallbackCache(items) {
         try {
-            sessionStorage.setItem(CACHE_KEY, JSON.stringify({
+            localStorage.setItem(CACHE_KEY, JSON.stringify({
                 time: Date.now(),
                 items: items
             }));
@@ -103,6 +102,7 @@
 
     function fetchJson(url) {
         return fetch(url, {
+            cache: "no-store",
             headers: {
                 Accept: "application/vnd.github+json"
             }
@@ -336,6 +336,7 @@
             fetchJson(SEARCH_URL),
             fetchJson(REPOS_API_URL)
         ]).then(function (results) {
+            var searchUnavailable = results[0].status !== "fulfilled";
             var commits = results[0].status === "fulfilled" && results[0].value ?
                 results[0].value.items : [];
             var repos = results[1].status === "fulfilled" && Array.isArray(results[1].value) ?
@@ -354,25 +355,36 @@
                 }
             });
 
-            return buildProjects(commits, repos, languages);
+            return {
+                projects: buildProjects(commits, repos, languages),
+                searchUnavailable: searchUnavailable
+            };
         });
     }
 
     function init() {
-        var cached = readCache();
-
-        if (cached && cached.length) {
-            render(cached);
-            return;
-        }
+        var cached = readFallbackCache();
 
         renderLoading();
 
-        loadFromGitHub().then(function (projects) {
-            writeCache(projects);
-            render(projects);
+        loadFromGitHub().then(function (result) {
+            // If commit search is rate limited, prefer the last successful snapshot.
+            if (result.searchUnavailable && cached) {
+                render(cached);
+                return;
+            }
+
+            if (!result.searchUnavailable) {
+                writeFallbackCache(result.projects);
+            }
+
+            render(result.projects);
         }).catch(function () {
-            renderMessage("Could not load commits from GitHub.", "See all my projects on GitHub");
+            if (cached) {
+                render(cached);
+            } else {
+                renderMessage("Could not load commits from GitHub.", "See all my projects on GitHub");
+            }
         });
     }
 
