@@ -278,54 +278,211 @@ body {
   opacity: 1;
   visibility: visible; }
 
-/* GitHub projects (dynamic) */
+/* GitHub projects (Pinterest-style masonry) */
 #github-projects {
   min-height: 200px; }
-  #github-projects .item .img {
-    aspect-ratio: 4 / 3;
-    background: #e9e9e9; }
-    #github-projects .item .img.square {
-      aspect-ratio: 1 / 1; }
-    #github-projects .item .img img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      -o-object-fit: cover;
-      object-fit: cover;
-      -o-object-position: center center;
-      object-position: center center;
-      -webkit-transition: -webkit-transform .6s;
-      transition: -webkit-transform .6s;
-      -o-transition: transform .6s;
-      transition: transform .6s;
-      transition: transform .6s, -webkit-transform .6s; }
-  #github-projects .item:hover .img img {
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05); }
-  #github-projects .item h6 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis; }
-  #github-projects .project-repo {
+
+#github-projects .projects-masonry {
+  -webkit-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 24px;
+  column-gap: 24px; }
+
+#github-projects .pin {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 24px;
+  border-radius: 18px;
+  overflow: hidden;
+  vertical-align: top;
+  background: #111;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid; }
+
+#github-projects .pin-media {
+  position: relative;
+  overflow: hidden;
+  background: #e9e9e9; }
+  #github-projects .pin-media img {
     display: block;
-    margin-top: 6px;
-    font-size: 13px;
-    color: #777;
-    text-decoration: none; }
-    #github-projects .project-repo:hover {
-      color: var(--main-color);
-      text-decoration: underline; }
-  #github-projects .item h6 a {
-    color: inherit; }
-    #github-projects .item h6 a:hover {
-      color: var(--main-color); }
-  #github-projects .item h6 .project-prefix {
-    font-size: 13px;
-    font-weight: 500;
-    color: #777; }
+    width: 100%;
+    height: auto;
+    -webkit-transition: -webkit-transform .8s cubic-bezier(.2, .6, .2, 1);
+    transition: -webkit-transform .8s cubic-bezier(.2, .6, .2, 1);
+    -o-transition: transform .8s cubic-bezier(.2, .6, .2, 1);
+    transition: transform .8s cubic-bezier(.2, .6, .2, 1);
+    transition: transform .8s cubic-bezier(.2, .6, .2, 1), -webkit-transform .8s cubic-bezier(.2, .6, .2, 1); }
+
+#github-projects .pin:hover .pin-media img {
+  -webkit-transform: scale(1.06);
+  -ms-transform: scale(1.06);
+  transform: scale(1.06); }
+
+#github-projects .pin-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 70px 18px 18px;
+  color: #fff;
+  pointer-events: none;
+  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .86) 0%, rgba(0, 0, 0, .48) 40%, rgba(0, 0, 0, 0) 74%);
+  background: linear-gradient(to top, rgba(0, 0, 0, .86) 0%, rgba(0, 0, 0, .48) 40%, rgba(0, 0, 0, 0) 74%); }
+
+#github-projects .pin-title {
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -.3px;
+  text-wrap: pretty; }
+
+#github-projects .pin-meta {
+  margin: 6px 0 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, .72);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+#github-projects .pin-chip {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 4;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 7px;
+  max-width: calc(100% - 72px);
+  overflow: hidden;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 30px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: rgba(13, 13, 13, .55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  pointer-events: none; }
+
+#github-projects .pin-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7ee787;
+  -ms-flex: 0 0 7px;
+  flex: 0 0 7px; }
+
+#github-projects .pin-arrow {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #111;
+  font-size: 13px;
+  background: rgba(255, 255, 255, .92);
+  opacity: 0;
+  -webkit-transform: translateY(-5px) scale(.9);
+  -ms-transform: translateY(-5px) scale(.9);
+  transform: translateY(-5px) scale(.9);
+  -webkit-transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, transform .3s, -webkit-transform .3s;
+  pointer-events: none; }
+
+#github-projects .pin:hover .pin-arrow,
+#github-projects .pin:focus-within .pin-arrow {
+  opacity: 1;
+  -webkit-transform: translateY(0) scale(1);
+  -ms-transform: translateY(0) scale(1);
+  transform: translateY(0) scale(1); }
+
+#github-projects .pin-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  border-radius: inherit; }
+  #github-projects .pin-link:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: -5px; }
+
+@media (max-width: 991px) {
+  #github-projects .projects-masonry {
+    -webkit-column-count: 2;
+    column-count: 2; } }
+
+@media (max-width: 575px) {
+  #github-projects .projects-masonry {
+    -webkit-column-gap: 14px;
+    column-gap: 14px; }
+  #github-projects .pin {
+    margin-bottom: 14px;
+    border-radius: 14px; }
+  #github-projects .pin-overlay {
+    padding: 54px 13px 13px; }
+  #github-projects .pin-title {
+    font-size: 15px; }
+  #github-projects .pin-meta {
+    margin-top: 4px;
+    font-size: 10px; }
+  #github-projects .pin-chip {
+    top: 10px;
+    left: 10px;
+    max-width: calc(100% - 48px);
+    padding: 6px 9px;
+    font-size: 9px; }
+  #github-projects .pin-arrow {
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 11px; } }
+
+@media (min-width: 1600px) {
+  #github-projects .projects-masonry {
+    -webkit-column-count: 4;
+    column-count: 4; } }
 
 .projects-status {
   padding: 60px 0;

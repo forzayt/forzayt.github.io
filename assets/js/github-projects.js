@@ -9,21 +9,21 @@
 
     var USERNAME = "forzayt";
     var REPOS_URL = "https://github.com/forzayt?tab=repositories";
-    var LIMIT = 6;
+    var LIMIT = 8;
     var CACHE_KEY = "forzayt_github_projects_fallback";
     var SEARCH_URL = "https://api.github.com/search/commits?q=author:" + USERNAME +
         "&sort=committer-date&order=desc&per_page=" + LIMIT;
     var REPOS_API_URL = "https://api.github.com/users/" + USERNAME +
         "/repos?per_page=100&sort=pushed&direction=desc";
 
-    // Same staggered arrangement as the original hardcoded projects section:
-    // wide left -> small left + medium right -> small center -> wide right -> medium left.
-    var LAYOUT = [
-        [{ col: "col-lg-8" }],
-        [{ col: "col-lg-3", square: true }, { col: "col-lg-6 offset-lg-3" }],
-        [{ col: "col-lg-3 offset-lg-4", square: true }],
-        [{ col: "col-lg-8 offset-lg-4" }],
-        [{ col: "col-lg-6" }, { col: "col-lg-3 offset-lg-3", square: true }]
+    // Varied image ratios give the masonry wall its Pinterest-style rhythm.
+    var IMAGE_SIZES = [
+        { w: 900, h: 1200 },
+        { w: 900, h: 900 },
+        { w: 900, h: 1125 },
+        { w: 900, h: 675 },
+        { w: 900, h: 1350 },
+        { w: 900, h: 720 }
     ];
 
     var grid = document.getElementById("github-projects");
@@ -61,16 +61,16 @@
         return String(fullName || "").split("/");
     }
 
-    function imageUrl(fullName, sha) {
+    function imageUrl(fullName, sha, size) {
         // picsum.photos rejects seeds containing slashes, so slugify the repo name.
         var slug = String(fullName || "project").replace(/[^a-z0-9]+/gi, "-").toLowerCase();
         var seed = encodeURIComponent(sha ? slug + "-" + shortSha(sha) : slug);
-        return "https://picsum.photos/seed/" + seed + "/800/600";
+        return "https://picsum.photos/seed/" + seed + "/" + size.w + "/" + size.h;
     }
 
-    function fallbackImageUrl(fullName) {
+    function fallbackImageUrl(fullName, size) {
         var label = encodeURIComponent(repoSegments(fullName).pop() || "project");
-        return "https://placehold.co/800x600/e9e9e9/555555?text=" + label;
+        return "https://placehold.co/" + size.w + "x" + size.h + "/e9e9e9/555555?text=" + label;
     }
 
     function readFallbackCache() {
@@ -169,85 +169,78 @@
 
     /* ------------------------------ render ------------------------------- */
 
-    function createTag(label, url) {
-        var link = document.createElement("a");
-        link.href = url || REPOS_URL;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.textContent = label;
-        return link;
-    }
-
-    function createCard(project, slot) {
+    function createCard(project, index) {
         var repoUrl = project.url || REPOS_URL;
+        var size = IMAGE_SIZES[index % IMAGE_SIZES.length];
 
-        var column = document.createElement("div");
-        column.className = slot.col;
+        var pin = document.createElement("article");
+        pin.className = "pin";
 
-        var item = document.createElement("article");
-        item.className = "item mb-60";
-
-        var imageWrap = document.createElement("div");
-        imageWrap.className = slot.square ? "img square fit-img" : "img";
+        var media = document.createElement("div");
+        media.className = "pin-media";
 
         var image = document.createElement("img");
-        image.src = imageUrl(project.repo, project.sha);
+        image.src = imageUrl(project.repo, project.sha, size);
         image.alt = "Preview of " + project.repo;
         image.loading = "lazy";
-        image.width = 800;
-        image.height = 600;
+        image.decoding = "async";
+        image.width = size.w;
+        image.height = size.h;
         image.addEventListener("error", function handleError() {
             image.removeEventListener("error", handleError);
-            image.src = fallbackImageUrl(project.repo);
+            image.src = fallbackImageUrl(project.repo, size);
         });
 
-        var tags = document.createElement("div");
-        tags.className = "tags";
-        var language = project.language || (project.sha ? "Commit" : "Repository");
-        tags.appendChild(createTag(language, repoUrl));
-        if (project.sha) {
-            tags.appendChild(createTag(shortSha(project.sha), repoUrl));
-        }
+        var chip = document.createElement("span");
+        chip.className = "pin-chip";
 
-        var plink = document.createElement("a");
-        plink.className = "plink";
-        plink.href = repoUrl;
-        plink.target = "_blank";
-        plink.rel = "noopener noreferrer";
-        plink.setAttribute("aria-label", "Open " + project.repo + " on GitHub");
+        var dot = document.createElement("span");
+        dot.className = "pin-dot";
 
-        imageWrap.appendChild(image);
-        imageWrap.appendChild(tags);
-        imageWrap.appendChild(plink);
+        chip.appendChild(dot);
+        chip.appendChild(document.createTextNode(
+            project.language || (project.sha ? "Commit" : "Project")
+        ));
+
+        var arrow = document.createElement("span");
+        arrow.className = "pin-arrow";
+        arrow.setAttribute("aria-hidden", "true");
+
+        var arrowIcon = document.createElement("i");
+        arrowIcon.className = "fa-solid fa-arrow-up-right-from-square";
+        arrow.appendChild(arrowIcon);
+
+        var overlay = document.createElement("div");
+        overlay.className = "pin-overlay";
 
         var title = document.createElement("h6");
-        var prefix = document.createElement("span");
-        prefix.className = "project-prefix";
-        prefix.textContent = "";
-        title.appendChild(prefix);
+        title.className = "pin-title";
+        title.textContent = repoSegments(project.repo).pop() || "Untitled project";
 
-        var titleLink = document.createElement("a");
-        titleLink.href = repoUrl;
-        titleLink.target = "_blank";
-        titleLink.rel = "noopener noreferrer";
-        titleLink.textContent = repoSegments(project.repo).pop() || "Untitled project";
-        title.appendChild(titleLink);
-
-        var meta = document.createElement("a");
-        meta.className = "project-repo";
-        meta.href = project.commitUrl || repoUrl;
-        meta.target = "_blank";
-        meta.rel = "noopener noreferrer";
-        var message = truncate(firstLine(project.message) || "No commit message", 90);
+        var meta = document.createElement("p");
+        meta.className = "pin-meta";
+        var message = truncate(firstLine(project.message) || "No commit message", 80);
         var date = formatDate(project.date);
         meta.textContent = date ? message + " \u00b7 " + date : message;
 
-        item.appendChild(imageWrap);
-        item.appendChild(title);
-        item.appendChild(meta);
-        column.appendChild(item);
+        overlay.appendChild(title);
+        overlay.appendChild(meta);
 
-        return column;
+        var link = document.createElement("a");
+        link.className = "pin-link";
+        link.href = repoUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.setAttribute("aria-label", "Open " + project.repo + " on GitHub");
+
+        media.appendChild(image);
+        media.appendChild(chip);
+        media.appendChild(arrow);
+        media.appendChild(overlay);
+        media.appendChild(link);
+
+        pin.appendChild(media);
+        return pin;
     }
 
     function render(projects) {
@@ -258,27 +251,14 @@
             return;
         }
 
-        var index = 0;
+        var masonry = document.createElement("div");
+        masonry.className = "projects-masonry";
 
-        LAYOUT.forEach(function (group) {
-            var row = document.createElement("div");
-            row.className = "row";
-            var added = 0;
-
-            group.forEach(function (slot) {
-                var project = projects[index];
-                if (!project) {
-                    return;
-                }
-                row.appendChild(createCard(project, slot));
-                index += 1;
-                added += 1;
-            });
-
-            if (added) {
-                grid.appendChild(row);
-            }
+        projects.forEach(function (project, index) {
+            masonry.appendChild(createCard(project, index));
         });
+
+        grid.appendChild(masonry);
     }
 
     function createStatusRow() {
