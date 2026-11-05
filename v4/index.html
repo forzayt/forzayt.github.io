@@ -25,7 +25,7 @@
 
     <!-- Style for individual style contain common & this home style -->
     <link rel="stylesheet" href="common/css/common_style.css">
-    <link rel="stylesheet" href="assets/css/home3-style.css?v=4">
+    <link rel="stylesheet" href="assets/css/home3-style.css?v=5">
 
     <!-- Style for combined style contain common & all pages styles -->
     <!-- <link rel="stylesheet" href="common/css/combined_style.css"> -->
@@ -787,17 +787,19 @@
 
                         <!-- ==================== Start Blog ==================== -->
 
-                        <section class="blog-ca section-padding bg-light radius-20 mt-15">
+                        <section class="blog-ca section-padding bg-light radius-20 mt-15" id="tech-news">
                             <div class="sec-head mb-80">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <h2>News</h2>
+                                        <h2>Tech News</h2>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="d-flex">
-                                            <a href="#0" class="butn butn-md butn-bord butn-rounded ml-auto">
+                                            <a href="https://www.theverge.com/tech" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="butn butn-md butn-bord butn-rounded ml-auto">
                                                 <div class="d-flex align-items-center">
-                                                    <span>All Articles</span>
+                                                    <span>All Tech News</span>
                                                     <span class="icon ml-20">
                                                         <i class="fa-solid fa-chevron-right"></i>
                                                     </span>
@@ -807,65 +809,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row xlg-marg row-bord">
-                                <div class="col-lg-6">
-                                    <div class="mitem md-mb50 wow fadeInUp slow" data-wow-delay="0.2s">
-                                        <div class="info d-flex align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <div>
-                                                    <div class="author-img fit-img">
-                                                        <img src="assets/imgs/blog/avatar.jpg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="author-info ml-10">
-                                                    <span>M Moussa</span>
-                                                    <span class="sub-color">editor</span>
-                                                </div>
-                                            </div>
-                                            <div class="date ml-auto">
-                                                <span class="sub-color"><i
-                                                        class="fa-regular fa-clock mr-15 opacity-7"></i> 12 hours
-                                                    ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="img fit-img mt-30">
-                                            <img src="assets/imgs/blog/1.jpg" alt="">
-                                        </div>
-                                        <div class="cont mt-30">
-                                            <h5>
-                                                <a href="#0">We’re winner SOTY at CSS Award 2023</a>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 wow fadeInUp slow" data-wow-delay="0.2s">
-                                    <div class="item pb-20 mb-20 bord-thin-bottom">
-                                        <span class="date sub-color"><i
-                                                class="fa-regular fa-clock mr-15 opacity-7"></i>2 days ago</span>
-                                        <h6 class="sub-head">
-                                            <a href="#0">Rebrand vs Reresh: 10 Minutes on Brand <br> with Hubfolio</a>
-                                        </h6>
-                                    </div>
-                                    <div class="item pb-20 mb-20 bord-thin-bottom">
-                                        <span class="date sub-color"><i
-                                                class="fa-regular fa-clock mr-15 opacity-7"></i>15 days ago</span>
-                                        <h6 class="sub-head">
-                                            <a href="#0">How to build culture for young office?</a>
-                                        </h6>
-                                    </div>
-                                    <div class="item pb-20 mb-20 bord-thin-bottom">
-                                        <span class="date sub-color"><i
-                                                class="fa-regular fa-clock mr-15 opacity-7"></i>1 month ago</span>
-                                        <h6 class="sub-head">
-                                            <a href="#0">Case Study: Crafting a UX Strategy for Compelling Messaging</a>
-                                        </h6>
-                                    </div>
-                                    <div class="item pb-20 bord-thin-bottom">
-                                        <span class="date sub-color"><i
-                                                class="fa-regular fa-clock mr-15 opacity-7"></i>2 month ago</span>
-                                        <h6 class="sub-head">
-                                            <a href="#0">UI & UX: What is important?</a>
-                                        </h6>
+                            <div class="row xlg-marg row-bord" id="news-grid" aria-live="polite">
+                                <div class="col-12">
+                                    <div class="projects-status">
+                                        <span class="projects-loader" aria-hidden="true"></span>
+                                        <p>Loading the latest tech news&hellip;</p>
                                     </div>
                                 </div>
                             </div>
@@ -998,6 +946,9 @@
 
     <!-- GitHub projects (free GitHub API) -->
     <script src="assets/js/github-projects.js?v=6"></script>
+
+    <!-- Tech news (free RSS-to-JSON API, no key required) -->
+    <script src="assets/js/tech-news.js?v=1"></script>
 
 </body>
 
