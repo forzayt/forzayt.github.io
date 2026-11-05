@@ -1,8 +1,61 @@
-$(function() {
+
+$(function () {
 
     "use strict";
 
-    $(function() {
+
+    if (window.innerWidth > 991) {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".main-container .left-side",
+                start: "top",
+                endTrigger: ".main-container",
+                end: "bottom bottom",
+                pin: true, 
+                pinSpacing: false
+            }
+        });
+    } 
+
+    var awards = new Swiper(".header-ca .awards-swiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        speed: 1500,
+        autoplay: {
+            delay: 5000,
+        },
+        loop: true,
+        pagination: {
+            el: ".header-ca .swiper-pagination",
+            clickable: true,
+        },
+
+        navigation: {
+            nextEl: ".header-ca .swiper-button-next",
+            prevEl: ".header-ca .swiper-button-prev",
+        },
+    });
+
+    var team = new Swiper(".about-ca .team-swiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        speed: 1500,
+        autoplay: {
+            delay: 5000,
+        },
+        loop: true,
+        pagination: {
+            el: ".about-ca .swiper-pagination",
+            clickable: true,
+        },
+
+        navigation: {
+            nextEl: ".about-ca .swiper-button-next",
+            prevEl: ".about-ca .swiper-button-prev",
+        },
+    });
+
+    $(function () {
 
         var equalWidth = $(".works-ca .img.square").outerWidth();
 
@@ -12,51 +65,8 @@ $(function() {
 
     });
 
-
-    $('.services-mp .serv-title .tab-title').on('mouseenter', function() {
-        var tab_id = $(this).attr('data-tab');
-        $('.services-mp .serv-title .tab-title').removeClass('current');
-        $(this).addClass('current');
-
-        $('.services-mp .content .item').removeClass('current');
-        $("#" + tab_id).addClass('current');
-
-        if ($(this).hasClass('current')) {
-            return false;
-        }
-    });
-
-
-    var testim = new Swiper(".testimonials-ds .testim-swiper", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        speed: 1500,
-        autoplay: {
-            delay: 5000,
-        },
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
-
-
-    var wind = $(window);
-
-    wind.on('scroll', function() {
-        $(".skill-progress .progres").each(function() {
-            var bottom_of_object =
-                $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window =
-                $(window).scrollTop() + $(window).height();
-            var myVal = $(this).attr('data-value');
-            if (bottom_of_window > bottom_of_object) {
-                $(this).css({
-                    width: myVal
-                });
-            }
-        });
+    $('.accordion .accordion-item').on('click', function() {
+        $(this).addClass("active").siblings().removeClass("active");
     });
 
 

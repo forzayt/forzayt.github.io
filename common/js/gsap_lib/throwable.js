@@ -1,27 +1,27 @@
 ! function($) {
     "use strict";
     const restArguments = function(t, e) {
-            return e = null == e ? t.length - 1 : +e,
-                function(i, s) {
-                    for (var n = Math.max(arguments.length - e, 0), o = Array(n), a = 0; a < n; a++) o[a] = arguments[a + e];
-                    switch (e) {
-                        case 0:
-                            return t.call(this, o);
-                        case 1:
-                            return t.call(this, i, o);
-                        case 2:
-                            return t.call(this, i, s, o)
-                    }
-                    var l = Array(e + 1);
-                    for (a = 0; a < e; a++) l[a] = arguments[a];
-                    return l[e] = o, t.apply(this, l)
+        return e = null == e ? t.length - 1 : +e,
+            function(i, s) {
+                for (var n = Math.max(arguments.length - e, 0), o = Array(n), a = 0; a < n; a++) o[a] = arguments[a + e];
+                switch (e) {
+                    case 0:
+                        return t.call(this, o);
+                    case 1:
+                        return t.call(this, i, o);
+                    case 2:
+                        return t.call(this, i, s, o)
                 }
-        },
-        tpDelay = restArguments((function(t, e, i) {
-            return setTimeout((function() {
-                return t.apply(null, i)
-            }), e)
-        }));
+                var l = Array(e + 1);
+                for (a = 0; a < e; a++) l[a] = arguments[a];
+                return l[e] = o, t.apply(this, l)
+            }
+    },
+    tpDelay = restArguments((function(t, e, i) {
+        return setTimeout((function() {
+            return t.apply(null, i)
+        }), e)
+    }));
     window.tpDebounce = function(t, e, i) {
         var s, n, o = function(e, i) {
                 s = null, i && (n = t.apply(e, i))
